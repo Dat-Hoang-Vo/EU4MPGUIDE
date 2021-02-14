@@ -130,7 +130,7 @@ function franceUpdateInfo() {
         ' French Hegemony',
         ' French Musketeers',
         ' Revolutionary Spirit',
-        ' The Negatives of Power'];
+        ' The Costs of Power'];
     trait_rating = ['neutral',
         ' good',
         ' good',
