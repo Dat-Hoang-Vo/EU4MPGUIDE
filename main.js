@@ -163,7 +163,7 @@ function muscovyUpdateInfo() {
 
 
 function englandUpdateInfo() {
-    flavor_text = 'Naval Armageddon';
+    flavor_text = 'The Queen of the Seas';
     allies = ['Hannover', 'Portugal', 'Austria', 'Burgundy'];
     enemies = ['France', 'Norway', 'Denmark', 'Burgundy'];
     modifier_type = ['Morale', 'Discipline', 'Shock Received', 'Goods Produced', 'Cultured Advisor Cost'];
@@ -176,7 +176,7 @@ function englandUpdateInfo() {
         'England has an abundance of farmlands as well as cloth production. This further enhances Englands capabilities to play tall.',
         'The war with the Nordics is not over. The Norwegian and Danish fleet pose a great threat to you. Starting as a stronger nation, a swift strike to conquer scandinavia is a viable path for expansion. ',
         'Although England typically dominates the English Channel, a strong country in the low-lands can greatly reduce their control. A hostile Burgundy or Dutch can reduce your hold on the English channel to nearly half.',
-        'England is one of the few nations to not have a Nobility Estate. This greatly reduces military capabilities in terms of manpower and mil point generations.'
+        'England is one of the few monarchies to not have a Nobility Estate. This greatly reduces military capabilities in terms of manpower and mil point generations.'
     ];
 }
 
