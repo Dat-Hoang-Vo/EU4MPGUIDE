@@ -68,10 +68,19 @@ body {
     margin-left: 1em;
     border: .2em solid black;
     transition: .5s;
-    filter: grayscale(80%);
+    filter: grayscale(50%);
 }
 
-.flag:hover {
+.active {
+    border: .2em solid cyan;
+}
+
+.inactive {
+    filter: grayscale(100%);
+    border: .2em solid red;
+}
+
+.active:hover {
     height: 6.5em;
     width: 6.5em;
     border-color: goldenrod;
@@ -95,26 +104,6 @@ body {
 
 .country {
     display: inline-block;
-}
-
-.france {
-    color: #318CE7;
-}
-
-#russia {
-    color: #679267;
-}
-
-#england {
-    color: #ab4b52;
-}
-
-#ottomans {
-    color: #ee2222;
-}
-
-#Castille {
-    color: #f0ead4;
 }
 
 #infoname {
@@ -212,4 +201,24 @@ body {
     color: goldenrod;
     margin: 0;
     margin-left: 1em;
+}
+
+.France {
+    color: #318CE7;
+}
+
+.Russia {
+    color: #679267;
+}
+
+.England {
+    color: #ab4b52;
+}
+
+.Ottomans {
+    color: #ee2222;
+}
+
+.Castille {
+    color: #f0ead4;
 }

@@ -1,42 +1,57 @@
+var flavor_text;
+var allies;
+var enemies;
+
+
 function hoverFlag(country) {
     document.getElementById("infoname").innerHTML = country;
+    document.getElementById("infoname").className = country;
 
     if (country == 'France') {
         franceUpdateInfo();
     } else if (country == 'Russia') {
         russiaUpdateInfo();
     }
-}
+    document.getElementById("flavor_text").innerHTML = flavor_text;
 
-function franceUpdateInfo() {
-    document.getElementById("infoname").innerHTML = "France";
-    document.getElementById("infoname").className = "france";
-    document.getElementById("flavor_text").innerHTML = 'The Legacy of Charlemagne';
-
-    var allies = ['Castille', 'Milan'];
-    var ally_list = document.getElementById("ally_list");
-
+    var edit_ally = document.getElementById("ally_list");
     for (i = 0; i < allies.length; i++) {
         var image = '"Flags/' + allies[i] + '.png"';
         var id = allies[i];
         if (i == 0) {
-            ally_list.innerHTML =
-                '<div class="country"><img src = ' + image + 'class="relatedflag"><p class="relatedname" id="' + id + '">' + id + '</p></div> ';
+            edit_ally.innerHTML =
+                '<div class="country"><img src = ' + image + 'class="relatedflag"><p class="relatedname ' + id + '">' + id + '</p></div> ';
         } else {
-            ally_list.innerHTML +=
-                '<div class="country"><img src = ' + image + 'class="relatedflag"><p class="relatedname" id="' + id + '">' + id + '</p></div> ';
+            edit_ally.innerHTML +=
+                '<div class="country"><img src = ' + image + 'class="relatedflag"><p class="relatedname ' + id + '">' + id + '</p></div> ';
         }
-
     }
-    var enemy_list = document.getElementById("enemy_list");
-    enemy_list.innerHTML =
-        '<div class="country"><img src = "Flags/England.png" class="relatedflag"><p class="relatedname" id="england">England</p></div> ';
+
+    var edit_enemy = document.getElementById("enemy_list");
+    for (i = 0; i < enemies.length; i++) {
+        var image = '"Flags/' + enemies[i] + '.png"';
+        var id = enemies[i];
+        if (i == 0) {
+            edit_enemy.innerHTML =
+                '<div class="country"><img src = ' + image + 'class="relatedflag"><p class="relatedname ' + id + '">' + id + '</p></div> ';
+        } else {
+            edit_enemy.innerHTML +=
+                '<div class="country"><img src = ' + image + 'class="relatedflag"><p class="relatedname ' + id + '">' + id + '</p></div> ';
+        }
+    }
+
+}
+
+function franceUpdateInfo() {
+    flavor_text = 'Heart of Siene';
+    allies = ['Castille', 'Milan', 'Burgundy'];
+    enemies = ['England', 'Austria', 'Burgundy']
 
     var traits = document.getElementById("traits");
     traits.innerHTML =
-        '<div class="trait"><h4 class="trait_name good">Vassal Swarm</h4><p class="trait_description">The large amount of vassal states this country has benefits early game warfare.</p></div>'
+        '<div class="trait"><h4 class="trait_name good">Vassal Swarm</h4><p class="trait_description">Testinggg France</p></div>'
     traits.innerHTML +=
-        '<div class="trait"><h4 class="trait_name good">Large State</h4><p class="trait_description">This country is highly developed.</p></div>'
+        '<div class="trait"><h4 class="trait_name good">Large State</h4><p class="trait_description">This country starts out with high dev</p></div>'
 }
 
 function russiaUpdateInfo() {
