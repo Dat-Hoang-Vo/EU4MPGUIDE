@@ -7,10 +7,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="header.css" rel="stylesheet">
     <link href="main.css" rel="stylesheet">
-    <title>EU4 MP Guides</title>
+    <title>EU4 MP Guide</title>
 </head>
 
-<body>
+<body onload="hoverFlag('France')">
     <header>
         <a href="home.html" id="main_logo">
             <h1 id="logo_text">EU4MPGUIDES</h1>
@@ -23,35 +23,35 @@
                 <p class="rating" id="s-tier">S-Tier</p>
                 <div class="country">
                     <a class="selection" href="france.html">
-                        <img src="Flags/France.png" class="flag" onmouseover="hoverFlag('France')">
-                        <p class="name france">France</p>
+                        <img src="Flags/France.png" class="flag active" onmouseover="hoverFlag('France')">
+                        <p class="name France">France</p>
                     </a>
                 </div>
                 <div class="country">
-                    <a class="selection" href="russia.html">
-                        <img src="Flags/Russia.png" class="flag" onmouseover="hoverFlag('Russia')">
-                        <p class="name" id="russia">Russia</p>
-                    </a>
-                </div>
-
-                <div class="country">
-                    <a class="selection" href="england.html">
-                        <img src="Flags/England.png" class="flag" onmouseover="hoverFlag('England')">
-                        <p class="name" id="england">England</p>
+                    <a class="selection">
+                        <img src="Flags/Russia.png" class="flag inactive" onmouseover="hoverFlag('Russia')">
+                        <p class="name Russia">Russia</p>
                     </a>
                 </div>
 
                 <div class="country">
-                    <a class="selection" href="ottomans.html">
-                        <img src="Flags/Ottomans.png" class="flag" onmouseover="hoverFlag('Ottomans')">
-                        <p class="name" id="ottomans">Ottomans</p>
+                    <a class="selection">
+                        <img src="Flags/England.png" class="flag inactive" onmouseover="hoverFlag('England')">
+                        <p class="name England">England</p>
                     </a>
                 </div>
 
                 <div class="country">
-                    <a class="selection" href="castille.html">
-                        <img src="Flags/Castille.png" class="flag" onmouseover="hoverFlag('Castille')">
-                        <p class="name" id="Castille">Castille</p>
+                    <a class="selection">
+                        <img src="Flags/Ottomans.png" class="flag inactive" onmouseover="hoverFlag('Ottomans')">
+                        <p class="name Ottomans">Ottomans</p>
+                    </a>
+                </div>
+
+                <div class="country">
+                    <a class="selection">
+                        <img src="Flags/Castille.png" class="flag inactive" onmouseover="hoverFlag('Castille')">
+                        <p class="name Castille">Castille</p>
                     </a>
                 </div>
             </section>
@@ -112,8 +112,8 @@
 
         <section id="info">
             <div>
-                <h3 id="infoname">Country Name</h3>
-                <h2 id="flavor_text">Flavor here</h2>
+                <h3 id="infoname">Country</h3>
+                <h2 id="flavor_text">Flavor Text</h2>
             </div>
             <div class="infosection">
                 <div class="tempbox info_seperators" id="allies">
