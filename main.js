@@ -136,7 +136,7 @@ function franceUpdateInfo() {
         'good',
         'good',
         'bad'];
-    trait_description = ['The French begin in a deep rivalry with England and a crossroads with Burgundy. Early diplomacy (or the lack thereof) will affect your game greatly.',
+    trait_description = ['The French begin in a deep rivalry with England and at a crossroads with Burgundy. Early diplomacy (or the lack thereof) will affect your game greatly.',
         'France is in an exceptional position to dominate European politics if managed correctly. Few countries can step up to France one-on-one.',
         'During the Age of Absolutism the French gain access to unparalleled land firepower by way of musketeers.',
         'France has a unique event chain relating to the French Revolution of 1789. If played correctly, France could easily conquer what Napoleon dreamt of.',
