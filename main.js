@@ -136,11 +136,11 @@ function franceUpdateInfo() {
         ' good',
         ' good',
         ' bad'];
-    trait_description = [' This country begins in a deep rivalry with England and a crossroads with Burgundy',
-        ' France is in an exceptional position to dominate European politics if managed correctly',
-        ' During the Age of Absolutism, this country has access to unparalleled land firepower',
-        ' France has a unique event chain relating to the French Revolution of 1789',
-        ' France is routinely the target of coalitions due to its strong position'];
+    trait_description = [' This country begins in a deep rivalry with England and a crossroads with Burgundy. Early diplomacy (or the lack thereof) will affect your game greatly.',
+        ' France is in an exceptional position to dominate European politics if managed correctly. Few countries can step up to France one-on-one.',
+        ' During the Age of Absolutism, this country has access to unparalleled land firepower.',
+        ' France has a unique event chain relating to the French Revolution of 1789. If played correctly, France could easily conquer what Napoleon dreamt of.',
+        ' France is routinely the target of coalitions due to its strong position. Make sure to keep an eye on your percieved aggressiveness.'];
 }
 
 function muscovyUpdateInfo() {
