@@ -11,7 +11,7 @@ function hoverFlag(country) {
 function franceUpdateInfo() {
     document.getElementById("infoname").innerHTML = "France";
     document.getElementById("infoname").className = "france";
-    document.getElementById("flavor_text").innerHTML = 'Heart of Siene';
+    document.getElementById("flavor_text").innerHTML = 'The Legacy of Charlemagne';
 
     var allies = ['Castille', 'Milan'];
     var ally_list = document.getElementById("ally_list");
@@ -34,9 +34,9 @@ function franceUpdateInfo() {
 
     var traits = document.getElementById("traits");
     traits.innerHTML =
-        '<div class="trait"><h4 class="trait_name good">Vassal Swarm</h4><p class="trait_description">Testinggg France</p></div>'
+        '<div class="trait"><h4 class="trait_name good">Vassal Swarm</h4><p class="trait_description">The large amount of vassal states this country has benefits early game warfare.</p></div>'
     traits.innerHTML +=
-        '<div class="trait"><h4 class="trait_name good">Large State</h4><p class="trait_description">This country starts out with high dev</p></div>'
+        '<div class="trait"><h4 class="trait_name good">Large State</h4><p class="trait_description">This country is highly developed.</p></div>'
 }
 
 function russiaUpdateInfo() {
