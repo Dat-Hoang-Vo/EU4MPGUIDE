@@ -215,6 +215,14 @@ body {
     color: #2a9d8f;
 }
 
+.neutral {
+    color: #f4f1de;
+}
+
+.bad {
+    color: #9d0208;
+}
+
 .trait_description {
     color: goldenrod;
     margin: 0;
