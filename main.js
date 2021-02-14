@@ -1,6 +1,11 @@
 var flavor_text;
 var allies;
 var enemies;
+var modifier_type;
+var modifier_value;
+var trait_name;
+var trait_rating;
+var trait_description;
 
 
 function hoverFlag(country) {
@@ -40,18 +45,51 @@ function hoverFlag(country) {
         }
     }
 
+    var edit_modifier = document.getElementById("modifier_field");
+    for (i = 0; i < modifier_type.length; i++) {
+        if (i == 0) {
+            edit_modifier.innerHTML =
+                '<div class="modifier_text"><p class="modifier_type">' + modifier_type[i] + '</p><p class="modifier_value">' + modifier_value[i] + '</p></div>';
+        } else {
+            edit_modifier.innerHTML +=
+                '<div class="modifier_text"><p class="modifier_type">' + modifier_type[i] + '</p><p class="modifier_value">' + modifier_value[i] + '</p></div>';
+        }
+    }
+
+    var edit_trait = document.getElementById("traits");
+    for (i = 0; i < trait_name.length; i++) {
+        if (i == 0) {
+            edit_trait.innerHTML =
+                '<div class="trait"><h4 class="trait_name ' + trait_rating[i] + '">' + trait_name + '</h4><p class="trait_description">' + trait_description + '</p></div>'
+        } else {
+
+        }
+    }
+
 }
+
+/*
+flavor_text = 'Any text here';
+allies['Valid', 'Country', 'Name'] Country name must be capitalized
+enemies['Valid', 'Country', 'Name'] Country name must be capitalized
+modifier_type = ['Modifer', 'Name']; No restrictions on naming convention
+modifier_value = ['Modifer', 'Value']; No restrictions on naming convention
+
+trait_name = ['Trait', 'Name']; No restrictions on naming convention
+trait_rating = ['good', 'neutral', 'bad']; Select from given options
+trait_description = ['Trait', 'Description']; No restrictions on naming convention
+*/
 
 function franceUpdateInfo() {
     flavor_text = 'Heart of Siene';
-    allies = ['Castille', 'Milan', 'Burgundy'];
-    enemies = ['England', 'Austria', 'Burgundy']
+    allies = ['Castile', 'Milan', 'Burgundy'];
+    enemies = ['England', 'Austria', 'Burgundy'];
+    modifier_type = ['Morale', 'Discipline', 'Manpower Mod'];
+    modifier_value = ['20%', '5%', '20%'];
 
-    var traits = document.getElementById("traits");
-    traits.innerHTML =
-        '<div class="trait"><h4 class="trait_name good">Vassal Swarm</h4><p class="trait_description">Testinggg France</p></div>'
-    traits.innerHTML +=
-        '<div class="trait"><h4 class="trait_name good">Large State</h4><p class="trait_description">This country starts out with high dev</p></div>'
+    trait_name = [''];
+    trait_rating = [''];
+    trait_description = [''];
 }
 
 function russiaUpdateInfo() {

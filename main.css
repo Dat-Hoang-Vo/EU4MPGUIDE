@@ -14,7 +14,7 @@ body {
 #table {
     vertical-align: top;
     margin-top: 2em;
-    margin-left: 4em;
+    margin-left: 2em;
     margin-right: 1em;
     margin-bottom: 1em;
     display: flexbox;
@@ -66,18 +66,14 @@ body {
     margin-top: 0em;
     margin-right: 1em;
     margin-left: 1em;
-    border: .2em solid black;
+    border: .2em solid red;
     transition: .5s;
-    filter: grayscale(50%);
+    filter: grayscale(100%);
 }
 
 .active {
+    filter: grayscale(50%);
     border: .2em solid cyan;
-}
-
-.inactive {
-    filter: grayscale(100%);
-    border: .2em solid red;
 }
 
 .active:hover {
@@ -183,6 +179,28 @@ body {
     border: .1em solid #a8dadc;
 } 
 
+#modifiers {
+    margin-bottom: 0;
+}
+
+#modifier_field {
+    justify-content: center;
+    display:flex;
+}
+
+.modifier_text {
+    color: white;
+    text-align: center;
+}
+
+.modifier_type {
+    margin: .5em;
+}
+
+.modifier_value {
+    margin: .5em;
+}
+
 .trait {
     border: .1em solid #a8dadc;
     padding-bottom: .5em;
@@ -219,6 +237,6 @@ body {
     color: #ee2222;
 }
 
-.Castille {
+.Castile {
     color: #f0ead4;
 }
