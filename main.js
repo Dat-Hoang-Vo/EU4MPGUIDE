@@ -163,7 +163,7 @@ function muscovyUpdateInfo() {
 
 
 function englandUpdateInfo() {
-    flavor_text = 'The Queen of the Seas';
+    flavor_text = 'Naval Royalty';
     allies = ['Hannover', 'Portugal', 'Austria', 'Burgundy'];
     enemies = ['France', 'Norway', 'Denmark', 'Burgundy'];
     modifier_type = ['Morale', 'Discipline', 'Shock Received', 'Goods Produced', 'Cultured Advisor Cost'];
