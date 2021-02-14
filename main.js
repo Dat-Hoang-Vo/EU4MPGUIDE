@@ -33,6 +33,8 @@ function hoverFlag(country) {
     } else if (country == 'Castile') {
         castileUpdateInfo();
     }
+
+
     document.getElementById("flavor_text").innerHTML = flavor_text;
 
     var edit_ally = document.getElementById("ally_list");
@@ -104,8 +106,6 @@ function hoverFlag(country) {
 
 
 }
-
-/*
 
 /*
 flavor_text = 'Any text here';
