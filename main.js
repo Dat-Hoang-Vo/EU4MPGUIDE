@@ -24,8 +24,14 @@ function hoverFlag(country) {
 
     if (country == 'France') {
         franceUpdateInfo();
-    } else if (country == 'Russia') {
-        russiaUpdateInfo();
+    } else if (country == 'Muscovy') {
+        muscovyUpdateInfo();
+    } else if (country == 'England') {
+        englandUpdateInfo();
+    } else if (country == 'Ottomans') {
+        ottomansUpdateInfo();
+    } else if (country == 'Castile') {
+        castileUpdateInfo();
     }
     document.getElementById("flavor_text").innerHTML = flavor_text;
 
@@ -137,6 +143,53 @@ function franceUpdateInfo() {
         ' France is routinely the target of coalitions due to its strong position'];
 }
 
-function russiaUpdateInfo() {
+function muscovyUpdateInfo() {
+    flavor_text = 'The Endless March';
+    allies = ['Sweden', 'Austria'];
+    enemies = ['Ottomans', 'Poland', 'Brandenburg'];
+    modifier_type = ['Morale', 'Discipline', 'Manpower Mod', 'Land Forcelimit', 'Fire Received', 'Artillery Combat', 'Army Tradition'];
+    modifier_value = ['5%', '5%', '53%', '50%', '-10%', '10%', '.25'];
 
+    trait_name = ['Steppe Soldiers', 'All Roads Lead to Novgorod', 'Forever Eastern', 'Call of the Rus', 'The Central Block'];
+    trait_rating = ['good', 'good', 'good', 'neutral', 'bad'];
+    trait_description = [
+        'The steppes feed your war machine. Receiving 100% manpower on all steppe provinces, you stands to field large armies when properly developed.',
+        'Having the Novgorod trade node act as a de facto end node, you can build a strong production and trade economy without the worry of trade flowing away.',
+        'Muscovy is given the privilage of unlimited expansion into the hordes to the east. This allows for you to quickly grow unapposed.',
+        'A large amount of Russians live within the borders of Lithuania. While a great path for expansion, this will likely bring you conflict with Poland.',
+        'Poland with the help of Austria can pose a significant threat to you early on. Without careful diplomacy, you run the risk of extermination.'];
 }
+
+
+
+function englandUpdateInfo() {
+    flavor_text = 'Naval Armageddon';
+    allies = ['Hannover', 'Portugal', 'Austria', 'Burgundy'];
+    enemies = ['France', 'Norway', 'Denmark', 'Burgundy'];
+    modifier_type = ['Morale', 'Discipline', 'Shock Received', 'Goods Produced', 'Cultured Advisor Cost'];
+    modifier_value = ['10%', '5%', '-10%', '10%', '20%'];
+
+    trait_name = ['Island with an Ireland', 'Cloth Crops', 'Viking Saga Renewed', 'The Contested Channel', 'No Known Nobility'];
+    trait_rating = ['good', 'good', 'neutral', 'neutral', 'bad'];
+    trait_description = [
+        'Most nations lack the naval capabilities to contest you at sea. This grants you high levels of protection and allows you to focus on developing your country.',
+        'England has an abundance of Farmlands as well as Cloth Production. This further enhances Englands capabilities to play tall.',
+        'The war with the Nordics is not over. The Norwegian and Danish fleet pose a great threat to you. Starting as a stronger nation, a swift strike to conquer scandinavia is a viable path for expansion. ',
+        'Although England typically dominates the English Channel, a strong country in the low-lands can greatly reduce their control. A hostile Burgundy or Dutch can reduce your hold on the English channel to nearly half.',
+        'England is one of the few nations to not have a Nobility Estate. This greatly reduces military capabilities in terms of manpower and mil point generations.'
+    ];
+}
+
+function ottomansUpdateInfo() {
+    flavor_text = 'Ashes of the Purple Phoenix';
+    allies = ['Tunis', 'Timurids'];
+    enemies = ['Austria', 'Hungary', 'Poland', 'Mamluks', 'Persia'];
+    modifier_type = ['Discipline', 'Land Forcelimit', 'Manpower Recover'];
+    modifier_value = ['5%', '33%', '10%'];
+
+    trait_name = ['Janissaries', 'test2'];
+    trait_rating = ['good', 'bad'];
+    trait_description = [
+        'The ottomans have access to a unique troop called the Janissaries. They take 10% less damage and drill at double speed, but cost double to reinforce.',
+        'teee'
+    ];
