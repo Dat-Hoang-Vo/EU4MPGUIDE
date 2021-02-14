@@ -132,15 +132,15 @@ function franceUpdateInfo() {
         ' Revolutionary Spirit',
         ' The Costs of Power'];
     trait_rating = ['neutral',
-        ' good',
-        ' good',
-        ' good',
-        ' bad'];
-    trait_description = [' This country begins in a deep rivalry with England and a crossroads with Burgundy. Early diplomacy (or the lack thereof) will affect your game greatly.',
-        ' France is in an exceptional position to dominate European politics if managed correctly. Few countries can step up to France one-on-one.',
-        ' During the Age of Absolutism, this country has access to unparalleled land firepower.',
-        ' France has a unique event chain relating to the French Revolution of 1789. If played correctly, France could easily conquer what Napoleon dreamt of.',
-        ' France is routinely the target of coalitions due to its strong position. Make sure to keep an eye on your percieved aggressiveness.'];
+        'good',
+        'good',
+        'good',
+        'bad'];
+    trait_description = ['The French begin in a deep rivalry with England and a crossroads with Burgundy. Early diplomacy (or the lack thereof) will affect your game greatly.',
+        'France is in an exceptional position to dominate European politics if managed correctly. Few countries can step up to France one-on-one.',
+        'During the Age of Absolutism the French gain access to unparalleled land firepower by way of musketeers.',
+        'France has a unique event chain relating to the French Revolution of 1789. If played correctly, France could easily conquer what Napoleon dreamt of.',
+        'France is routinely the target of coalitions due to its strong position. Make sure to keep an eye on your percieved aggressiveness.'];
 }
 
 function muscovyUpdateInfo() {
@@ -173,7 +173,7 @@ function englandUpdateInfo() {
     trait_rating = ['good', 'good', 'neutral', 'neutral', 'bad'];
     trait_description = [
         'Most nations lack the naval capabilities to contest you at sea. This grants you high levels of protection and allows you to focus on developing your country.',
-        'England has an abundance of Farmlands as well as Cloth Production. This further enhances Englands capabilities to play tall.',
+        'England has an abundance of farmlands as well as cloth production. This further enhances Englands capabilities to play tall.',
         'The war with the Nordics is not over. The Norwegian and Danish fleet pose a great threat to you. Starting as a stronger nation, a swift strike to conquer scandinavia is a viable path for expansion. ',
         'Although England typically dominates the English Channel, a strong country in the low-lands can greatly reduce their control. A hostile Burgundy or Dutch can reduce your hold on the English channel to nearly half.',
         'England is one of the few nations to not have a Nobility Estate. This greatly reduces military capabilities in terms of manpower and mil point generations.'
@@ -184,13 +184,39 @@ function ottomansUpdateInfo() {
     flavor_text = 'Ashes of the Purple Phoenix';
     allies = ['Tunis', 'Timurids'];
     enemies = ['Austria', 'Hungary', 'Poland', 'Mamluks', 'Persia'];
-    modifier_type = ['Discipline', 'Land Forcelimit', 'Manpower Recover'];
+    modifier_type = ['Discipline', 'Land Forcelimit', 'Manpower Recovery'];
     modifier_value = ['5%', '33%', '10%'];
 
-    trait_name = ['Janissaries', 'test2'];
-    trait_rating = ['good', 'bad'];
+    trait_name = ['Janissaries'];
+    trait_rating = ['good'];
     trait_description = [
-        'The ottomans have access to a unique troop called the Janissaries. They take 10% less damage and drill at double speed, but cost double to reinforce.',
-        'teee'
+        'The Ottomans maintained one of the first expertly trained standing armies in the world. The Janissaries take 10% less damage and drill at double speed, but cost double to reinforce.',
+    ];
+}
+
+
+function castileUpdateInfo() {
+    flavor_text = 'A Golden Crown';
+    allies = ['Portugal', 'France', 'Naples'];
+    enemies = ['Morocco', 'Tunis', 'Austria', 'Naples'];
+    modifier_type = ['Morale', 'Artillery Fire', 'Discipline'];
+    modifier_value = ['15%', '+1', '5%'];
+
+    trait_name = ['A Dynastic Opportunity',
+        'Golden Guns',
+        'The Royal Armada',
+        'The Unbreakable Tercios',
+        'The Heathen Threat'];
+    trait_rating = ['neutral',
+        'good',
+        'good',
+        'good',
+        'bad'];
+    trait_description = [
+        'Castile is in the perfect position to form a dynastic union over Aragon and extend influence over Italy. However, this can cause conflict with other strong countries who may have interests in Italy.',
+        'The Spanish were known for their gold. Not only is there a gold mine near Madrid, but Spain can also obtain gold by way of New World mines. There should be no shortages of gold.',
+        'Iberia is able to muster a formiddable navy. With the right ideas and strategy, it may be able to rival the British fleet.',
+        'During the Age of Reformation, Spain boasts one of the toughest armies in Europe. Cavalry charges are a thing of the past.',
+        'Iberia is just off the cuff of many crusades. The redisual Islamic presence in the region can cause instability and early game difficulties.'
     ];
 }
