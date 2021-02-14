@@ -1,20 +1,20 @@
-France: Charlemagne's Legacy or The Legacy of Charlemagne
+France: The Legacy of Charlemagne
 	trait text: This country has the ability to overwhelm enemies with vassal troops in the early game
 	trait text: This country is highly developed
 	trait text: This country has inherently high quality troops
 	trait text: This country has the inherent ability to field a large amount of troops
 	trait text: This country has the ability to colonize (though it is not recommended in MP)
-Russia: Third Rome or The Frontier
-England: The Maritime Monarch(s)
+Russia: The Masters of the Frontier
+England: The Queen of the Seas
 Ottomans: The Eastern Scourge 
 Castile: The Golden Crown
 
 Sweden: The Northern Lion
-Austria: AEIOU or The Regal Court
-Poland: The Winged Bulwark or The Winged Kings
+Austria: The Protector of the Empire
+Poland: The Winged Bulwark 
 Hungary: The Bastion of Europe
-Mamluks: The Slave Sultanate 
+Mamluks: In Search for Rum  
 Milan: The Jewel of Italy
-Portugal: The Mercantile Wolf
+Portugal: The Wolf of Mercantilism
 Naples: The Angevin Outsider
 
