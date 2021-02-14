@@ -86,9 +86,10 @@ function hoverFlag(country) {
         for (i = 0; i < trait_name.length; i++) {
             if (i == 0) {
                 edit_trait.innerHTML =
-                    '<div class="trait"><h4 class="trait_name ' + trait_rating[i] + '">' + trait_name + '</h4><p class="trait_description">' + trait_description + '</p></div>'
+                    '<div class="trait"><h4 class="trait_name ' + trait_rating[i] + '">' + trait_name[i] + '</h4><p class="trait_description">' + trait_description[i] + '</p></div>'
             } else {
-
+                edit_trait.innerHTML +=
+                    '<div class="trait"><h4 class="trait_name ' + trait_rating[i] + '">' + trait_name[i] + '</h4><p class="trait_description">' + trait_description[i] + '</p></div>'
             }
         }
     } else {
@@ -117,9 +118,9 @@ function franceUpdateInfo() {
     modifier_type = ['Morale', 'Discipline', 'Manpower Mod'];
     modifier_value = ['20%', '5%', '20%'];
 
-    trait_name = [''];
-    trait_rating = [''];
-    trait_description = [''];
+    trait_name = ['test', 'test2'];
+    trait_rating = ['good', 'good'];
+    trait_description = ['tee', 'teee'];
 }
 
 function russiaUpdateInfo() {
