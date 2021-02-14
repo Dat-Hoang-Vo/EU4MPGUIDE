@@ -100,6 +100,8 @@ function hoverFlag(country) {
 }
 
 /*
+
+/*
 flavor_text = 'Any text here';
 allies['Valid', 'Country', 'Name'] Country name must be capitalized
 enemies['Valid', 'Country', 'Name'] Country name must be capitalized
@@ -112,15 +114,27 @@ trait_description = ['Trait', 'Description']; No restrictions on naming conventi
 */
 
 function franceUpdateInfo() {
-    flavor_text = 'Heart of Siene';
+    flavor_text = 'The Legacy of Charlemagne';
     allies = ['Castile', 'Milan', 'Burgundy'];
     enemies = ['England', 'Austria', 'Burgundy'];
-    modifier_type = ['Morale', 'Discipline', 'Manpower Mod'];
+    modifier_type = ['Morale', 'Discipline', 'Manpower'];
     modifier_value = ['20%', '5%', '20%'];
 
-    trait_name = ['test', 'test2'];
-    trait_rating = ['good', 'good'];
-    trait_description = ['tee', 'teee'];
+    trait_name = ['The Hundred Years War',
+        ' French Hegemony',
+        ' French Musketeers',
+        ' Revolutionary Spirit',
+        ' The Negatives of Power'];
+    trait_rating = ['neutral',
+        ' good',
+        ' good',
+        ' good',
+        ' bad'];
+    trait_description = [' This country begins in a deep rivalry with England and a crossroads with Burgundy',
+        ' France is in an exceptional position to dominate European politics if managed correctly',
+        ' During the Age of Absolutism, this country has access to unparalleled land firepower',
+        ' France has a unique event chain relating to the French Revolution of 1789',
+        ' France is routinely the target of coalitions due to its strong position'];
 }
 
 function russiaUpdateInfo() {
