@@ -155,7 +155,7 @@ function muscovyUpdateInfo() {
     trait_description = [
         'The steppes feed your war machine. Receiving 100% manpower on all steppe provinces, you stands to field large armies when properly developed.',
         'Having the Novgorod trade node act as a de facto end node, you can build a strong production and trade economy without the worry of trade flowing away.',
-        'Muscovy is given the privilage of unlimited expansion into the hordes to the east. This allows for you to quickly grow unapposed.',
+        'Muscovy is given the privilege of unlimited expansion into the hordes to the east. This allows for you to quickly grow unapposed.',
         'A large amount of Russians live within the borders of Lithuania. While a great path for expansion, this will likely bring you conflict with Poland.',
         'Poland with the help of Austria can pose a significant threat to you early on. Without careful diplomacy, you run the risk of extermination.'];
 }
