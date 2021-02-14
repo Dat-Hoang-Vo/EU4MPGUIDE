@@ -169,13 +169,13 @@ function englandUpdateInfo() {
     modifier_type = ['Morale', 'Discipline', 'Shock Received', 'Goods Produced', 'Cultured Advisor Cost'];
     modifier_value = ['10%', '5%', '-10%', '10%', '20%'];
 
-    trait_name = ['Island with an Ireland', 'Cloth Crops', 'Viking Saga Renewed', 'The Contested Channel', 'No Known Nobility'];
+    trait_name = ['An Island with an Ireland', 'Cloth Crops', 'Viking Saga Renewed', 'The Contested Channel', 'No Known Nobility'];
     trait_rating = ['good', 'good', 'neutral', 'neutral', 'bad'];
     trait_description = [
-        'Most nations lack the naval capabilities to contest you at sea. This grants you high levels of protection and allows you to focus on developing your country.',
+        'Most countries lack the naval capabilities to contest you at sea. This grants you high levels of protection and allows you to focus on developing your country.',
         'England has an abundance of farmlands as well as cloth production. This further enhances Englands capabilities to play tall.',
         'The war with the Nordics is not over. The Norwegian and Danish fleet pose a great threat to you. Starting as a stronger nation, a swift strike to conquer scandinavia is a viable path for expansion. ',
-        'Although England typically dominates the English Channel, a strong country in the low-lands can greatly reduce their control. A hostile Burgundy or Dutch can reduce your hold on the English channel to nearly half.',
+        'Although England typically dominates the English Channel, a strong country in the low-lands can greatly reduce their control. A hostile Burgundy or Netherlands can reduce your hold on the English channel to nearly half.',
         'England is one of the few monarchies to not have a Nobility Estate. This greatly reduces military capabilities in terms of manpower and mil point generations.'
     ];
 }
