@@ -1,9 +1,9 @@
 France: The Legacy of Charlemagne
-	trait text: This country has the ability to overwhelm enemies with vassal troops in the early game
-	trait text: This country is highly developed
-	trait text: This country has inherently high quality troops
-	trait text: This country has the inherent ability to field a large amount of troops
-	trait text: This country has the ability to colonize (though it is not recommended in MP)
+	Rich: This country is highly developed
+	Exceptional Troops: This country has inherently high quality troops
+	Exceptional Manpower: This country has the inherent ability to field a large amount of troops
+	Vassal Swarm: This country has the ability to overwhelm enemies with vassal troops in the early game
+	Colonizer: This country has the ability to colonize (though it is not recommended in MP)
 Russia: The Masters of the Frontier
 England: The Queen of the Seas or The Maritime Monarchs
 Ottomans: The Eastern Scourge 
