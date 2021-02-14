@@ -193,3 +193,4 @@ function ottomansUpdateInfo() {
         'The ottomans have access to a unique troop called the Janissaries. They take 10% less damage and drill at double speed, but cost double to reinforce.',
         'teee'
     ];
+}
