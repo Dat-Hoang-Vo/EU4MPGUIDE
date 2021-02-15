@@ -285,7 +285,7 @@ function ottomansUpdateInfo() {
 function castileUpdateInfo() {
     flavor_text = 'A Golden Crown';
     allies = ['Portugal', 'France', 'Naples'];
-    enemies = ['Morocco', 'Tunis', 'Austria', 'Naples'];
+    enemies = ['Morocco', 'Tunis', 'Naples', 'Austria'];
     modifier_type = ['Morale', 'Artillery Fire', 'Discipline'];
     modifier_value = ['15%', '+1', '5%'];
 
