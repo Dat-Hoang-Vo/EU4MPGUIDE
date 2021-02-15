@@ -13,7 +13,8 @@
     <title>EU4 MP Guide</title>
 </head>
 
-<body onload="hoverFlag('France')">
+
+<body onload="generateTierList(), hoverFlag('France')">
     <header>
         <a href="index.html" id="main_logo">
             <h1 id="logo_text">EU4MPGUIDES</h1>
@@ -29,92 +30,27 @@
         <section id="table">
             <section class="row">
                 <p class="rating" id="s-tier">S-Tier</p>
-                <div class="country">
-                    <a class="selection" href="france.html">
-                        <img src="Flags/France.png" class="flag active" onmouseover="hoverFlag('France')">
-                        <p class="name France">France</p>
-                    </a>
-                </div>
-                <div class="country">
-                    <a class="selection">
-                        <img src="Flags/Muscovy.png" class="flag" onmouseover="hoverFlag('Muscovy')">
-                        <p class="name Muscovy">Muscovy</p>
-                    </a>
-                </div>
-
-                <div class="country">
-                    <a class="selection">
-                        <img src="Flags/England.png" class="flag" onmouseover="hoverFlag('England')">
-                        <p class="name England">England</p>
-                    </a>
-                </div>
-
-                <div class="country">
-                    <a class="selection">
-                        <img src="Flags/Ottomans.png" class="flag" onmouseover="hoverFlag('Ottomans')">
-                        <p class="name Ottomans">Ottomans</p>
-                    </a>
-                </div>
-
-                <div class="country">
-                    <a class="selection">
-                        <img src="Flags/Castile.png" class="flag" onmouseover="hoverFlag('Castile')">
-                        <p class="name Castile">Castile</p>
-                    </a>
-                </div>
+                <div id="S_BOX"></div>
             </section>
             <section class="row">
                 <p class="rating" id="a-tier">A-Tier</p>
-                <div id="a_country">
-                    <div class="country">
-                        <a class="selection" href="sweden.html">
-                            <img src="Flags/Sweden.png" class="flag">
-                            <p class="name" id="sweden">Sweden</p>
-                        </a>
-                    </div>
-                    <div class="country">
-                        <a class="selection" href="austria.html">
-                            <img src="Flags/Austria.png" class="flag">
-                            <p class="name" id="austria">Austria</p>
-                        </a>
-                    </div>
-                    <div class="country">
-                        <a class="selection" href="poland.html">
-                            <img src="Flags/Poland.png" class="flag">
-                            <p class="name" id="poland">Poland</p>
-                        </a>
-                    </div>
-                    <div class="country">
-                        <a class="selection" href="hungary.html">
-                            <img src="Flags/Hungary.jpg" class="flag">
-                            <p class="name" id="hungary">Hungary</p>
-                        </a>
-                    </div>
-                    <div class="country">
-                        <a class="selection" href="mamluks.html">
-                            <img src="Flags/Mamluks.png" class="flag">
-                            <p class="name" id="mamluks">Mamluks</p>
-                        </a>
-                    </div>
-                    <div class="country">
-                        <a class="selection" href="milan.html">
-                            <img src="Flags/Milan.png" class="flag">
-                            <p class="name" id="milan">Milan</p>
-                        </a>
-                    </div>
-                    <div class="country">
-                        <a class="selection" href="portugal.html">
-                            <img src="Flags/Portugal.png" class="flag">
-                            <p class="name" id="portugal">Portugal</p>
-                        </a>
-                    </div>
-                    <div class="country">
-                        <a class="selection" href="naples.html">
-                            <img src="Flags/Naples.png" class="flag">
-                            <p class="name" id="naples">Naples</p>
-                        </a>
-                    </div>
-                </div>
+                <div id="A_BOX"></div>
+            </section>
+            <section class="row">
+                <p class="rating" id="b-tier">B-Tier</p>
+                <div id="B_BOX"></div>
+            </section>
+            <section class="row">
+                <p class="rating" id="c-tier">C-Tier</p>
+                <div id="C_BOX"></div>
+            </section>
+            <section class="row">
+                <p class="rating" id="d-tier">D-Tier</p>
+                <div id="D_BOX"></div>
+            </section>
+            <section class="row">
+                <p class="rating" id="f-tier">F-Tier</p>
+                <div id="F_BOX"></div>
             </section>
         </section>
 

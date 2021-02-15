@@ -51,26 +51,60 @@ body {
     padding-bottom: 0;
 }
 
-#a-tier {
+#a-tier, #A_BOX .name {
     color: #f4a261;
 }
 
-#a_country .name{
-    color: #f4a261;
+#b-tier, #B_BOX .name {
+    color: #ffd166;
+}
+
+#c-tier, #C_BOX .name {
+    color: #00a896;
+}
+
+#d-tier, #D_BOX .name {
+    color: #0096c7;
+}
+
+#f-tier, #F_BOX .name {
+    color: #bdb2ff;
+}
+
+.country {
+    display: inline-block;
+    width:14em;
+}
+
+.country_mini {
+    display: inline-block;
+    width: 7.5em;
 }
 
 .flag {
+    display: block;
+    margin: 0 auto;
     padding-top: 0;
     height: 6em;
     width: 6em;
     border-radius: 50% 50% 50% 50% / 27% 27% 73% 73%;
     object-fit: fill;
-    margin-top: 0em;
-    margin-right: 1em;
-    margin-left: 1em;
     border: .2em solid red;
     transition: .5s;
     filter: grayscale(100%);
+}
+
+.relatedflag {
+    padding-top: 0;
+    height: 3em;
+    width: 3em;
+    display:block;
+    margin: 0 auto;
+    border-radius: 50% 50% 50% 50% / 27% 27% 73% 73%;
+    object-fit: cover scale-down;
+    margin-top: 0em;
+    border: .2em solid black;
+    transition: .5s;
 }
 
 .active {
@@ -88,7 +122,7 @@ body {
 
 .name {
     margin-top: 0;
-    margin-bottom: 0;
+    margin-bottom: 1em;
     margin-left: .2em;
     margin-right: .2em;
     font-size: 2em;
@@ -98,10 +132,6 @@ body {
 
 .selection {
     text-decoration: none;
-}
-
-.country {
-    display: inline-block;
 }
 
 #infoname {
@@ -158,19 +188,6 @@ body {
 .relationtext {
     text-align: center;
     color: #f4a261;
-}
-
-.relatedflag {
-    padding-top: 0;
-    height: 3em;
-    width: 3em;
-    border-radius: 50% 50% 50% 50% / 27% 27% 73% 73%;
-    object-fit: cover scale-down;
-    margin-top: 0em;
-    margin-right: 1em;
-    margin-left: 1em;
-    border: .2em solid black;
-    transition: .5s;
 }
 
 .relatedname {

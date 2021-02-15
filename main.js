@@ -1,3 +1,87 @@
+let S_Rank = new Map();
+S_Rank.set('France', 'active');
+S_Rank.set('Muscovy', 'inactive');
+S_Rank.set('England', 'inactive');
+S_Rank.set('Ottomans', 'inactive');
+S_Rank.set('Castile', 'inactive');
+
+let A_Rank = new Map();
+A_Rank.set('Austria', 'inactive');
+A_Rank.set('Poland', 'inactive');
+A_Rank.set('Mamluks', 'inactive');
+A_Rank.set('Burgundy', 'inactive');
+
+let B_Rank = new Map();
+B_Rank.set('Sweden', 'inactive');
+B_Rank.set('Brandenburg', 'inactive');
+B_Rank.set('Milan', 'inactive');
+B_Rank.set('Hungary', 'inactive');
+B_Rank.set('Qara Qoyunlu', 'inactive');
+B_Rank.set('Naples', 'inactive');
+B_Rank.set('Hannover', 'inactive');
+B_Rank.set('Portugal', 'inactive');
+
+let C_Rank = new Map();
+C_Rank.set('Florence', 'inactive');
+C_Rank.set('Switzerland', 'inactive');
+C_Rank.set('Denmark', 'inactive');
+C_Rank.set('Papal States', 'inactive');
+
+let D_Rank = new Map();
+D_Rank.set('Morocco', 'inactive');
+D_Rank.set('Tunis', 'inactive');
+D_Rank.set('Great Horde', 'inactive');
+D_Rank.set('Venice', 'inactive');
+D_Rank.set('Genoa', 'inactive');
+
+let F_Rank = new Map();
+F_Rank.set('Rothenburg', 'inactive');
+F_Rank.set('Holland', 'inactive');
+F_Rank.set('Norway', 'inactive');
+F_Rank.set('Livonian Order', 'inactive');
+F_Rank.set('Georgia', 'inactive');
+
+function generateTierList() {
+    var modify_S_Tier = document.getElementById("S_BOX");
+    generateTieredCountries(modify_S_Tier, S_Rank);
+
+    var modifier_A_Tier = document.getElementById("A_BOX");
+    generateTieredCountries(modifier_A_Tier, A_Rank);
+
+    var modifier_B_Tier = document.getElementById("B_BOX");
+    generateTieredCountries(modifier_B_Tier, B_Rank);
+
+    var modifier_C_Tier = document.getElementById("C_BOX");
+    generateTieredCountries(modifier_C_Tier, C_Rank);
+
+    var modifier_D_Tier = document.getElementById("D_BOX");
+    generateTieredCountries(modifier_D_Tier, D_Rank);
+
+    var modifier_F_Tier = document.getElementById("F_BOX");
+    generateTieredCountries(modifier_F_Tier, F_Rank);
+}
+
+function generateTieredCountries(addbox, Map) {
+    Map.forEach((values, keys) => {
+        var link = "";
+        if (values == 'active') {
+            link = 'href="' + keys + '"';
+        }
+        addbox.innerHTML +=
+            '<div class="country">' +
+            '<a class="selection"' + link + '>' +
+            '<img src="Flags/' + keys + '.png" class="flag ' + values + '" onmouseover="hoverFlag(' + "'" + keys + "'" + ')">' +
+            '<p class="name ' + keys + '">' + keys + '</p></a></div>';
+    });
+}
+
+
+
+
+
+
+
+
 var flavor_text;
 var allies;
 var enemies;
@@ -44,10 +128,10 @@ function hoverFlag(country) {
             var id = allies[i];
             if (i == 0) {
                 edit_ally.innerHTML =
-                    '<div class="country"><img src = ' + image + 'class="relatedflag"><p class="relatedname ' + id + '">' + id + '</p></div> ';
+                    '<div class="country_mini"><img src = ' + image + 'class="relatedflag"><p class="relatedname ' + id + '">' + id + '</p></div> ';
             } else {
                 edit_ally.innerHTML +=
-                    '<div class="country"><img src = ' + image + 'class="relatedflag"><p class="relatedname ' + id + '">' + id + '</p></div> ';
+                    '<div class="country_mini"><img src = ' + image + 'class="relatedflag"><p class="relatedname ' + id + '">' + id + '</p></div> ';
             }
         }
     } else {
@@ -62,10 +146,10 @@ function hoverFlag(country) {
             var id = enemies[i];
             if (i == 0) {
                 edit_enemy.innerHTML =
-                    '<div class="country"><img src = ' + image + 'class="relatedflag"><p class="relatedname ' + id + '">' + id + '</p></div> ';
+                    '<div class="country_mini"><img src = ' + image + 'class="relatedflag"><p class="relatedname ' + id + '">' + id + '</p></div> ';
             } else {
                 edit_enemy.innerHTML +=
-                    '<div class="country"><img src = ' + image + 'class="relatedflag"><p class="relatedname ' + id + '">' + id + '</p></div> ';
+                    '<div class="country_mini"><img src = ' + image + 'class="relatedflag"><p class="relatedname ' + id + '">' + id + '</p></div> ';
             }
         }
     } else {
@@ -121,7 +205,7 @@ trait_description = ['Trait', 'Description']; No restrictions on naming conventi
 
 function franceUpdateInfo() {
     flavor_text = 'The Legacy of Charlemagne';
-    allies = ['Castile', 'Milan', 'Burgundy'];
+    allies = ['Qara Qoyunlu', 'Milan', 'Burgundy'];
     enemies = ['England', 'Austria', 'Burgundy'];
     modifier_type = ['Morale', 'Discipline', 'Manpower'];
     modifier_value = ['20%', '5%', '20%'];
@@ -130,17 +214,17 @@ function franceUpdateInfo() {
         ' French Hegemony',
         ' French Musketeers',
         ' Revolutionary Spirit',
-        ' The Costs of Power'];
+        ' The Negatives of Power'];
     trait_rating = ['neutral',
-        'good',
-        'good',
-        'good',
-        'bad'];
-    trait_description = ['The French begin in a deep rivalry with England and at a crossroads with Burgundy. Early diplomacy (or the lack thereof) will affect your game greatly.',
-        'France is in an exceptional position to dominate European politics if managed correctly. Few countries can step up to France one-on-one.',
-        'During the Age of Absolutism the French gain access to unparalleled land firepower by way of musketeers.',
-        'France has a unique event chain relating to the French Revolution of 1789. If played correctly, France could easily conquer what Napoleon dreamt of.',
-        'France is routinely the target of coalitions due to its strong position. Make sure to keep an eye on your percieved aggressiveness.'];
+        ' good',
+        ' good',
+        ' good',
+        ' bad'];
+    trait_description = [' This country begins in a deep rivalry with England and a crossroads with Burgundy',
+        ' France is in an exceptional position to dominate European politics if managed correctly',
+        ' During the Age of Absolutism, this country has access to unparalleled land firepower',
+        ' France has a unique event chain relating to the French Revolution of 1789',
+        ' France is routinely the target of coalitions due to its strong position'];
 }
 
 function muscovyUpdateInfo() {
@@ -155,7 +239,7 @@ function muscovyUpdateInfo() {
     trait_description = [
         'The steppes feed your war machine. Receiving 100% manpower on all steppe provinces, you stands to field large armies when properly developed.',
         'Having the Novgorod trade node act as a de facto end node, you can build a strong production and trade economy without the worry of trade flowing away.',
-        'Muscovy is given the privilege of unlimited expansion into the hordes to the east. This allows for you to quickly grow unapposed.',
+        'Muscovy is given the privilage of unlimited expansion into the hordes to the east. This allows for you to quickly grow unapposed.',
         'A large amount of Russians live within the borders of Lithuania. While a great path for expansion, this will likely bring you conflict with Poland.',
         'Poland with the help of Austria can pose a significant threat to you early on. Without careful diplomacy, you run the risk of extermination.'];
 }
@@ -163,20 +247,20 @@ function muscovyUpdateInfo() {
 
 
 function englandUpdateInfo() {
-    flavor_text = 'Naval Royalty';
+    flavor_text = 'Naval Armageddon';
     allies = ['Hannover', 'Portugal', 'Austria', 'Burgundy'];
     enemies = ['France', 'Norway', 'Denmark', 'Burgundy'];
     modifier_type = ['Morale', 'Discipline', 'Shock Received', 'Goods Produced', 'Cultured Advisor Cost'];
     modifier_value = ['10%', '5%', '-10%', '10%', '20%'];
 
-    trait_name = ['An Island with an Ireland', 'Cloth Crops', 'Viking Saga Renewed', 'The Contested Channel', 'No Known Nobility'];
+    trait_name = ['Island with an Ireland', 'Cloth Crops', 'Viking Saga Renewed', 'The Contested Channel', 'No Known Nobility'];
     trait_rating = ['good', 'good', 'neutral', 'neutral', 'bad'];
     trait_description = [
-        'Most countries lack the naval capabilities to contest you at sea. This grants you high levels of protection and allows you to focus on developing your country.',
-        'England has an abundance of farmlands as well as cloth production. This further enhances Englands capabilities to play tall.',
+        'Most nations lack the naval capabilities to contest you at sea. This grants you high levels of protection and allows you to focus on developing your country.',
+        'England has an abundance of Farmlands as well as Cloth Production. This further enhances Englands capabilities to play tall.',
         'The war with the Nordics is not over. The Norwegian and Danish fleet pose a great threat to you. Starting as a stronger nation, a swift strike to conquer scandinavia is a viable path for expansion. ',
-        'Although England typically dominates the English Channel, a strong country in the low-lands can greatly reduce their control. A hostile Burgundy or Netherlands can reduce your hold on the English channel to nearly half.',
-        'England is one of the few monarchies to not have a Nobility Estate. This greatly reduces military capabilities in terms of manpower and mil point generations.'
+        'Although England typically dominates the English Channel, a strong country in the low-lands can greatly reduce their control. A hostile Burgundy or Dutch can reduce your hold on the English channel to nearly half.',
+        'England is one of the few nations to not have a Nobility Estate. This greatly reduces military capabilities in terms of manpower and mil point generations.'
     ];
 }
 
@@ -184,39 +268,13 @@ function ottomansUpdateInfo() {
     flavor_text = 'Ashes of the Purple Phoenix';
     allies = ['Tunis', 'Timurids'];
     enemies = ['Austria', 'Hungary', 'Poland', 'Mamluks', 'Persia'];
-    modifier_type = ['Discipline', 'Land Forcelimit', 'Manpower Recovery'];
+    modifier_type = ['Discipline', 'Land Forcelimit', 'Manpower Recover'];
     modifier_value = ['5%', '33%', '10%'];
 
-    trait_name = ['Janissaries'];
-    trait_rating = ['good'];
+    trait_name = ['Janissaries', 'test2'];
+    trait_rating = ['good', 'bad'];
     trait_description = [
-        'The Ottomans maintained one of the first expertly trained standing armies in the world. The Janissaries take 10% less damage and drill at double speed, but cost double to reinforce.',
-    ];
-}
-
-
-function castileUpdateInfo() {
-    flavor_text = 'A Golden Crown';
-    allies = ['Portugal', 'France', 'Naples'];
-    enemies = ['Morocco', 'Tunis', 'Austria', 'Naples'];
-    modifier_type = ['Morale', 'Artillery Fire', 'Discipline'];
-    modifier_value = ['15%', '+1', '5%'];
-
-    trait_name = ['A Dynastic Opportunity',
-        'Golden Guns',
-        'The Royal Armada',
-        'The Unbreakable Tercios',
-        'The Heathen Threat'];
-    trait_rating = ['neutral',
-        'good',
-        'good',
-        'good',
-        'bad'];
-    trait_description = [
-        'Castile is in the perfect position to form a dynastic union over Aragon and extend influence over Italy. However, this can cause conflict with other strong countries who may have interests in Italy.',
-        'The Spanish were known for their gold. Not only is there a gold mine near Madrid, but Spain can also obtain gold by way of New World mines. There should be no shortages of gold.',
-        'Iberia is able to muster a formiddable navy. With the right ideas and strategy, it may be able to rival the British fleet.',
-        'During the Age of Reformation, Spain boasts one of the toughest armies in Europe. Cavalry charges are a thing of the past.',
-        'Iberia is just off the cuff of many crusades. The redisual Islamic presence in the region can cause instability and early game difficulties.'
+        'The ottomans have access to a unique troop called the Janissaries. They take 10% less damage and drill at double speed, but cost double to reinforce.',
+        'teee'
     ];
 }
