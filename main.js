@@ -65,13 +65,13 @@ function generateTieredCountries(addbox, Map) {
     Map.forEach((values, keys) => {
         var link = "";
         if (values == 'active') {
-            link = 'href="' + keys + '"';
+            link = 'href="' + keys + '.html"';
         }
         addbox.innerHTML +=
             '<div class="country">' +
-            '<a class="selection"' + link + '>' +
+            '<a ' + link + '>' +
             '<img src="Flags/' + keys + '.png" class="flag ' + values + '" onmouseover="hoverFlag(' + "'" + keys + "'" + ')">' +
-            '<p class="name ' + keys + '">' + keys + '</p></a></div>';
+            '<p class="country_name ' + keys + '">' + keys + '</p></a></div>';
     });
 }
 
@@ -93,8 +93,8 @@ var trait_description;
 
 
 function hoverFlag(country) {
-    document.getElementById("infoname").innerHTML = country;
-    document.getElementById("infoname").className = country;
+    document.getElementById("quickinfoname").innerHTML = country;
+    document.getElementById("quickinfoname").className = "country_name " + country;
 
     flavor_text = 'Country Flavor';
     allies = [];
@@ -128,10 +128,10 @@ function hoverFlag(country) {
             var id = allies[i];
             if (i == 0) {
                 edit_ally.innerHTML =
-                    '<div class="country_mini"><img src = ' + image + 'class="relatedflag"><p class="relatedname ' + id + '">' + id + '</p></div> ';
+                    '<div class="country_mini"><img src = ' + image + 'class="relatedflag relatedally"><p class="relatedcountryname primarytext ' + id + '">' + id + '</p></div> ';
             } else {
                 edit_ally.innerHTML +=
-                    '<div class="country_mini"><img src = ' + image + 'class="relatedflag"><p class="relatedname ' + id + '">' + id + '</p></div> ';
+                    '<div class="country_mini"><img src = ' + image + 'class="relatedflag relatedally"><p class="relatedcountryname primarytext ' + id + '">' + id + '</p></div> ';
             }
         }
     } else {
@@ -146,10 +146,10 @@ function hoverFlag(country) {
             var id = enemies[i];
             if (i == 0) {
                 edit_enemy.innerHTML =
-                    '<div class="country_mini"><img src = ' + image + 'class="relatedflag"><p class="relatedname ' + id + '">' + id + '</p></div> ';
+                    '<div class="country_mini"><img src = ' + image + 'class="relatedflag relatedenemy"><p class="relatedcountryname primarytext ' + id + '">' + id + '</p></div> ';
             } else {
                 edit_enemy.innerHTML +=
-                    '<div class="country_mini"><img src = ' + image + 'class="relatedflag"><p class="relatedname ' + id + '">' + id + '</p></div> ';
+                    '<div class="country_mini"><img src = ' + image + 'class="relatedflag relatedenemy"><p class="relatedcountryname primarytext ' + id + '">' + id + '</p></div> ';
             }
         }
     } else {
@@ -162,10 +162,10 @@ function hoverFlag(country) {
         for (i = 0; i < modifier_type.length; i++) {
             if (i == 0) {
                 edit_modifier.innerHTML =
-                    '<div class="modifier_text"><p class="modifier_type">' + modifier_type[i] + '</p><p class="modifier_value">' + modifier_value[i] + '</p></div>';
+                    '<div><p class="modifier_text secondarytext">' + modifier_type[i] + '</p><p class="modifier_text secondarytext">' + modifier_value[i] + '</p></div>';
             } else {
                 edit_modifier.innerHTML +=
-                    '<div class="modifier_text"><p class="modifier_type">' + modifier_type[i] + '</p><p class="modifier_value">' + modifier_value[i] + '</p></div>';
+                    '<div><p class="modifier_text secondarytext">' + modifier_type[i] + '</p><p class="modifier_text secondarytext">' + modifier_value[i] + '</p></div>';
             }
         }
     } else {
@@ -178,10 +178,10 @@ function hoverFlag(country) {
         for (i = 0; i < trait_name.length; i++) {
             if (i == 0) {
                 edit_trait.innerHTML =
-                    '<div class="trait"><h4 class="trait_name ' + trait_rating[i] + '">' + trait_name[i] + '</h4><p class="trait_description">' + trait_description[i] + '</p></div>'
+                    '<div class="trait"><h4 class="trait_name ' + trait_rating[i] + '">' + trait_name[i] + '</h4><p class="trait_description primarytext">' + trait_description[i] + '</p></div>'
             } else {
                 edit_trait.innerHTML +=
-                    '<div class="trait"><h4 class="trait_name ' + trait_rating[i] + '">' + trait_name[i] + '</h4><p class="trait_description">' + trait_description[i] + '</p></div>'
+                    '<div class="trait"><h4 class="trait_name ' + trait_rating[i] + '">' + trait_name[i] + '</h4><p class="trait_description primarytext">' + trait_description[i] + '</p></div>'
             }
         }
     } else {

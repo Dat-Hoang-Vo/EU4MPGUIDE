@@ -1,12 +1,17 @@
 #main_logo {
-    color: #fca311;
+    color: #fb8b24;
     text-decoration: none;
     display: inline-block;
     margin-right: 1em;
 }
 
+#header_box {
+    background-color: #3d5a80;
+    border-bottom: .1em solid white;
+}
+
 .general_topics {
-    color: #ffcdb2;
+    color: #f4f1de;
     text-decoration: none;
     display: inline-block;
     margin-left: 2em;
@@ -15,4 +20,49 @@
 
 #logo_text {
     margin: auto;
+    padding-left: 1em;
+}
+
+body {
+    background-color: #1d3557;
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0;
+    margin-bottom: 5em;
+}
+
+.France {
+    color: #318CE7;
+}
+
+.Muscovy {
+    color: #679267;
+}
+
+.England {
+    color: #ab4b52;
+}
+
+.Ottomans {
+    color: #ee2222;
+}
+
+.Castile {
+    color: #f0ead4;
+}
+
+/*
+    This section contains CSS for trait ratings
+*/
+
+
+.good {
+    color: #00a896;
+}
+
+.neutral {
+    color: #ffe66d;
+}
+
+.bad {
+    color: #9d0208;
 }
