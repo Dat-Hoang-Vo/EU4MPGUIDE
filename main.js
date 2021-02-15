@@ -204,7 +204,7 @@ trait_description = ['Trait', 'Description']; No restrictions on naming conventi
 */
 
 function franceUpdateInfo() {
-    flavor_text = 'The Legacy of Charlemagne';
+    flavor_text = 'Charlemagnes Legacy';
     allies = ['Castile', 'Milan', 'Burgundy'];
     enemies = ['England', 'Austria', 'Burgundy'];
     modifier_type = ['Morale', 'Discipline', 'Manpower'];
@@ -228,7 +228,7 @@ function franceUpdateInfo() {
 }
 
 function muscovyUpdateInfo() {
-    flavor_text = 'The Endless March';
+    flavor_text = 'An Endless March';
     allies = ['Sweden', 'Austria'];
     enemies = ['Ottomans', 'Poland', 'Brandenburg'];
     modifier_type = ['Morale', 'Discipline', 'Manpower Mod', 'Land Forcelimit', 'Fire Received', 'Artillery Combat', 'Army Tradition'];
