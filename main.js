@@ -1,9 +1,9 @@
 let S_Rank = new Map();
 S_Rank.set('France', 'active');
-S_Rank.set('Muscovy', 'active');
-S_Rank.set('England', 'active');
-S_Rank.set('Ottomans', 'active');
-S_Rank.set('Castile', 'active');
+S_Rank.set('Muscovy', 'inactive');
+S_Rank.set('England', 'inactive');
+S_Rank.set('Ottomans', 'inactive');
+S_Rank.set('Castile', 'inactive');
 
 let A_Rank = new Map();
 A_Rank.set('Austria', 'inactive');
