@@ -204,13 +204,13 @@ trait_description = ['Trait', 'Description']; No restrictions on naming conventi
 */
 
 function franceUpdateInfo() {
-    flavor_text = 'Charlemagnes Legacy';
+    flavor_text = 'Legacy of Charlemagne';
     allies = ['Castile', 'Milan', 'Burgundy'];
     enemies = ['England', 'Austria', 'Burgundy'];
     modifier_type = ['Morale', 'Discipline', 'Manpower'];
     modifier_value = ['20%', '5%', '20%'];
 
-    trait_name = ['The Hundred Years War',
+    trait_name = ["The Hundred Years' War",
         ' French Hegemony',
         ' French Musketeers',
         ' Revolutionary Spirit',
@@ -241,7 +241,7 @@ function muscovyUpdateInfo() {
         'Having the Novgorod trade node act as a de facto end node, you can build a strong production and trade economy without the worry of trade flowing away.',
         'Muscovy is given the privilege of unlimited expansion into the hordes to the east. This allows for you to quickly grow unapposed.',
         'A large amount of Russians live within the borders of Lithuania. While a great path for expansion, this will likely bring you conflict with Poland.',
-        'Poland with the help of Austria can pose a significant threat to you early on. Without careful diplomacy, you run the risk of extermination.'];
+        'With the help of Austria, Poland can pose a significant threat to you early on. Without careful diplomacy, you run the risk of destruction.'];
 }
 
 
@@ -289,7 +289,7 @@ function castileUpdateInfo() {
     trait_name = ['A Dynastic Opportunity',
         'Golden Guns',
         'The Royal Armada',
-        'The Unbreakable Tercios',
+        'The Unbreakable Tercio',
         'The Heathen Threat'];
     trait_rating = ['neutral',
         'good',
