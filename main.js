@@ -210,23 +210,23 @@ function franceUpdateInfo() {
     modifier_type = ['Morale', 'Discipline', 'Manpower'];
     modifier_value = ['20%', '5%', '20%'];
 
-    trait_name = ["The Hundred Years' War",
+    trait_name = ['French Hegemony',
+        'French Musketeers',
+        'Revolutionary Spirit',
+        "The Hundred Years' War",
         'A Decentralized Realm',
-        ' French Hegemony',
-        ' French Musketeers',
-        ' Revolutionary Spirit',
-        ' The Costs of Power'];
-    trait_rating = ['neutral',
+        'The Costs of Power'];
+    trait_rating = ['good',
+        'good',
+        'good',
         'neutral',
-        'good',
-        'good',
-        'good',
+        'neutral',
         'bad'];
-    trait_description = ['The French begin in a deep rivalry with England and at a crossroads with Burgundy. Early diplomacy (or the lack thereof) will affect your game greatly.',
-        'The French Kingdom begins the game divided amongst autonomous counts and dukes. This presents an opportunity to swarm your enemies at the cost of decentralization.',
-        'France is in an exceptional position to dominate European politics if managed correctly. Few countries can step up to France one-on-one.',
+    trait_description = ['France is in an exceptional position to dominate European politics if managed correctly. Few countries can step up to France one-on-one.',
         'During the Age of Absolutism the French gain access to unparalleled land firepower by way of musketeers.',
         'France has a unique event chain relating to the French Revolution of 1789. If played correctly, France could easily conquer what Napoleon dreamt of.',
+        'The French begin in a deep rivalry with England and at a crossroads with Burgundy. Early diplomacy (or the lack thereof) will affect your game greatly.',
+        'The French Kingdom begins the game divided amongst autonomous counts and dukes. This presents an opportunity to swarm your enemies at the cost of decentralization.',
         'France is routinely the target of coalitions due to its strong position. Make sure to keep an eye on your percieved aggressiveness.'];
 }
 
@@ -234,7 +234,7 @@ function muscovyUpdateInfo() {
     flavor_text = 'An Endless March';
     allies = ['Sweden', 'Austria'];
     enemies = ['Ottomans', 'Poland', 'Brandenburg'];
-    modifier_type = ['Morale', 'Discipline', 'Manpower Mod', 'Land Forcelimit', 'Fire Received', 'Artillery Combat', 'Army Tradition'];
+    modifier_type = ['Morale', 'Discipline', 'Manpower', 'Land Forcelimit', 'Fire Received', 'Artillery Combat', 'Army Tradition'];
     modifier_value = ['5%', '5%', '53%', '50%', '-10%', '10%', '.25'];
 
     trait_name = ['Steppe Soldiers', 'All Roads Lead to Novgorod', 'Forever Eastern', 'Call of the Rus', 'The Central Block'];
@@ -251,8 +251,8 @@ function muscovyUpdateInfo() {
 
 function englandUpdateInfo() {
     flavor_text = 'Naval Royalty';
-    allies = ['Hannover', 'Portugal', 'Austria', 'Burgundy'];
-    enemies = ['France', 'Norway', 'Denmark', 'Burgundy'];
+    allies = ['Hannover', 'Burgundy', 'Austria'];
+    enemies = ['France', 'Burgundy', 'Portugal', 'Denmark', 'Norway'];
     modifier_type = ['Morale', 'Discipline', 'Shock Received', 'Goods Produced', 'Cultured Advisor Cost'];
     modifier_value = ['10%', '5%', '-10%', '10%', '20%'];
 
@@ -274,10 +274,22 @@ function ottomansUpdateInfo() {
     modifier_type = ['Discipline', 'Land Forcelimit', 'Manpower Recovery'];
     modifier_value = ['5%', '33%', '10%'];
 
-    trait_name = ['Janissaries'];
-    trait_rating = ['good'];
+    trait_name = ['Janissaries',
+        'Second Rome',
+        'A New-Old World Order',
+        'The Sand Fued',
+        'Deus Vult'];
+    trait_rating = ['good',
+        'good',
+        'good',
+        'neutral',
+        'bad'];
     trait_description = [
         'The Ottomans maintained one of the first expertly trained standing armies in the world. The Janissaries take 10% less damage and drill at double speed, but cost double to reinforce.',
+        'By conquering the last strongholds of the Byzantine Empire, the Ottomans assume control of one of the most important cities in the world: Constantinople.',
+        'The Ottoman Empire is in a formiddable position to restate the importance of Middle Eastern politics onto Europe. If played correctly, Europe will soon fear the Ottoman presence on the continent.',
+        'The Ottomans begin in a deadly fued over control of the Middle East with the Mamluks. Only one successor to the Caliphate will remain once the dust settles.',
+        'Europe has not forgotten the Jihads of the past. The Ottoman Empire faces risk of a unified European front containing not only the central block but other aspiring crusader states. The European threat can also present the opportunity for Middle Eastern rivals to strike.'
     ];
 }
 
@@ -286,24 +298,24 @@ function castileUpdateInfo() {
     flavor_text = 'A Golden Crown';
     allies = ['Portugal', 'France', 'Naples'];
     enemies = ['Morocco', 'Tunis', 'Naples', 'Austria'];
-    modifier_type = ['Morale', 'Artillery Fire', 'Discipline'];
-    modifier_value = ['15%', '+1', '5%'];
+    modifier_type = ['Morale', 'Artillery Fire', 'Discipline', 'Naval Forcelimit', 'Heavy Ship Combat'];
+    modifier_value = ['15%', '+1', '5%', '25%', '10%'];
 
-    trait_name = ['A Dynastic Opportunity',
-        'Golden Guns',
+    trait_name = ['Golden Guns',
         'The Royal Armada',
         'The Unbreakable Tercio',
+        'A Dynastic Opportunity',
         'The Heathen Threat'];
-    trait_rating = ['neutral',
+    trait_rating = ['good',
         'good',
         'good',
-        'good',
+        'neutral',
         'bad'];
     trait_description = [
-        'Castile is in the perfect position to form a dynastic union over Aragon and extend influence over Italy. However, this can cause conflict with other strong countries who may have interests in Italy.',
         'The Spanish were known for their gold. Not only is there a gold mine near Madrid, but Spain can also obtain gold by way of New World mines. There should be no shortages of gold.',
         'Iberia is able to muster a formiddable navy. With the right ideas and strategy, it may be able to rival the British fleet.',
         'During the Age of Reformation, Spain boasts one of the toughest armies in Europe. Cavalry charges are a thing of the past.',
+        'Castile is in the perfect position to form a dynastic union over Aragon and extend influence over Italy. However, this can cause conflict with other strong countries who may have interests in Italy.',
         'Iberia is just off the cuff of many crusades. The redisual Islamic presence in the region can cause instability and early game difficulties.'
     ];
 }
