@@ -94,7 +94,7 @@ var trait_description;
 
 function hoverFlag(country) {
     document.getElementById("quickinfoname").innerHTML = country;
-    document.getElementById("quickinfoname").className = "country_name " + country;
+    document.getElementById("quickinfoname").className = "country_name secondarytext " + country;
 
     flavor_text = 'Country Flavor';
     allies = [];
@@ -116,8 +116,6 @@ function hoverFlag(country) {
         ottomansUpdateInfo();
     } else if (country == 'Castile') {
         castileUpdateInfo();
-    } else if (country == 'Austria') {
-        austriaUpdateInfo();
     }
 
 
