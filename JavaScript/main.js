@@ -258,16 +258,16 @@ function muscovyUpdateInfo() {
 function englandUpdateInfo() {
     flavor_text = 'Naval Royalty';
     allies = ['Brunswick', 'Burgundy', 'Austria'];
-    enemies = ['France', 'Burgundy', 'Portugal', 'Denmark', 'Norway'];
+    enemies = ['France', 'Portugal', 'Norway'];
     modifier_type = ['Naval Morale', 'Heavy Ship Combat', 'Morale', 'Discipline', 'Shock Received', 'Goods Produced', 'Cultured Advisor Cost'];
     modifier_value = ['20%', '15%', '10%', '5%', '-10%', '10%', '20%'];
 
-    trait_name = ['An Island with an Ireland', 'Cloth Crops', 'Viking Saga Renewed', 'The Contested Channel', 'No Known Nobility'];
+    trait_name = ['An Island with an Ireland', 'The Bank of England', 'Viking Saga Renewed', 'The Contested Channel', 'No Known Nobility'];
     trait_rating = ['good', 'good', 'neutral', 'neutral', 'bad'];
     trait_description = [
-        'Most countries lack the naval capabilities to contest you at sea. This grants you high levels of protection and allows you to focus on developing your country.',
-        'England has an abundance of farmlands as well as cloth production. This further enhances Englands capabilities to play tall.',
-        'The war with the Nordics is not over. The Norwegian and Danish fleet pose a great threat to you. Starting as a stronger nation, a swift strike to conquer Scandinavia is a viable path for expansion. ',
+        'Most countries lack the naval capabilities to contest you at sea. This grants the English high levels of protection and allows them to focus on developing their country.',
+        'England is easily able to become a global economic hegemon. By the use of the Royal Navy and the strong trade goods on English soil, the English Channel has exceptional potential. A strong naval presence and colonial presence will be paramount.',
+        'The war with the Nordics is not over. The Norwegian and Danish fleet pose a great threat to the English. Starting as a stronger nation, a swift strike to conquer Scandinavia is a viable path for expansion. ',
         'Although England typically dominates the English Channel, a strong country in the lowlands can greatly reduce their control. A hostile Burgundy or the Netherlands can reduce your hold on the English channel to nearly half.',
         'England is one of the few monarchies to not have a nobility estate. This greatly reduces military capabilities in terms of manpower and military point generation.'
     ];
@@ -276,7 +276,7 @@ function englandUpdateInfo() {
 function ottomansUpdateInfo() {
     flavor_text = 'Ashes of the Purple Phoenix';
     allies = ['Tunis', 'Timurids'];
-    enemies = ['Austria', 'Hungary', 'Poland', 'Mamluks', 'Persia'];
+    enemies = ['Austria', 'Poland', 'Mamluks'];
     modifier_type = ['Discipline', 'Land Forcelimit', 'Manpower Recovery'];
     modifier_value = ['5%', '33%', '10%'];
 
@@ -303,7 +303,7 @@ function ottomansUpdateInfo() {
 function castileUpdateInfo() {
     flavor_text = 'A Golden Crown';
     allies = ['Portugal', 'France', 'Naples'];
-    enemies = ['Morocco', 'Tunis', 'Naples', 'Austria'];
+    enemies = ['Morocco', 'Tunis', 'Naples'];
     modifier_type = ['Morale', 'Artillery Fire', 'Discipline', 'Naval Forcelimit', 'Heavy Ship Combat'];
     modifier_value = ['15%', '+1', '5%', '25%', '10%'];
 
@@ -329,8 +329,8 @@ function castileUpdateInfo() {
 
 function austriaUpdateInfo() {
     flavor_text = 'An Imperial Court';
-    allies = ['Poland', 'Brandenburg', 'Milan', 'England', 'Hungary'];
-    enemies = ['Ottomans', 'Brandenburg', 'France', 'Muscovy'];
+    allies = ['Poland', 'Brandenburg', 'England'];
+    enemies = ['Ottomans', 'Brandenburg', 'France'];
     modifier_type = ['Morale', 'Reinforce Speed', 'Discipline'];
     modifier_value = ['10%', '30%', '3%'];
 
