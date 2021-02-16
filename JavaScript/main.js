@@ -2,44 +2,46 @@ let S_Rank = new Map();
 S_Rank.set('France', 'active');
 S_Rank.set('Muscovy', 'inactive');
 S_Rank.set('England', 'inactive');
-S_Rank.set('Ottomans', 'inactive');
 S_Rank.set('Castile', 'inactive');
+S_Rank.set('Ottomans', 'inactive');
 
 let A_Rank = new Map();
 A_Rank.set('Austria', 'inactive');
 A_Rank.set('Poland', 'inactive');
-A_Rank.set('Mamluks', 'inactive');
 A_Rank.set('Burgundy', 'inactive');
+A_Rank.set('Mamluks', 'inactive');
 
 let B_Rank = new Map();
-B_Rank.set('Sweden', 'inactive');
 B_Rank.set('Brandenburg', 'inactive');
+B_Rank.set('Sweden', 'inactive');
 B_Rank.set('Milan', 'inactive');
-B_Rank.set('Hungary', 'inactive');
-B_Rank.set('Qara Qoyunlu', 'inactive');
-B_Rank.set('Naples', 'inactive');
-B_Rank.set('Hannover', 'inactive');
+B_Rank.set('Brunswick', 'inactive');
 B_Rank.set('Portugal', 'inactive');
+B_Rank.set('Qara Qoyunlu', 'inactive');
 
 let C_Rank = new Map();
-C_Rank.set('Florence', 'inactive');
-C_Rank.set('Switzerland', 'inactive');
+C_Rank.set('Hungary', 'inactive');
 C_Rank.set('Denmark', 'inactive');
+C_Rank.set('Switzerland', 'inactive');
+C_Rank.set('Florence', 'inactive');
+C_Rank.set('Naples', 'inactive');
 C_Rank.set('Papal States', 'inactive');
+C_Rank.set('Hamburg', 'inactive')
 
 let D_Rank = new Map();
-D_Rank.set('Morocco', 'inactive');
-D_Rank.set('Tunis', 'inactive');
-D_Rank.set('Great Horde', 'inactive');
+D_Rank.set('Landshut', 'inactive');
+D_Rank.set('Holland', 'inactive');
 D_Rank.set('Venice', 'inactive');
 D_Rank.set('Genoa', 'inactive');
+D_Rank.set('Morocco', 'inactive');
+D_Rank.set('Tunis', 'inactive');
 
 let F_Rank = new Map();
-F_Rank.set('Rothenburg', 'inactive');
-F_Rank.set('Holland', 'inactive');
 F_Rank.set('Norway', 'inactive');
+F_Rank.set('Rothenburg', 'inactive');
 F_Rank.set('Livonian Order', 'inactive');
 F_Rank.set('Georgia', 'inactive');
+F_Rank.set('Great Horde', 'inactive');
 
 function generateTierList() {
     var modify_S_Tier = document.getElementById("S_BOX");
@@ -116,6 +118,8 @@ function hoverFlag(country) {
         ottomansUpdateInfo();
     } else if (country == 'Castile') {
         castileUpdateInfo();
+    } else if (country == 'Austria') {
+        austriaUpdateInfo();
     }
 
 
@@ -207,8 +211,8 @@ function franceUpdateInfo() {
     flavor_text = 'Legacy of Charlemagne';
     allies = ['Castile', 'Milan', 'Burgundy'];
     enemies = ['England', 'Austria', 'Burgundy'];
-    modifier_type = ['Morale', 'Discipline', 'Manpower'];
-    modifier_value = ['20%', '5%', '20%'];
+    modifier_type = ['Morale', 'Discipline', 'Manpower', 'Manpower Recovery'];
+    modifier_value = ['20%', '5%', '20%', '10%'];
 
     trait_name = ['French Hegemony',
         'French Musketeers',
@@ -251,7 +255,7 @@ function muscovyUpdateInfo() {
 
 function englandUpdateInfo() {
     flavor_text = 'Naval Royalty';
-    allies = ['Hannover', 'Burgundy', 'Austria'];
+    allies = ['Brunswick', 'Burgundy', 'Austria'];
     enemies = ['France', 'Burgundy', 'Portugal', 'Denmark', 'Norway'];
     modifier_type = ['Naval Morale', 'Heavy Ship Combat', 'Morale', 'Discipline', 'Shock Received', 'Goods Produced', 'Cultured Advisor Cost'];
     modifier_value = ['20%', '15%', '10%', '5%', '-10%', '10%', '20%'];
@@ -314,7 +318,7 @@ function castileUpdateInfo() {
     trait_description = [
         'The Spanish were known for their gold. Not only is there a gold mine near Madrid, but Spain can also obtain gold by way of New World mines. There should be no shortages of gold.',
         'Iberia is able to muster a formiddable navy. With the right ideas and strategy, it may be able to rival the British fleet.',
-        'During the Age of Reformation, Spain boasts one of the toughest armies in Europe. Cavalry charges are a thing of the past.',
+        'During the Age of Reformation, Spain boasts one of the toughest armies in Europe. With 30% less shock damage cavalry charges are a thing of the past.',
         'Castile is in the perfect position to form a dynastic union over Aragon and extend influence over Italy. However, this can cause conflict with other strong countries who may have interests in Italy.',
         'Iberia is just off the cuff of many crusades. The redisual Islamic presence in the region can cause instability and early game difficulties.'
     ];
@@ -341,7 +345,7 @@ function austriaUpdateInfo() {
     trait_description = [
         'Aided by the realms of the Empire, Austria can maintain a sizeable army. Austrian reserves are equally as imposing. Make sure to keep an eye on how many princes reign in the HRE as this directly affects the manpower and forcelimit benefit.',
         'Austria has unique event chains allowing it to claim the crowns of both Bohemia and Hungary. If played correctly, Austria can create a new empire all for itself.',
-        'Located on the Alps, Austria has immense geographical defenses similar to Switzerland. However, this rocky terrain is harder to develop than other terrain. This can be alleviated by the farmland present in Bohemia and Hungary.',
+        'Located in the Alps, Austria has immense geographical defenses similar to Switzerland. However, this rocky terrain is harder to develop than other terrain. This can be alleviated by the farmland present in Bohemia and Hungary.',
         'The power of wearing the imperial crown is not free. Austria must manage internal HRE politics such as the votes of electors. While the HRE provides economic and military advantages, it also requires attentive micro-managing.',
         'Austria is surrounded by rivaling powers. To the West, France seeks to honor the legacy of Charlemagne. To the East, Russia and Poland struggle over dominance, and the Ottomans may try to add a new imperial city to their realm. To the South, the question of imperial loyalty may become a problem. To the North, Brandenburg may seek to remodel the HRE in its image.'
     ];
