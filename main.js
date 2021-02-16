@@ -253,8 +253,8 @@ function englandUpdateInfo() {
     flavor_text = 'Naval Royalty';
     allies = ['Hannover', 'Burgundy', 'Austria'];
     enemies = ['France', 'Burgundy', 'Portugal', 'Denmark', 'Norway'];
-    modifier_type = ['Morale', 'Discipline', 'Shock Received', 'Goods Produced', 'Cultured Advisor Cost'];
-    modifier_value = ['10%', '5%', '-10%', '10%', '20%'];
+    modifier_type = ['Naval Morale', 'Heavy Ship Combat', 'Morale', 'Discipline', 'Shock Received', 'Goods Produced', 'Cultured Advisor Cost'];
+    modifier_value = ['20%', '15%', '10%', '5%', '-10%', '10%', '20%'];
 
     trait_name = ['An Island with an Ireland', 'Cloth Crops', 'Viking Saga Renewed', 'The Contested Channel', 'No Known Nobility'];
     trait_rating = ['good', 'good', 'neutral', 'neutral', 'bad'];
