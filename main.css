@@ -34,7 +34,7 @@ a {
 
 .row {
     border: .25em solid #22223b;
-    margin: 2em 0;
+    margin-top: 2em;
     background-color: #03071e;
     padding-left: 1em;
     padding-top: .5em;
