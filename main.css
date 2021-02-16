@@ -55,7 +55,7 @@ a {
 #quickinfo {
     overflow-y: auto;
     width: 60%;
-    top: 0;
+    top: 1.5em;
     position:sticky;
     height: fit-content;
     margin: 2em;
@@ -244,7 +244,7 @@ a {
     color: #0096c7;
 }
 
-#f-tier, #F_BOX .name {
+#f-tier, #F_BOX .country_name {
     color: #bdb2ff;
 }
 
