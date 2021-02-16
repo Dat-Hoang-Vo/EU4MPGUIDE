@@ -1,6 +1,6 @@
 function getMonthlyTaxIncome() {
     var efficiency = document.getElementById("provincial_tax_efficiency").value;
-    var autonomy = 1 - document.getElementById("provincial_autonomy").value;
+    var autonomy = 1 - parseInt(document.getElementById("provincial_autonomy").value * 100) / 100;
 
     document.getElementById("total_monthly_tax").innerHTML = (1 / 12) * efficiency * autonomy;
 }
