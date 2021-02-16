@@ -14,9 +14,9 @@ A_Rank.set('Mamluks', 'inactive');
 let B_Rank = new Map();
 B_Rank.set('Brandenburg', 'inactive');
 B_Rank.set('Sweden', 'inactive');
+B_Rank.set('Portugal', 'inactive');
 B_Rank.set('Milan', 'inactive');
 B_Rank.set('Brunswick', 'inactive');
-B_Rank.set('Portugal', 'inactive');
 B_Rank.set('Qara Qoyunlu', 'inactive');
 
 let C_Rank = new Map();
@@ -327,7 +327,7 @@ function castileUpdateInfo() {
 
 function austriaUpdateInfo() {
     flavor_text = 'An Imperial Court';
-    allies = ['Poland', 'Brandenburg', 'Milan', 'England'];
+    allies = ['Poland', 'Brandenburg', 'Milan', 'England', 'Hungary'];
     enemies = ['Ottomans', 'Brandenburg', 'France', 'Muscovy'];
     modifier_type = ['Morale', 'Reinforce Speed', 'Discipline'];
     modifier_value = ['10%', '30%', '3%'];
