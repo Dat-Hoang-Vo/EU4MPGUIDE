@@ -120,6 +120,8 @@ function hoverFlag(country) {
         castileUpdateInfo();
     } else if (country == 'Austria') {
         austriaUpdateInfo();
+    } else if (country == 'Burgundy') {
+        burgundyUpdateInfo();
     }
 
 
@@ -266,7 +268,7 @@ function englandUpdateInfo() {
         'Most countries lack the naval capabilities to contest you at sea. This grants you high levels of protection and allows you to focus on developing your country.',
         'England has an abundance of farmlands as well as cloth production. This further enhances Englands capabilities to play tall.',
         'The war with the Nordics is not over. The Norwegian and Danish fleet pose a great threat to you. Starting as a stronger nation, a swift strike to conquer Scandinavia is a viable path for expansion. ',
-        'Although England typically dominates the English Channel, a strong country in the low-lands can greatly reduce their control. A hostile Burgundy or the Netherlands can reduce your hold on the English channel to nearly half.',
+        'Although England typically dominates the English Channel, a strong country in the lowlands can greatly reduce their control. A hostile Burgundy or the Netherlands can reduce your hold on the English channel to nearly half.',
         'England is one of the few monarchies to not have a nobility estate. This greatly reduces military capabilities in terms of manpower and military point generation.'
     ];
 }
@@ -348,5 +350,23 @@ function austriaUpdateInfo() {
         'Located in the Alps, Austria has immense geographical defenses similar to Switzerland. However, this rocky terrain is harder to develop than other terrain. This can be alleviated by the farmland present in Bohemia and Hungary.',
         'The power of wearing the imperial crown is not free. Austria must manage internal HRE politics such as the votes of electors. While the HRE provides economic and military advantages, it also requires attentive micro-managing.',
         'Austria is surrounded by rivaling powers. To the West, France seeks to honor the legacy of Charlemagne. To the East, Russia and Poland struggle over dominance, and the Ottomans may try to add a new imperial city to their realm. To the South, the question of imperial loyalty may become a problem. To the North, Brandenburg may seek to remodel the HRE in its image.'
+    ];
+}
+
+
+function burgundyUpdateInfo() {
+    flavor_text = 'Dreams of Lotharingia';
+    allies = ['France', 'Austria', 'England'];
+    enemies = ['France', 'Austria', 'Holland',];
+    modifier_type = ['Morale', 'Discipline', 'Manpower', 'Goods Produced'];
+    modifier_value = ['10%', '5%', '25%', '15%'];
+
+    trait_name = ['The Burgundian Bloodline',
+        'An Army for Hire'];
+    trait_rating = ['good',
+        'good'];
+    trait_description = [
+        'At the start of the game Burgundy begins with royal unions on three lowland countries. Burgundy can use their unions to great benefit in early wars, and can develop the rich land for themselves later on.',
+        'The Burgundian crown has gotten used to using unconventional means to survive. Burgundy is able to maintain a mercenary army 15% cheaper and with 50% more manpower.'
     ];
 }
