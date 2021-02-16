@@ -209,8 +209,8 @@ function franceUpdateInfo() {
     flavor_text = 'Legacy of Charlemagne';
     allies = ['Castile', 'Milan', 'Burgundy'];
     enemies = ['England', 'Austria', 'Burgundy'];
-    modifier_type = ['Morale', 'Discipline', 'Manpower', 'Manpower Recovery'];
-    modifier_value = ['20%', '5%', '20%', '10%"];
+    modifier_type = ['Morale', 'Discipline', 'Manpower'];
+    modifier_value = ['20%', '5%', '20%'];
 
     trait_name = ['French Hegemony',
         'French Musketeers',
@@ -316,7 +316,7 @@ function castileUpdateInfo() {
     trait_description = [
         'The Spanish were known for their gold. Not only is there a gold mine near Madrid, but Spain can also obtain gold by way of New World mines. There should be no shortages of gold.',
         'Iberia is able to muster a formiddable navy. With the right ideas and strategy, it may be able to rival the British fleet.',
-        'During the Age of Reformation, Spain boasts one of the toughest armies in Europe. With 30% less shock damage cavalry charges are a thing of the past.',
+        'During the Age of Reformation, Spain boasts one of the toughest armies in Europe. Cavalry charges are a thing of the past.',
         'Castile is in the perfect position to form a dynastic union over Aragon and extend influence over Italy. However, this can cause conflict with other strong countries who may have interests in Italy.',
         'Iberia is just off the cuff of many crusades. The redisual Islamic presence in the region can cause instability and early game difficulties.'
     ];
