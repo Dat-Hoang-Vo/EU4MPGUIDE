@@ -1,0 +1,20 @@
+Primary Text Color: #fb8b24
+Secondary Text Color: #f4f1de
+
+Background Color: #1d3557
+
+First Layer Color: #3d5a80
+
+Second Layer Color: #03071e
+
+Border Color: #22223b
+
+Ally Color: #00b4d8
+
+Enemy Color: #9d0208
+
+Good Color: #00a896
+
+Neutral Color: #ffe66d
+
+Bad Color: #9d0208
