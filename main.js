@@ -116,6 +116,8 @@ function hoverFlag(country) {
         ottomansUpdateInfo();
     } else if (country == 'Castile') {
         castileUpdateInfo();
+    } else if (country == 'Austria') {
+        austriaUpdateInfo();
     }
 
 
@@ -317,5 +319,32 @@ function castileUpdateInfo() {
         'During the Age of Reformation, Spain boasts one of the toughest armies in Europe. Cavalry charges are a thing of the past.',
         'Castile is in the perfect position to form a dynastic union over Aragon and extend influence over Italy. However, this can cause conflict with other strong countries who may have interests in Italy.',
         'Iberia is just off the cuff of many crusades. The redisual Islamic presence in the region can cause instability and early game difficulties.'
+    ];
+}
+
+
+function austriaUpdateInfo() {
+    flavor_text = 'An Imperial Court';
+    allies = ['Poland', 'Brandenburg', 'Milan', 'England'];
+    enemies = ['Ottomans', 'Brandenburg', 'France', 'Muscovy'];
+    modifier_type = ['Morale', 'Reinforce Speed', 'Discipline'];
+    modifier_value = ['10%', '30%', '3%'];
+
+    trait_name = ['Imperial Troops',
+        'Three Crowns',
+        'Defend the Emperor!',
+        'Not Holy, Roman, Nor an Empire',
+        'Enemies on All Fronts'];
+    trait_rating = ['good',
+        'good',
+        'neutral',
+        'neutral',
+        'bad'];
+    trait_description = [
+        'Aided by the realms of the Empire, Austria can maintain a sizeable army. Austrian reserves are equally as imposing. Make sure to keep an eye on how many princes reign in the HRE as this directly affects the manpower and forcelimit benefit.',
+        'Austria has unique event chains allowing it to claim the crowns of both Bohemia and Hungary. If played correctly, Austria can create a new empire all for itself.',
+        'Located on the Alps, Austria has immense geographical defenses similar to Switzerland. However, this rocky terrain is harder to develop than other terrain. This can be alleviated by the farmland present in Bohemia and Hungary.',
+        'The power of wearing the imperial crown is not free. Austria must manage internal HRE politics such as the votes of electors. While the HRE provides economic and military advantages, it also requires attentive micro-managing.',
+        'Austria is surrounded by rivaling powers. To the West, France seeks to honor the legacy of Charlemagne. To the East, Russia and Poland struggle over dominance, and the Ottomans may try to add a new imperial city to their realm. To the South, the question of imperial loyalty may become a problem. To the North, Brandenburg may seek to remodel the HRE in its image.'
     ];
 }
