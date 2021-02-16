@@ -8,14 +8,15 @@ function getMonthlyTaxIncome() {
 function getMonthlyProductionIncome() {
     var autonomy = 1 - document.getElementById("provincial_autonomy_production").value;
 
-    var overall_production_efficiency = 1 + document.getElementById("production_efficiency").value;
+    var overall_production_efficiency = 1.0 + parseInt(document.getElementById("production_efficiency").value * 100) / 100;
+    console.log(overall_production_efficiency);
 
     var trade_control = document.getElementById("trade_control").value;
-    var trade_efficiency = 1 + document.getElementById("trade_efficiency").value;
+    var trade_efficiency = 1 + parseInt(document.getElementById("trade_efficiency").value * 100) / 100;
 
 
     var goods_value = document.getElementById("goods_value").value;
-    var goods_modifier = 1 + document.getElementById("goods_produced").value;
+    var goods_modifier = 1 + parseInt(document.getElementById("goods_produced").value * 100) / 100;
 
     var goods_produced = goods_modifier * 0.2 * goods_value;
 

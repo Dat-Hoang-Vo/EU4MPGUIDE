@@ -108,13 +108,14 @@ a {
     height: 6em;
     width: 6em;
     border-radius: 50% 50% 50% 50% / 27% 27% 73% 73%;
-    object-fit: fill;
+    background: transparent no-repeat center;
+    background-size: cover;
     transition: .5s;
     filter: grayscale(100%);
 }
 
 .active {
-    filter: grayscale(50%);
+    filter: grayscale(30%);
     border: .2em solid #9d0208;
 }
 
