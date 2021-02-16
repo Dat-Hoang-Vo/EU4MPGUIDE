@@ -229,7 +229,7 @@ function franceUpdateInfo() {
         'neutral',
         'bad'];
     trait_description = ['France is in an exceptional position to dominate European politics if managed correctly. Few countries can step up to France one-on-one.',
-        'During the Age of Absolutism the French gain access to unparalleled land firepower by way of musketeers.',
+        'During the Age of Absolutism the French gain access to unparalleled land firepower by way of musketeers. French Musketeers provide an increased 20% land fire damage.',
         'France has a unique event chain relating to the French Revolution of 1789. If played correctly, France could easily conquer what Napoleon dreamt of.',
         'The French begin in a deep rivalry with England and at a crossroads with Burgundy. Early diplomacy (or the lack thereof) will affect your game greatly.',
         'The French Kingdom begins the game divided amongst autonomous counts and dukes. This presents an opportunity to swarm your enemies at the cost of decentralization.',
