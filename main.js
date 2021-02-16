@@ -209,8 +209,8 @@ function franceUpdateInfo() {
     flavor_text = 'Legacy of Charlemagne';
     allies = ['Castile', 'Milan', 'Burgundy'];
     enemies = ['England', 'Austria', 'Burgundy'];
-    modifier_type = ['Morale', 'Discipline', 'Manpower'];
-    modifier_value = ['20%', '5%', '20%'];
+    modifier_type = ['Morale', 'Discipline', 'Manpower', 'Manpower Recovery'];
+    modifier_value = ['20%', '5%', '20%', '10%"];
 
     trait_name = ['French Hegemony',
         'French Musketeers',
