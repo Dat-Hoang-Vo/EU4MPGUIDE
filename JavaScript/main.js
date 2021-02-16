@@ -118,6 +118,8 @@ function hoverFlag(country) {
         ottomansUpdateInfo();
     } else if (country == 'Castile') {
         castileUpdateInfo();
+    } else if (country == 'Austria') {
+        austriaUpdateInfo();
     }
 
 
