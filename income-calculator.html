@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tax vs Production</title>
+    <link href="income.css" rel="stylesheet">
+    <link href="header.css" rel="stylesheet">
+</head>
+
+<body>
+    <header id="header_box">
+        <a href="index.html" id="main_logo">
+            <h1 id="logo_text">EU4MPGUIDE</h1>
+        </a>
+        <a class="general_topics">
+            <h2>Current Meta</h1>
+        </a>
+        <a href="income-calculator.html" class="general_topics">
+            <h2>Tax vs Production</h2>
+        </a>
+        <a class="general_topics">
+            <h2>Hosting Times</h2>
+        </a>
+    </header>
+
+    <div id="mainBox">
+        <div class="splitBox">
+            <h1>Tax</h1>
+            <div>
+                <p class="description">You can find this number by clicking on a province and hovering over the tax
+                    income. Enter the exact percentage as a decimal (I.E) 95% = 0.95</p>
+                <label for="provincial_tax_efficiency">Provincial Tax Efficiency</label>
+                <input type="number" name="provincial_tax_efficiency" id="provincial_tax_efficiency">
+            </div>
+            <div>
+                <p class="description">You can find this number by clicking on a province and look under "Autonomy".
+                    Enter the exact percentage as a decimal (I.E) 5% = 0.05</p>
+                <label for="provincial_autonomy">Provincial Autonomy</label>
+                <input type="number" name="provincial_autonomy" id="provincial_autonomy">
+            </div>
+            <div>
+                <p>Monthly Income Per Tax Dev: <span id="total_monthly_tax">1</span> ducat</p>
+            </div>
+            <button onclick="getMonthlyTaxIncome()">Update</button>
+        </div>
+
+        <div class="splitBox">
+            <h1>Production</h1>
+            <div>
+                <input type="radio" name="production_building" id="no_production_building" checked>
+                <label for="no_production_building">No Building</label>
+
+                <input type="radio" name="production_building" id="workshop">
+                <label for="workshop">Workshop</label>
+
+                <input type="radio" name="production_building" id="counting_house">
+                <label for="counting_house">Counting House</label>
+            </div>
+            <div>
+                <input type="radio" name="parliament" id="no_seat" checked>
+                <label for="no_seat">No Parliament Seat</label>
+
+                <input type="radio" name="parliament" id="seat">
+                <label for="seat">Existing Parliament Seat</label>
+            </div>
+            <div>
+                <p class="description">You can find this number under the economy tab to the right of "Production".
+                    Enter exactly what you see and the exact percentage as a decimal (I.E) 2% = 0.02, -13% = -0.13</p>
+                <label for="production_efficiency">Overall Production Efficiency</label>
+                <input type="number" name="production_efficiency" id="production_efficiency" value="0" step="0.01">
+            </div>
+            <div>
+                <p class="description">You can find this number by clicking on a province and look under "Autonomy".
+                    Enter the exact percentage as a decimal (I.E) 5% = 0.05</p>
+                <label for="provincial_autonomy">Provincial Autonomy</label>
+                <input type="number" name="provincial_autonomy_production" id="provincial_autonomy_production" value="0"
+                    max="1" min="0" step="0.01">
+            </div>
+            <div>
+                <p class="description">You can find this number by going to the "Governments" tab and clicking on
+                    "Country Modifiers" and scroll to find "Goods Produced Modifier". If this doesn't show up, enter 0.
+                    Enter exactly what you see and the exact percentage as a decimal (I.E) 20% = 0.2</p>
+                <label for="goods_produced">Goods Produced Modifier</label>
+                <input type="number" name="goods_produced" id="goods_produced" value="0" step="0.01" min="0">
+            </div>
+            <div>
+                <p class="description">You can find this by clicking on the province and look for the number under the
+                    goods image. Enter exactly what you see (I.E) 2.5 = 2.5</p>
+                <label for="trade_good_value">Provincial Goods Value</label>
+                <input type="number" name="goods_value" id="goods_value" value="2.5" step="0.01" min="0">
+            </div>
+            <div>
+                <p class="description">This number can be found by multiplying your control % of the closest node you
+                    collect from, as well as the % of all subsequent node % that pushes to the collect node.
+                    (E.G) You collect in English Channel and are devving up a North Sea province. Assuming you control
+                    80% of English Channel and 43% of North Sea is pushing to English Channel, you multiply 0.8 with
+                    0.43 to get 0.344. This is the number you input. If you are collecting in English Channel and are
+                    devving an English Channel province, just enter the 0.8</p>
+                <label for="trade_control">Overall Trade Control</label>
+                <input type="number" name="trade_control" id="trade_control" value="0.5" step="0.01" min="0" max="1">
+            </div>
+            <div>
+                <p class="description">You can find this number under the economy tab to the right of "Trade".
+                    Enter exactly what you see and the exact percentage as a decimal (I.E) 17% = 0.17, -5% = -0.05</p>
+                <label for="trade_efficiency">Trade Efficiency</label>
+                <input type="number" name="trade_efficiency" id="trade_efficiency" value="0" step="0.01" min="-1">
+            </div>
+            <div>
+                <p>Monthly Income Per Production Dev: <span id="total_monthly_production">1</span> ducat</p>
+            </div>
+            <button onclick="getMonthlyProductionIncome()">Update</button>
+        </div>
+    </div>
+
+    <script src="income.js"></script>
+</body>
+
+</html>

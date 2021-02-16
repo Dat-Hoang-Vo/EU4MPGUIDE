@@ -8,6 +8,10 @@
     margin: 1em
 }
 
+h3 {
+    margin: .5em;
+}
+
 body {
     font-size: 1em;
     color: #f4f1de;
@@ -20,6 +24,7 @@ a {
 #nav_bar {
     display: inline-block;
     width: auto;
+    margin-left: 4em;
     padding-right: 1em;
     border: .2em solid #f4f1de;
 }
@@ -30,15 +35,12 @@ a {
 }
 
 #recommended_text {
+    margin-left: 1em;
     width: 100%;
 }
 
 .idea_set {
     display:flex;
-}
-
-h3 {
-    margin: .5em;
 }
 
 .idea {
