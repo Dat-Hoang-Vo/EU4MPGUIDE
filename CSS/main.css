@@ -1,0 +1,256 @@
+.primarytext {
+    color: #fb8b24;
+}
+
+.secondarytext {
+    color: #f4f1de;
+}
+
+a {
+    text-decoration: none;
+}
+
+#mainBox {
+    display: flex;
+    box-sizing: border-box;
+    margin-top: 1em;
+    margin-left: .5em;
+    margin-right: .5em;
+}
+
+/*
+    This section contains CSS for tier list box
+*/
+
+#table {
+    background-color: #3d5a80;
+    vertical-align: top;
+    margin: 2em;
+    display: flexbox;
+    box-sizing: border-box;
+    width: 40%;
+    border-radius: 2em;
+}
+
+.row {
+    border: .25em solid #22223b;
+    margin-top: 2em;
+    background-color: #03071e;
+    padding-left: 1em;
+    padding-top: .5em;
+    
+}
+
+.rating {
+    padding-top: 0;
+    margin-top: .25em;
+    font-size: 4em;
+    margin-bottom: .3em;
+}
+
+/*
+    This section contains CSS for quickinfo box
+*/
+
+#quickinfo {
+    overflow-y: auto;
+    width: 60%;
+    top: 1.5em;
+    position:sticky;
+    height: fit-content;
+    margin: 2em;
+    background-color: #3d5a80;
+    padding-bottom: 2em;
+    border-radius: 2em;
+}
+
+#quickinfoname {
+    font-size: 3em;
+    margin: .25em 0 0;
+    text-align: center;
+}
+
+#flavor_text {
+    text-align: center;
+    font-size: 1.4em;
+    margin: .3em;
+}
+
+.info_seperators {
+    background-color: #03071e;
+    border: .15em solid #22223b;
+} 
+
+/*
+    This section contains the CSS for the flags    
+*/
+
+.country_name {
+    margin: 0 .2em .5em;
+    font-size: 2em;
+    text-align: center;
+}
+
+.country {
+    display: inline-block;
+    width:14em;
+}
+
+.country_mini {
+    display: inline-block;
+    width: 7.5em;
+}
+
+.flag {
+    display: block;
+    margin: 0 auto;
+    padding-top: 0;
+    height: 6em;
+    width: 6em;
+    border-radius: 50% 50% 50% 50% / 27% 27% 73% 73%;
+    object-fit: fill;
+    transition: .5s;
+    filter: grayscale(100%);
+}
+
+.active {
+    filter: grayscale(50%);
+    border: .2em solid #9d0208;
+}
+
+.active:hover {
+    height: 6.5em;
+    width: 6.5em;
+    border-color: #00b4d8;
+    filter: grayscale(0%);
+}
+
+/*
+    This section contains the CSS for Ally & Enemy section
+*/
+
+#relatedsection {
+    display:flex;
+}
+
+.relatedbox {
+    display: inline-block;
+    padding-bottom: 1em;
+    text-align: center;
+    display: inline-block;
+    width: 50%;
+}
+
+.relationtext {
+    font-size: 1.8em;
+    margin: .5em auto;
+}
+
+.relatedcountryname {
+    margin: .4em 0 0;
+    font-size: 1em;
+}
+
+.relatedflag {
+    padding-top: 0;
+    margin-top: 0em;
+    height: 3em;
+    width: 3em;
+    display:block;
+    margin: 0 auto;
+    border-radius: 50% 50% 50% 50% / 27% 27% 73% 73%;
+    object-fit: cover scale-down;
+}
+
+.relatedally {
+    border: .2em solid #00b4d8;
+}
+
+.relatedenemy {
+    border: .2em solid #9d0208;
+}
+
+
+#allied_country {
+    color: #00b4d8;
+}
+
+#enemy_country {
+    color: #9d0208;
+}
+
+/*
+    This section covers CSS for the modifiers section
+*/
+
+#modifiers {
+    text-align: center;
+    font-size: 1.2em;
+    margin: .5em;
+    margin-bottom: 0;
+}
+
+#modifier_field {
+    justify-content: center;
+    display:flex;
+}
+
+.modifier_text {
+    text-align: center;
+    margin: .5em;
+}
+
+/*
+    This section covers CSS for the Traits section
+*/
+
+.trait {
+    border: .15em solid #22223b;
+    padding-bottom: .5em;
+}
+
+.trait_name {
+    margin-top: .5em;
+    margin-bottom: 0;
+}
+
+.trait_description {
+    margin: .25em .1em 0;
+}
+
+
+/*
+    This section contains CSS for country name colors
+*/
+
+#s-tier {
+    color: #d62828;
+    padding-bottom: 0;
+}
+
+#a-tier, #A_BOX .country_name {
+    color: #f4a261;
+}
+
+#b-tier, #B_BOX .country_name {
+    color: #ffd166;
+}
+
+#c-tier, #C_BOX .country_name {
+    color: #00a896;
+}
+
+#d-tier, #D_BOX .country_name {
+    color: #0096c7;
+}
+
+#f-tier, #F_BOX .country_name {
+    color: #bdb2ff;
+}
+
+
+
+/*
+    This country contains CSS for specific country name colors
+*/
+

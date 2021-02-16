@@ -1,0 +1,49 @@
+#main_name {
+    font-size: 5em;
+    color: f4f1de;
+    margin: 0;
+}
+
+.description {
+    margin: 1em
+}
+
+h3 {
+    margin: .5em;
+}
+
+body {
+    font-size: 1em;
+    color: #f4f1de;
+}
+
+a {
+    color: #f4f1de;
+}
+
+#nav_bar {
+    display: inline-block;
+    width: auto;
+    margin-left: 4em;
+    padding-right: 1em;
+    border: .2em solid #f4f1de;
+}
+
+#recommended_idea {
+    margin: 2em auto;
+    justify-content: center;
+}
+
+#recommended_text {
+    margin-left: 1em;
+    width: 100%;
+}
+
+.idea_set {
+    display:flex;
+}
+
+.idea {
+    background-color: #9d0208;
+    margin: 0 2em;
+}
