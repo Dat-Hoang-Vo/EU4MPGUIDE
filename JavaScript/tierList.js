@@ -112,6 +112,58 @@ function hoverFlag(country) {
         austriaUpdateInfo();
     } else if (country == 'Burgundy') {
         burgundyUpdateInfo();
+    } else if (country == 'Poland') {
+        polandUpdateInfo();
+    } else if (country == 'Mamluks') {
+        mamluksUpdateInfo();
+    } else if (country == 'Brandenburg') {
+        brandenburgUpdateInfo();
+    } else if (country == 'Sweden') {
+        swedenUpdateInfo();
+    } else if (country == 'Milan') {
+        milanUpdateInfo();
+    } else if (country == 'Brunswick') {
+        brunswickUpdateInfo();
+    } else if (country == 'Portugal') {
+        portugalUpdateInfo();
+    } else if (country == 'Qara Qoyunlu') {
+        qaraQoyunluUpdateInfo();
+    } else if (country == 'Hungary') {
+        hungaryUpdateInfo();
+    } else if (country == 'Denmark') {
+        denmarkUpdateInfo();
+    } else if (country == 'Switzerland') {
+        switzerlandUpdateInfo();
+    } else if (country == 'Papal States') {
+        papalStatesUpdateInfo();
+    } else if (country == 'Naples') {
+        naplesUpdateInfo();
+    } else if (country == 'Hamburg') {
+        hamburgUpdateInfo();
+    } else if (country == 'Landshut') {
+        landshutUpdateInfo();
+    } else if (country == 'Holland') {
+        hollandUpdateInfo();
+    } else if (country == 'Venice') {
+        veniceUpdateInfo();
+    } else if (country == 'Genoa') {
+        genoaUpdateInfo();
+    } else if (country == 'Norway') {
+        norwayUpdateInfo();
+    } else if (country == 'Rothenburg') {
+        rothenburgUpdateInfo();
+    } else if (country == 'Livonian Order') {
+        livonianOrderUpdateInfo();
+    } else if (country == 'Great Horde') {
+        greatHordeUpdateInfo();
+    } else if (country == 'Florence') {
+        florenceUpdateInfo();
+    } else if (country == 'Georgia') {
+        georgiaUpdateInfo();
+    } else if (country == 'Morocco') {
+        moroccoUpdateInfo();
+    } else if (country == 'Tunis') {
+        tunisUpdateInfo();
     }
 
     document.getElementById("quickInfoMotto").innerHTML = '"' + country_motto + '"';
@@ -199,8 +251,8 @@ function franceUpdateInfo() {
 
 function muscovyUpdateInfo() {
     country_motto = 'An Endless March';
-    new_allies = ['Sweden', 'Austria', 'Ottomans'];
-    new_threats = ['Ottomans', 'Poland', 'Brandenburg'];
+    new_allies = ['Sweden', 'Austria', 'England'];
+    new_threats = ['Poland', 'Brandenburg', 'Ottomans'];
     modifier_type = ['Morale', 'Discipline', 'Manpower', 'Land Forcelimit', 'Fire Received', 'Artillery Combat', 'Army Tradition'];
     modifier_value = ['5%', '5%', '53%', '50%', '-10%', '10%', '.25'];
 
@@ -218,8 +270,8 @@ function muscovyUpdateInfo() {
 
 function englandUpdateInfo() {
     country_motto = 'Naval Royalty';
-    new_allies = ['Brunswick', 'Burgundy', 'Austria'];
-    new_threats = ['France', 'Portugal', 'Norway'];
+    new_allies = ['Brunswick', 'Burgundy', 'Muscovy'];
+    new_threats = ['Portugal', 'Burgundy', 'Norway'];
     modifier_type = ['Naval Morale', 'Heavy Ship Combat', 'Morale', 'Discipline', 'Shock Received', 'Goods Produced', 'Cultured Advisor Cost'];
     modifier_value = ['20%', '15%', '10%', '5%', '-10%', '10%', '20%'];
 
@@ -237,7 +289,7 @@ function englandUpdateInfo() {
 function ottomansUpdateInfo() {
     country_motto = 'Ashes of the Purple Phoenix';
     new_allies = ['Tunis', 'Timurids', 'Morocco'];
-    new_threats = ['Austria', 'Poland', 'Mamluks'];
+    new_threats = ['Mamluks', 'Hungary', 'Muscovy'];
     modifier_type = ['Discipline', 'Land Forcelimit', 'Manpower Recovery'];
     modifier_value = ['5%', '33%', '10%'];
 
@@ -253,7 +305,7 @@ function ottomansUpdateInfo() {
         'bad'];
     trait_description = [
         'The Ottomans maintained one of the first expertly trained standing armies in the world. The Janissaries take 10% less damage and drill at double speed, but cost double to reinforce.',
-        'By conquering the last strongholds of the Byzantine Empire, the Ottomans assume control of one of the most important cities in the world: Constantinople.',
+        'By conquering the last strongholds of the Byzantine Empire, the Ottomans assume control of one of the most important cities in the world: Constantinople. This city can bring lucrative trade wealth to the Empire.',
         'The Ottoman Empire is in a formiddable position to restate the importance of Middle Eastern politics onto Europe. If played correctly, Europe will soon fear the Ottoman presence on the continent.',
         'The Ottomans begin in a deadly fued over control of the Middle East with the Mamluks. Only one successor to the Caliphate will remain once the dust settles.',
         'Europe has not forgotten the Jihads of the past. The Ottoman Empire faces risk of a unified European front containing not only the central block but other aspiring crusader states. The European threat can also present the opportunity for Middle Eastern rivals to strike.'
@@ -263,8 +315,8 @@ function ottomansUpdateInfo() {
 
 function castileUpdateInfo() {
     country_motto = 'A Golden Crown';
-    new_allies = ['Portugal', 'France', 'Naples'];
-    new_threats = ['Morocco', 'Tunis', 'Naples'];
+    new_allies = ['France', 'Portugal', 'Papal States'];
+    new_threats = ['France', 'Morocco', 'Tunis'];
     modifier_type = ['Morale', 'Artillery Fire', 'Discipline', 'Naval Forcelimit', 'Heavy Ship Combat'];
     modifier_value = ['15%', '+1', '5%', '25%', '10%'];
 
@@ -290,8 +342,8 @@ function castileUpdateInfo() {
 
 function austriaUpdateInfo() {
     country_motto = 'An Imperial Court';
-    new_allies = ['Poland', 'Brandenburg', 'England'];
-    new_threats = ['Ottomans', 'Brandenburg', 'France'];
+    new_allies = ['Poland', 'Brandenburg', 'Papal States'];
+    new_threats = ['France', 'Burgundy', 'Ottomans'];
     modifier_type = ['Morale', 'Reinforce Speed', 'Discipline'];
     modifier_value = ['10%', '30%', '3%'];
 
@@ -318,7 +370,7 @@ function austriaUpdateInfo() {
 function burgundyUpdateInfo() {
     country_motto = 'Dreams of Lotharingia';
     new_allies = ['France', 'Austria', 'England'];
-    new_threats = ['France', 'Austria', 'Holland',];
+    new_threats = ['France', 'Austria', 'England',];
     modifier_type = ['Morale', 'Discipline', 'Manpower', 'Goods Produced'];
     modifier_value = ['10%', '5%', '25%', '15%'];
 
@@ -329,5 +381,551 @@ function burgundyUpdateInfo() {
     trait_description = [
         'At the start of the game Burgundy begins with royal unions on three lowland countries. Burgundy can use their unions to great benefit in early wars, and can develop the rich land for themselves later on.',
         'The Burgundian crown has gotten used to using unconventional means to survive. Burgundy is able to maintain a mercenary army 15% cheaper and with 50% more manpower.'
+    ];
+}
+
+
+function polandUpdateInfo() {
+    country_motto = '';
+    new_allies = ['Austria', 'Brandenburg', 'Sweden'];
+    new_threats = ['Austria', 'Muscovy', 'Ottomans',];
+    modifier_type = ['', '', '', ''];
+    modifier_value = ['', '', '', ''];
+
+    trait_name = ['',
+        ''];
+    trait_rating = ['good',
+        'good',
+        'neutral',
+        'neutral',
+        'bad'];
+    trait_description = [
+        '',
+        ''
+    ];
+}
+
+
+function mamluksUpdateInfo() {
+    country_motto = '';
+    new_allies = ['Qara Qoyunlu', 'Tunis', 'Rassids'];
+    new_threats = ['Ottomans', 'Tunis', 'Ethiopia',];
+    modifier_type = ['', '', '', ''];
+    modifier_value = ['', '', '', ''];
+
+    trait_name = ['',
+        ''];
+    trait_rating = ['good',
+        'good',
+        'neutral',
+        'neutral',
+        'bad'];
+    trait_description = [
+        '',
+        ''
+    ];
+}
+
+
+function brandenburgUpdateInfo() {
+    country_motto = '';
+    new_allies = ['Austria', 'Poland', 'Muscovy'];
+    new_threats = ['Hannover', 'Poland', 'Sweden',];
+    modifier_type = ['', '', '', ''];
+    modifier_value = ['', '', '', ''];
+
+    trait_name = ['',
+        ''];
+    trait_rating = ['good',
+        'good',
+        'neutral',
+        'neutral',
+        'bad'];
+    trait_description = [
+        '',
+        ''
+    ];
+}
+
+
+function swedenUpdateInfo() {
+    country_motto = '';
+    new_allies = ['Muscovy', 'Austria', 'England'];
+    new_threats = ['Muscovy', 'Brandenburg', 'England',];
+    modifier_type = ['', '', '', ''];
+    modifier_value = ['', '', '', ''];
+
+    trait_name = ['',
+        ''];
+    trait_rating = ['good',
+        'good',
+        'neutral',
+        'neutral',
+        'bad'];
+    trait_description = [
+        '',
+        ''
+    ];
+}
+
+
+function milanUpdateInfo() {
+    country_motto = '';
+    new_allies = ['Austria', 'Naples', 'France'];
+    new_threats = ['Florence', 'Switzerland', 'France',];
+    modifier_type = ['', '', '', ''];
+    modifier_value = ['', '', '', ''];
+
+    trait_name = ['',
+        ''];
+    trait_rating = ['good',
+        'good',
+        'neutral',
+        'neutral',
+        'bad'];
+    trait_description = [
+        '',
+        ''
+    ];
+}
+
+
+function brunswickUpdateInfo() {
+    country_motto = '';
+    new_allies = ['Austria', 'England', 'Sweden'];
+    new_threats = ['Burgundy', 'Brandenburg', 'Denmark',];
+    modifier_type = ['', '', '', ''];
+    modifier_value = ['', '', '', ''];
+
+    trait_name = ['',
+        ''];
+    trait_rating = ['good',
+        'good',
+        'neutral',
+        'neutral',
+        'bad'];
+    trait_description = [
+        '',
+        ''
+    ];
+}
+
+
+function portugalUpdateInfo() {
+    country_motto = '';
+    new_allies = ['Castile', 'England', 'France'];
+    new_threats = ['Castile', 'England', 'Morocco',];
+    modifier_type = ['', '', '', ''];
+    modifier_value = ['', '', '', ''];
+
+    trait_name = ['',
+        ''];
+    trait_rating = ['good',
+        'good',
+        'neutral',
+        'neutral',
+        'bad'];
+    trait_description = [
+        '',
+        ''
+    ];
+}
+
+
+function qaraQoyunluUpdateInfo() {
+    country_motto = '';
+    new_allies = ['Ottomans', 'Mamluks', 'Rassids'];
+    new_threats = ['Ottomans', 'Mamluks', 'Timurids',];
+    modifier_type = ['', '', '', ''];
+    modifier_value = ['', '', '', ''];
+
+    trait_name = ['',
+        ''];
+    trait_rating = ['good',
+        'good',
+        'neutral',
+        'neutral',
+        'bad'];
+    trait_description = [
+        '',
+        ''
+    ];
+}
+
+
+function hungaryUpdateInfo() {
+    country_motto = '';
+    new_allies = ['Austria', 'Poland', 'Muscovy'];
+    new_threats = ['Austria', 'Poland', 'Ottomans',];
+    modifier_type = ['', '', '', ''];
+    modifier_value = ['', '', '', ''];
+
+    trait_name = ['',
+        ''];
+    trait_rating = ['good',
+        'good',
+        'neutral',
+        'neutral',
+        'bad'];
+    trait_description = [
+        '',
+        ''
+    ];
+}
+
+
+function denmarkUpdateInfo() {
+    country_motto = '';
+    new_allies = ['Austria', 'England', 'Muscovy'];
+    new_threats = ['Brandenburg', 'Poland', 'Muscovy',];
+    modifier_type = ['', '', '', ''];
+    modifier_value = ['', '', '', ''];
+
+    trait_name = ['',
+        ''];
+    trait_rating = ['good',
+        'good',
+        'neutral',
+        'neutral',
+        'bad'];
+    trait_description = [
+        '',
+        ''
+    ];
+}
+
+
+function switzerlandUpdateInfo() {
+    country_motto = '';
+    new_allies = ['Austria', 'Florence', 'Brunswick'];
+    new_threats = ['Austria', 'France', 'Milan',];
+    modifier_type = ['', '', '', ''];
+    modifier_value = ['', '', '', ''];
+
+    trait_name = ['',
+        ''];
+    trait_rating = ['good',
+        'good',
+        'neutral',
+        'neutral',
+        'bad'];
+    trait_description = [
+        '',
+        ''
+    ];
+}
+
+
+function florenceUpdateInfo() {
+    country_motto = '';
+    new_allies = ['Austria', 'Switzerland', 'France'];
+    new_threats = ['Milan', 'Naples', 'France',];
+    modifier_type = ['', '', '', ''];
+    modifier_value = ['', '', '', ''];
+
+    trait_name = ['',
+        ''];
+    trait_rating = ['good',
+        'good',
+        'neutral',
+        'neutral',
+        'bad'];
+    trait_description = [
+        '',
+        ''
+    ];
+}
+
+
+function papalStatesUpdateInfo() {
+    country_motto = '';
+    new_allies = ['Austria', 'Castile', 'Switzerland'];
+    new_threats = ['France', 'Florence', 'Naples',];
+    modifier_type = ['', '', '', ''];
+    modifier_value = ['', '', '', ''];
+
+    trait_name = ['',
+        ''];
+    trait_rating = ['good',
+        'good',
+        'neutral',
+        'neutral',
+        'bad'];
+    trait_description = [
+        '',
+        ''
+    ];
+}
+
+
+function naplesUpdateInfo() {
+    country_motto = '';
+    new_allies = ['Austria', 'Milan', 'Castile'];
+    new_threats = ['Papal States', 'Florence', 'Tunis',];
+    modifier_type = ['', '', '', ''];
+    modifier_value = ['', '', '', ''];
+
+    trait_name = ['',
+        ''];
+    trait_rating = ['good',
+        'good',
+        'neutral',
+        'neutral',
+        'bad'];
+    trait_description = [
+        '',
+        ''
+    ];
+}
+
+
+function hamburgUpdateInfo() {
+    country_motto = '';
+    new_allies = ['Austria', 'England', 'Sweden'];
+    new_threats = ['Brandenburg', 'Burgundy', 'Denmark',];
+    modifier_type = ['', '', '', ''];
+    modifier_value = ['', '', '', ''];
+
+    trait_name = ['',
+        ''];
+    trait_rating = ['good',
+        'good',
+        'neutral',
+        'neutral',
+        'bad'];
+    trait_description = [
+        '',
+        ''
+    ];
+}
+
+
+function landshutUpdateInfo() {
+    country_motto = '';
+    new_allies = ['Austria', 'Switzerland', 'Brandenburg'];
+    new_threats = ['Austria', 'Burgundy', 'France',];
+    modifier_type = ['', '', '', ''];
+    modifier_value = ['', '', '', ''];
+
+    trait_name = ['',
+        ''];
+    trait_rating = ['good',
+        'good',
+        'neutral',
+        'neutral',
+        'bad'];
+    trait_description = [
+        '',
+        ''
+    ];
+}
+
+
+function hollandUpdateInfo() {
+    country_motto = '';
+    new_allies = ['Austria', 'France', 'England'];
+    new_threats = ['Austria', 'France', 'England',];
+    modifier_type = ['', '', '', ''];
+    modifier_value = ['', '', '', ''];
+
+    trait_name = ['',
+        ''];
+    trait_rating = ['good',
+        'good',
+        'neutral',
+        'neutral',
+        'bad'];
+    trait_description = [
+        '',
+        ''
+    ];
+}
+
+
+function veniceUpdateInfo() {
+    country_motto = '';
+    new_allies = ['France', 'Florence', 'Papal States'];
+    new_threats = ['Austria', 'Ottomans', 'Milan',];
+    modifier_type = ['', '', '', ''];
+    modifier_value = ['', '', '', ''];
+
+    trait_name = ['',
+        ''];
+    trait_rating = ['good',
+        'good',
+        'neutral',
+        'neutral',
+        'bad'];
+    trait_description = [
+        '',
+        ''
+    ];
+}
+
+
+function genoaUpdateInfo() {
+    country_motto = '';
+    new_allies = ['France', 'Switzerland', 'Austria'];
+    new_threats = ['France', 'Milan', 'Florence',];
+    modifier_type = ['', '', '', ''];
+    modifier_value = ['', '', '', ''];
+
+    trait_name = ['',
+        ''];
+    trait_rating = ['good',
+        'good',
+        'neutral',
+        'neutral',
+        'bad'];
+    trait_description = [
+        '',
+        ''
+    ];
+}
+
+
+function norwayUpdateInfo() {
+    country_motto = '';
+    new_allies = ['Sweden', 'Denmark', 'Austria'];
+    new_threats = ['England', 'Denmark', 'Muscovy',];
+    modifier_type = ['', '', '', ''];
+    modifier_value = ['', '', '', ''];
+
+    trait_name = ['',
+        ''];
+    trait_rating = ['good',
+        'good',
+        'neutral',
+        'neutral',
+        'bad'];
+    trait_description = [
+        '',
+        ''
+    ];
+}
+
+
+function rothenburgUpdateInfo() {
+    country_motto = '';
+    new_allies = ['Austria', 'Switzerland', 'Landshut'];
+    new_threats = ['Austria', 'Burgundy', 'Landshut',];
+    modifier_type = ['', '', '', ''];
+    modifier_value = ['', '', '', ''];
+
+    trait_name = ['',
+        ''];
+    trait_rating = ['good',
+        'good',
+        'neutral',
+        'neutral',
+        'bad'];
+    trait_description = [
+        '',
+        ''
+    ];
+}
+
+
+function livonianOrderUpdateInfo() {
+    country_motto = '';
+    new_allies = ['Muscovy', 'Poland', 'Austria'];
+    new_threats = ['Muscovy', 'Poland', 'Sweden',];
+    modifier_type = ['', '', '', ''];
+    modifier_value = ['', '', '', ''];
+
+    trait_name = ['',
+        ''];
+    trait_rating = ['good',
+        'good',
+        'neutral',
+        'neutral',
+        'bad'];
+    trait_description = [
+        '',
+        ''
+    ];
+}
+
+
+function greatHordeUpdateInfo() {
+    country_motto = '';
+    new_allies = ['Timurids', 'Qara Qoyunlu', 'Ottomans'];
+    new_threats = ['Muscovy', 'Poland', 'Ottomans',];
+    modifier_type = ['', '', '', ''];
+    modifier_value = ['', '', '', ''];
+
+    trait_name = ['',
+        ''];
+    trait_rating = ['good',
+        'good',
+        'neutral',
+        'neutral',
+        'bad'];
+    trait_description = [
+        '',
+        ''
+    ];
+}
+
+
+function georgiaUpdateInfo() {
+    country_motto = '';
+    new_allies = ['Muscovy', 'Qara Qoyunlu', 'Ottomans'];
+    new_threats = ['Great Horde', 'Qara Qoyunlu', 'Ottomans',];
+    modifier_type = ['', '', '', ''];
+    modifier_value = ['', '', '', ''];
+
+    trait_name = ['',
+        ''];
+    trait_rating = ['good',
+        'good',
+        'neutral',
+        'neutral',
+        'bad'];
+    trait_description = [
+        '',
+        ''
+    ];
+}
+
+
+function moroccoUpdateInfo() {
+    country_motto = '';
+    new_allies = ['Tunis', 'Ottomans', 'Mamluks'];
+    new_threats = ['Castile', 'Portugal', 'Songhai',];
+    modifier_type = ['', '', '', ''];
+    modifier_value = ['', '', '', ''];
+
+    trait_name = ['',
+        ''];
+    trait_rating = ['good',
+        'good',
+        'neutral',
+        'neutral',
+        'bad'];
+    trait_description = [
+        '',
+        ''
+    ];
+}
+
+
+function tunisUpdateInfo() {
+    country_motto = '';
+    new_allies = ['Morocco', 'Ottomans', 'Mamluks'];
+    new_threats = ['Naples', 'Castile', 'Mamluks',];
+    modifier_type = ['', '', '', ''];
+    modifier_value = ['', '', '', ''];
+
+    trait_name = ['',
+        ''];
+    trait_rating = ['good',
+        'good',
+        'neutral',
+        'neutral',
+        'bad'];
+    trait_description = [
+        '',
+        ''
     ];
 }
