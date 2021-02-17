@@ -199,7 +199,7 @@ function franceUpdateInfo() {
 }
 
 function muscovyUpdateInfo() {
-    flavor_text = 'An Endless March';
+    country_motto = 'An Endless March';
     new_allies = ['Sweden', 'Austria', 'Ottomans'];
     new_threats = ['Ottomans', 'Poland', 'Brandenburg'];
     modifier_type = ['Morale', 'Discipline', 'Manpower', 'Land Forcelimit', 'Fire Received', 'Artillery Combat', 'Army Tradition'];
@@ -218,7 +218,7 @@ function muscovyUpdateInfo() {
 
 
 function englandUpdateInfo() {
-    flavor_text = 'Naval Royalty';
+    country_motto = 'Naval Royalty';
     new_allies = ['Brunswick', 'Burgundy', 'Austria'];
     new_threats = ['France', 'Portugal', 'Norway'];
     modifier_type = ['Naval Morale', 'Heavy Ship Combat', 'Morale', 'Discipline', 'Shock Received', 'Goods Produced', 'Cultured Advisor Cost'];
@@ -236,7 +236,7 @@ function englandUpdateInfo() {
 }
 
 function ottomansUpdateInfo() {
-    flavor_text = 'Ashes of the Purple Phoenix';
+    country_motto = 'Ashes of the Purple Phoenix';
     new_allies = ['Tunis', 'Timurids', 'Morocco'];
     new_threats = ['Austria', 'Poland', 'Mamluks'];
     modifier_type = ['Discipline', 'Land Forcelimit', 'Manpower Recovery'];
@@ -263,7 +263,7 @@ function ottomansUpdateInfo() {
 
 
 function castileUpdateInfo() {
-    flavor_text = 'A Golden Crown';
+    country_motto = 'A Golden Crown';
     new_allies = ['Portugal', 'France', 'Naples'];
     new_threats = ['Morocco', 'Tunis', 'Naples'];
     modifier_type = ['Morale', 'Artillery Fire', 'Discipline', 'Naval Forcelimit', 'Heavy Ship Combat'];
@@ -290,7 +290,7 @@ function castileUpdateInfo() {
 
 
 function austriaUpdateInfo() {
-    flavor_text = 'An Imperial Court';
+    country_motto = 'An Imperial Court';
     new_allies = ['Poland', 'Brandenburg', 'England'];
     new_threats = ['Ottomans', 'Brandenburg', 'France'];
     modifier_type = ['Morale', 'Reinforce Speed', 'Discipline'];
@@ -317,7 +317,7 @@ function austriaUpdateInfo() {
 
 
 function burgundyUpdateInfo() {
-    flavor_text = 'Dreams of Lotharingia';
+    country_motto = 'Dreams of Lotharingia';
     new_allies = ['France', 'Austria', 'England'];
     new_threats = ['France', 'Austria', 'Holland',];
     modifier_type = ['Morale', 'Discipline', 'Manpower', 'Goods Produced'];
