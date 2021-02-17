@@ -110,6 +110,8 @@ function hoverFlag(country) {
         castileUpdateInfo();
     } else if (country == 'Austria') {
         austriaUpdateInfo();
+    } else if (country == 'Burgundy') {
+        burgundyUpdateInfo();
     }
 
     document.getElementById("quickInfoMotto").innerHTML = '"' + country_motto + '"';
@@ -172,31 +174,28 @@ function hoverFlag(country) {
 
 function franceUpdateInfo() {
     country_motto = 'Legacy of Charlemagne';
-    new_allies = ['Burgundy', 'Castile', 'Poland'];
-    new_threats = ['Burgundy', 'England', 'Austria'];
-    modifier_type = ['Morale', 'Discipline', 'Manpower', 'Recovery'];
+    new_allies = ['Castile', 'Milan', 'Burgundy'];
+    new_threats = ['England', 'Austria', 'Burgundy'];
+    modifier_type = ['Morale', 'Discipline', 'Manpower', 'Manpower Recovery'];
     modifier_value = ['20%', '5%', '20%', '10%'];
 
-    trait_name = [
-        'The Various Duchies',
-        'Retake the Coast',
-        'Your Younger Brother',
-        'Weak Trade',
-        'Blue Bloodbath'];
-    trait_rating = [
-        'good',
+    trait_name = ['French Hegemony',
+        'Victory Through Valor - "Pour le Roi!"',
+        "The Hundred Years' War",
+        'A Decentralized Realm',
+        'The Costs of Power'];
+    trait_rating = ['good',
         'good',
         'neutral',
         'neutral',
-        'bad',
         'bad'];
-    trait_description = [
-        'France starts in a peculiar position ruling over many minor vassals.Although this situation provides more troops per development, they are hard to control and often get stack wiped when mismanaged.',
-        'The reconquest of Normandy and Bordeaux is vital to your survival. It is quite common for France to offer England 250 - 400 ducats to buy back these cores. You can often declare war with England before making this proposal unless they managed to amass a large alliance against you. An reliable ally is needed to avoid a bankruptcy war from here on.',
-        "France's relationship with Burgundy should be decided before the game starts. Although you both hold eachother's cultured lands, it's possible to co-exist by focusing on Italy/Iberia and allowing Burgundy to expand into Germany or even England.",
-        'France has an inherint lack of a unified end trade node that they can collect from. This leads to inefficient production dev that often seeps money into other nations such as England or Burgundy. This issue can be aleviated by conquering all of the Genoese trade node and pushing all trade there.',
-        "Compared to most viable nations, France's main military bonus exist in their Elan morale boost. While useful early game, morale actually makes you lose more troops in the late game as weak divisions refuse to retreat. This on top of many other countries built in bonus damage can cause France to take higher than normal casualties."];
+    trait_description = ['France is in an exceptional position to dominate European politics if managed correctly. Few countries can step up to France one-on-one. France also gets a myriad of events relating to to its historical dominance of Europe, including the French Revolution.',
+        'France fields an army unlike many others. Its soldiers fight with unwavering fortitude. Despite the advantages of this attribute, it can lead to mass casualties as morale fades and discipline becomes dominant.',
+        'The French begin in a deep rivalry with England and at a crossroads with Burgundy. The ineptitude of the English King presents a rare opportunity to reclaim French cores. Early diplomacy (or the lack thereof) with Burgundy will greatly affect your game.   ',
+        'The French Kingdom begins the game divided amongst autonomous counts and dukes. This presents an opportunity to swarm your enemies at the cost of decentralization. The French vassal troops are hard to control and are easily wiped while seperated.',
+        'France is routinely the target of coalitions due to its strong position. Make sure to keep an eye on your percieved aggressiveness.'];
 }
+
 
 function muscovyUpdateInfo() {
     country_motto = 'An Endless March';
