@@ -44,22 +44,22 @@ F_Rank.set('Georgia', 'inactive');
 F_Rank.set('Great Horde', 'inactive');
 
 function generateTierList() {
-    var modify_S_Tier = document.getElementById("S_BOX");
+    var modify_S_Tier = document.getElementById("S_TIER");
     generateTieredCountries(modify_S_Tier, S_Rank);
 
-    var modifier_A_Tier = document.getElementById("A_BOX");
+    var modifier_A_Tier = document.getElementById("A_TIER");
     generateTieredCountries(modifier_A_Tier, A_Rank);
 
-    var modifier_B_Tier = document.getElementById("B_BOX");
+    var modifier_B_Tier = document.getElementById("B_TIER");
     generateTieredCountries(modifier_B_Tier, B_Rank);
 
-    var modifier_C_Tier = document.getElementById("C_BOX");
+    var modifier_C_Tier = document.getElementById("C_TIER");
     generateTieredCountries(modifier_C_Tier, C_Rank);
 
-    var modifier_D_Tier = document.getElementById("D_BOX");
+    var modifier_D_Tier = document.getElementById("D_TIER");
     generateTieredCountries(modifier_D_Tier, D_Rank);
 
-    var modifier_F_Tier = document.getElementById("F_BOX");
+    var modifier_F_Tier = document.getElementById("F_TIER");
     generateTieredCountries(modifier_F_Tier, F_Rank);
 }
 
@@ -70,37 +70,27 @@ function generateTieredCountries(addbox, Map) {
             link = 'href="' + keys + '.html"';
         }
         addbox.innerHTML +=
-            '<div class="country">' +
-            '<a ' + link + '>' +
-            '<img src="Flags/' + keys + '.png" class="flag ' + values + '" onmouseover="hoverFlag(' + "'" + keys + "'" + ')">' +
-            '<p class="country_name ' + keys + '">' + keys + '</p></a></div>';
+            '<div class="country ' + values + '">' +
+            '<img src="CroppedFlags/' + keys + '.png" class="tierFlag" onmouseover="hoverFlag(' + "'" + keys + "'" + ')">' +
+            '<p class="countryName" >' + keys + '</p ></div >'
     });
 }
 
 
-
-
-
-
-
-
-var flavor_text;
-var allies;
-var enemies;
-var modifier_type;
-var modifier_value;
-var trait_name;
-var trait_rating;
-var trait_description;
+var new_allies;
+var new_threats;
+var country_motto;
 
 
 function hoverFlag(country) {
-    document.getElementById("quickinfoname").innerHTML = country;
-    document.getElementById("quickinfoname").className = "country_name secondarytext " + country;
+    var new_quick_info_name = document.getElementById("quickInfoName");
+    var modify_country_name = country.toUpperCase();
+    new_quick_info_name.innerHTML = modify_country_name;
 
-    flavor_text = 'Country Flavor';
-    allies = [];
-    enemies = [];
+    country_motto = 'Country Flavor';
+    new_allies = [];
+    new_threats = [];
+
     modifier_type = [];
     modifier_value = [];
 
@@ -122,122 +112,96 @@ function hoverFlag(country) {
         austriaUpdateInfo();
     }
 
+    document.getElementById("quickInfoMotto").innerHTML = '"' + country_motto + '"';
 
-    document.getElementById("flavor_text").innerHTML = flavor_text;
+    for (i = 1; i < 4; i++) {
+        var new_flag = 'AllyIMG' + i;
+        document.getElementById(new_flag).className = "relationsFlag";
+        document.getElementById(new_flag).src = "CroppedFlags/" + new_allies[i - 1] + ".png";
 
-    var edit_ally = document.getElementById("ally_list");
-    if (allies.length > 0) {
-        for (i = 0; i < allies.length; i++) {
-            var image = '"Flags/' + allies[i] + '.png"';
-            var id = allies[i];
-            if (i == 0) {
-                edit_ally.innerHTML =
-                    '<div class="country_mini"><img src = ' + image + 'class="relatedflag relatedally"><p class="relatedcountryname primarytext ' + id + '">' + id + '</p></div> ';
-            } else {
-                edit_ally.innerHTML +=
-                    '<div class="country_mini"><img src = ' + image + 'class="relatedflag relatedally"><p class="relatedcountryname primarytext ' + id + '">' + id + '</p></div> ';
-            }
-        }
-    } else {
-        edit_ally.innerHTML = '';
+        var new_ally_name = 'AllyName' + i;
+        document.getElementById(new_ally_name).innerText = new_allies[i - 1];
     }
 
+    for (i = 1; i < 4; i++) {
+        var new_flag = 'threatsIMG' + i;
+        document.getElementById(new_flag).className = "relationsFlag";
+        document.getElementById(new_flag).src = "CroppedFlags/" + new_threats[i - 1] + ".png";
 
-    var edit_enemy = document.getElementById("enemy_list");
-    if (enemies.length > 0) {
-        for (i = 0; i < enemies.length; i++) {
-            var image = '"Flags/' + enemies[i] + '.png"';
-            var id = enemies[i];
-            if (i == 0) {
-                edit_enemy.innerHTML =
-                    '<div class="country_mini"><img src = ' + image + 'class="relatedflag relatedenemy"><p class="relatedcountryname primarytext ' + id + '">' + id + '</p></div> ';
-            } else {
-                edit_enemy.innerHTML +=
-                    '<div class="country_mini"><img src = ' + image + 'class="relatedflag relatedenemy"><p class="relatedcountryname primarytext ' + id + '">' + id + '</p></div> ';
-            }
-        }
-    } else {
-        edit_enemy.innerHTML = '';
+        var new_threat_name = 'threatsName' + i;
+        document.getElementById(new_threat_name).innerText = new_threats[i - 1];
     }
 
-
-    var edit_modifier = document.getElementById("modifier_field");
     if (modifier_type.length > 0) {
         for (i = 0; i < modifier_type.length; i++) {
             if (i == 0) {
-                edit_modifier.innerHTML =
-                    '<div><p class="modifier_text secondarytext">' + modifier_type[i] + '</p><p class="modifier_text secondarytext">' + modifier_value[i] + '</p></div>';
+                document.getElementById('modifiersSplit').innerHTML =
+                    '<div class="modifierUnit"><p class="modifier">' + modifier_type[i] + ' ' + modifier_value[i] + '</p></div>'
             } else {
-                edit_modifier.innerHTML +=
-                    '<div><p class="modifier_text secondarytext">' + modifier_type[i] + '</p><p class="modifier_text secondarytext">' + modifier_value[i] + '</p></div>';
+                document.getElementById('modifiersSplit').innerHTML +=
+                    '<div class="modifierUnit"><p class="modifier">' + modifier_type[i] + ' ' + modifier_value[i] + '</p></div>'
             }
         }
-    } else {
-        edit_modifier.innerHTML = '';
     }
 
+    /*<div id="traits1" class="traits">
+    <h2 class="traitsTitle">Pepee</h2>
+    <p class="traitsText">Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim doloremque
+        laborum eligendi aut
+        dicta ratione quidem, cumque rerum reprehenderit dolore voluptas iusto quae a molestias,
+        eveniet
+        saepe ex adipisci voluptates.</p>
+    </div>
+    */
 
-    var edit_trait = document.getElementById("traits");
     if (trait_name.length > 0) {
         for (i = 0; i < trait_name.length; i++) {
             if (i == 0) {
-                edit_trait.innerHTML =
-                    '<div class="trait"><h4 class="trait_name ' + trait_rating[i] + '">' + trait_name[i] + '</h4><p class="trait_description primarytext">' + trait_description[i] + '</p></div>'
+                document.getElementById('traitsBox').innerHTML =
+                    '<div class="traits"><h2 class="traitsTitle ' + trait_rating[i] + '">' + trait_name[i] + '</h2>' +
+                    '<p class="traitsText">' + trait_description[i] + '</p></div>';
             } else {
-                edit_trait.innerHTML +=
-                    '<div class="trait"><h4 class="trait_name ' + trait_rating[i] + '">' + trait_name[i] + '</h4><p class="trait_description primarytext">' + trait_description[i] + '</p></div>'
+                document.getElementById('traitsBox').innerHTML +=
+                    '<div class="traits"><h2 class="traitsTitle ' + trait_rating[i] + '">' + trait_name[i] + '</h2>' +
+                    '<p class="traitsText">' + trait_description[i] + '</p></div>';
             }
         }
-    } else {
-        edit_trait.innerHTML = '';
     }
-
 
 }
 
-/*
-flavor_text = 'Any text here';
-allies['Valid', 'Country', 'Name'] Country name must be capitalized
-enemies['Valid', 'Country', 'Name'] Country name must be capitalized
-modifier_type = ['Modifer', 'Name']; No restrictions on naming convention
-modifier_value = ['Modifer', 'Value']; No restrictions on naming convention
-
-trait_name = ['Trait', 'Name']; No restrictions on naming convention
-trait_rating = ['good', 'neutral', 'bad']; Select from given options
-trait_description = ['Trait', 'Description']; No restrictions on naming convention
-*/
-
 function franceUpdateInfo() {
-    flavor_text = 'Legacy of Charlemagne';
-    allies = ['Castile', 'Milan', 'Burgundy'];
-    enemies = ['England', 'Austria', 'Burgundy'];
-    modifier_type = ['Morale', 'Discipline', 'Manpower', 'Manpower Recovery'];
+    country_motto = 'Legacy of Charlemagne';
+    new_allies = ['Burgundy', 'Castile', 'Poland'];
+    new_threats = ['Burgundy', 'England', 'Austria'];
+    modifier_type = ['Morale', 'Discipline', 'Manpower', 'Recovery'];
     modifier_value = ['20%', '5%', '20%', '10%'];
 
-    trait_name = ['French Hegemony',
-        'French Musketeers',
-        'Revolutionary Spirit',
-        "The Hundred Years' War",
-        'A Decentralized Realm',
-        'The Costs of Power'];
-    trait_rating = ['good',
+    trait_name = [
+        'The Various Duchies',
+        'Retake the Coast',
+        'Your Younger Brother',
+        'Weak Trade',
+        'Blue Bloodbath'];
+    trait_rating = [
         'good',
         'good',
         'neutral',
         'neutral',
+        'bad',
         'bad'];
-    trait_description = ['France is in an exceptional position to dominate European politics if managed correctly. Few countries can step up to France one-on-one.',
-        'During the Age of Absolutism the French gain access to unparalleled land firepower by way of musketeers.',
-        'France has a unique event chain relating to the French Revolution of 1789. If played correctly, France could easily conquer what Napoleon dreamt of.',
-        'The French begin in a deep rivalry with England and at a crossroads with Burgundy. Early diplomacy (or the lack thereof) will affect your game greatly.',
-        'The French Kingdom begins the game divided amongst autonomous counts and dukes. This presents an opportunity to swarm your enemies at the cost of decentralization.',
-        'France is routinely the target of coalitions due to its strong position. Make sure to keep an eye on your percieved aggressiveness.'];
+    trait_description = [
+        'France starts in a peculiar position ruling over many minor vassals.Although this situation provides more troops per development, they are hard to control and often get stack wiped when mismanaged.',
+        'The reconquest of Normandy and Bordeaux is vital to your survival. It is quite common for France to offer England 250 - 400 ducats to buy back these cores. You can often declare war with England before making this proposal unless they managed to amass a large alliance against you. An reliable ally is needed to avoid a bankruptcy war from here on.',
+        "France's relationship with Burgundy should be decided before the game starts. Although you both hold eachother's cultured lands, it's possible to co-exist by focusing on Italy/Iberia and allowing Burgundy to expand into Germany or even England.",
+        'France has an inherint lack of a unified end trade node that they can collect from. This leads to inefficient production dev that often seeps money into other nations such as England or Burgundy. This issue can be aleviated by conquering all of the Genoese trade node and pushing all trade there.',
+        "Compared to most viable nations, France's main military bonus exist in their Elan morale boost. While useful early game, morale actually makes you lose more troops in the late game as weak divisions refuse to retreat. This on top of many other countries built in bonus damage can cause France to take higher than normal casualties."];
 }
 
 function muscovyUpdateInfo() {
     flavor_text = 'An Endless March';
-    allies = ['Sweden', 'Austria'];
-    enemies = ['Ottomans', 'Poland', 'Brandenburg'];
+    new_allies = ['Sweden', 'Austria', 'Ottomans'];
+    new_threats = ['Ottomans', 'Poland', 'Brandenburg'];
     modifier_type = ['Morale', 'Discipline', 'Manpower', 'Land Forcelimit', 'Fire Received', 'Artillery Combat', 'Army Tradition'];
     modifier_value = ['5%', '5%', '53%', '50%', '-10%', '10%', '.25'];
 
@@ -255,26 +219,26 @@ function muscovyUpdateInfo() {
 
 function englandUpdateInfo() {
     flavor_text = 'Naval Royalty';
-    allies = ['Brunswick', 'Burgundy', 'Austria'];
-    enemies = ['France', 'Burgundy', 'Portugal', 'Denmark', 'Norway'];
+    new_allies = ['Brunswick', 'Burgundy', 'Austria'];
+    new_threats = ['France', 'Portugal', 'Norway'];
     modifier_type = ['Naval Morale', 'Heavy Ship Combat', 'Morale', 'Discipline', 'Shock Received', 'Goods Produced', 'Cultured Advisor Cost'];
     modifier_value = ['20%', '15%', '10%', '5%', '-10%', '10%', '20%'];
 
-    trait_name = ['An Island with an Ireland', 'Cloth Crops', 'Viking Saga Renewed', 'The Contested Channel', 'No Known Nobility'];
+    trait_name = ['An Island with an Ireland', 'The Bank of England', 'Viking Saga Renewed', 'The Contested Channel', 'No Known Nobility'];
     trait_rating = ['good', 'good', 'neutral', 'neutral', 'bad'];
     trait_description = [
-        'Most countries lack the naval capabilities to contest you at sea. This grants you high levels of protection and allows you to focus on developing your country.',
-        'England has an abundance of farmlands as well as cloth production. This further enhances Englands capabilities to play tall.',
-        'The war with the Nordics is not over. The Norwegian and Danish fleet pose a great threat to you. Starting as a stronger nation, a swift strike to conquer Scandinavia is a viable path for expansion. ',
-        'Although England typically dominates the English Channel, a strong country in the low-lands can greatly reduce their control. A hostile Burgundy or the Netherlands can reduce your hold on the English channel to nearly half.',
+        'Most countries lack the naval capabilities to contest you at sea. This grants the English high levels of protection and allows them to focus on developing their country.',
+        'England is easily able to become a global economic hegemon. By the use of the Royal Navy and the strong trade goods on English soil, the English Channel has exceptional potential. A strong naval presence and colonial presence will be paramount.',
+        'The war with the Nordics is not over. The Norwegian and Danish fleet pose a great threat to the English. Starting as a stronger nation, a swift strike to conquer Scandinavia is a viable path for expansion. ',
+        'Although England typically dominates the English Channel, a strong country in the lowlands can greatly reduce their control. A hostile Burgundy or the Netherlands can reduce your hold on the English channel to nearly half.',
         'England is one of the few monarchies to not have a nobility estate. This greatly reduces military capabilities in terms of manpower and military point generation.'
     ];
 }
 
 function ottomansUpdateInfo() {
     flavor_text = 'Ashes of the Purple Phoenix';
-    allies = ['Tunis', 'Timurids'];
-    enemies = ['Austria', 'Hungary', 'Poland', 'Mamluks', 'Persia'];
+    new_allies = ['Tunis', 'Timurids', 'Morocco'];
+    new_threats = ['Austria', 'Poland', 'Mamluks'];
     modifier_type = ['Discipline', 'Land Forcelimit', 'Manpower Recovery'];
     modifier_value = ['5%', '33%', '10%'];
 
@@ -300,8 +264,8 @@ function ottomansUpdateInfo() {
 
 function castileUpdateInfo() {
     flavor_text = 'A Golden Crown';
-    allies = ['Portugal', 'France', 'Naples'];
-    enemies = ['Morocco', 'Tunis', 'Naples', 'Austria'];
+    new_allies = ['Portugal', 'France', 'Naples'];
+    new_threats = ['Morocco', 'Tunis', 'Naples'];
     modifier_type = ['Morale', 'Artillery Fire', 'Discipline', 'Naval Forcelimit', 'Heavy Ship Combat'];
     modifier_value = ['15%', '+1', '5%', '25%', '10%'];
 
@@ -327,8 +291,8 @@ function castileUpdateInfo() {
 
 function austriaUpdateInfo() {
     flavor_text = 'An Imperial Court';
-    allies = ['Poland', 'Brandenburg', 'Milan', 'England'];
-    enemies = ['Ottomans', 'Brandenburg', 'France', 'Muscovy'];
+    new_allies = ['Poland', 'Brandenburg', 'England'];
+    new_threats = ['Ottomans', 'Brandenburg', 'France'];
     modifier_type = ['Morale', 'Reinforce Speed', 'Discipline'];
     modifier_value = ['10%', '30%', '3%'];
 
@@ -348,5 +312,23 @@ function austriaUpdateInfo() {
         'Located in the Alps, Austria has immense geographical defenses similar to Switzerland. However, this rocky terrain is harder to develop than other terrain. This can be alleviated by the farmland present in Bohemia and Hungary.',
         'The power of wearing the imperial crown is not free. Austria must manage internal HRE politics such as the votes of electors. While the HRE provides economic and military advantages, it also requires attentive micro-managing.',
         'Austria is surrounded by rivaling powers. To the West, France seeks to honor the legacy of Charlemagne. To the East, Russia and Poland struggle over dominance, and the Ottomans may try to add a new imperial city to their realm. To the South, the question of imperial loyalty may become a problem. To the North, Brandenburg may seek to remodel the HRE in its image.'
+    ];
+}
+
+
+function burgundyUpdateInfo() {
+    flavor_text = 'Dreams of Lotharingia';
+    new_allies = ['France', 'Austria', 'England'];
+    new_threats = ['France', 'Austria', 'Holland',];
+    modifier_type = ['Morale', 'Discipline', 'Manpower', 'Goods Produced'];
+    modifier_value = ['10%', '5%', '25%', '15%'];
+
+    trait_name = ['The Burgundian Bloodline',
+        'An Army for Hire'];
+    trait_rating = ['good',
+        'good'];
+    trait_description = [
+        'At the start of the game Burgundy begins with royal unions on three lowland countries. Burgundy can use their unions to great benefit in early wars, and can develop the rich land for themselves later on.',
+        'The Burgundian crown has gotten used to using unconventional means to survive. Burgundy is able to maintain a mercenary army 15% cheaper and with 50% more manpower.'
     ];
 }

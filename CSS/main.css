@@ -1,9 +1,9 @@
 .primarytext {
-    color: #fb8b24;
+    color: white;
 }
 
 .secondarytext {
-    color: #f4f1de;
+    color: white;
 }
 
 a {
@@ -23,19 +23,20 @@ a {
 */
 
 #table {
-    background-color: #3d5a80;
+    
     vertical-align: top;
-    margin: 2em;
     display: flexbox;
     box-sizing: border-box;
-    width: 40%;
-    border-radius: 2em;
+    width: 45%;
+    
 }
 
 .row {
-    border: .25em solid #22223b;
+    background-color: rgb(46,64,106);
+    background: linear-gradient(145deg, rgba(46,64,106,1) 0%, rgba(13,28,65,1) 100%);
+    border-radius: 2em;
     margin-top: 2em;
-    background-color: #03071e;
+
     padding-left: 1em;
     padding-top: .5em;
     
@@ -53,13 +54,16 @@ a {
 */
 
 #quickinfo {
+    background-color: rgb(46,64,106);
+    background: linear-gradient(145deg, rgba(46,64,106,1) 0%, rgba(13,28,65,1) 100%);
     overflow-y: auto;
     width: 60%;
-    top: 1.5em;
+    top: 6.5em;
     position:sticky;
     height: fit-content;
     margin: 2em;
-    background-color: #3d5a80;
+    padding-left: 2em;
+    padding-right: 2em;
     padding-bottom: 2em;
     border-radius: 2em;
 }
@@ -77,8 +81,6 @@ a {
 }
 
 .info_seperators {
-    background-color: #03071e;
-    border: .15em solid #22223b;
 } 
 
 /*
@@ -112,6 +114,7 @@ a {
     background-size: cover;
     transition: .5s;
     filter: grayscale(100%);
+    border: .2em solid black;
 }
 
 .active {
@@ -185,15 +188,38 @@ a {
 */
 
 #modifiers {
-    text-align: center;
-    font-size: 1.2em;
-    margin: .5em;
-    margin-bottom: 0;
+    display:flex;
+    flex-direction: row;
+    margin: .25em;
 }
+
+#modifiers::before, #modifiers::after {
+    content: "";
+    flex: 1 1;
+    border-bottom: .1em solid white;
+    margin:auto;
+}
+
+#modifiers::before {
+    margin-left: 1em;
+    margin-right: 2em;
+}
+
+#modifiers::after {
+    margin-left: 2em;
+    margin-right: 1em;
+}
+
+
 
 #modifier_field {
     justify-content: center;
     display:flex;
+    padding-bottom: .5em;
+    border-bottom: .1em solid white;
+    margin-left: 1em;
+    margin-right: 1em;
+    margin-bottom: 1.5em;
 }
 
 .modifier_text {
@@ -206,7 +232,6 @@ a {
 */
 
 .trait {
-    border: .15em solid #22223b;
     padding-bottom: .5em;
 }
 

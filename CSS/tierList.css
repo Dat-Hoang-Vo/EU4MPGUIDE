@@ -1,0 +1,271 @@
+h2, h3, h4 {
+    margin: 0;
+}
+
+#mainContent {
+    display:flex;
+}
+
+.splitContent {
+    display:flexbox;
+    box-sizing: border-box;
+    
+    border-radius: 2em;
+    margin: 0 2em;
+    height: auto;
+}
+
+#tierContent {
+    border: .35em solid rgb(46,64,106);
+    width: 40%;
+    color: rgb(46,64,106);
+    padding: 1em 2em 3em;
+}
+
+.tierName {
+    letter-spacing: .1em;
+    font-size: 3em;
+    margin: 0;
+}
+
+#S {
+    font-size: 1.8em;
+    color: #ffd166;
+    text-shadow: black .05em .05em .1em;
+}
+
+.tierInitial {
+    font-size: 1.8em;
+}
+
+.countryBox {
+    max-width: 100%;
+}
+
+.country {
+    display:inline-block;
+    align-self: flex-start;
+    position: relative;
+    width: 33%;
+    margin: 0 auto 1.5em;
+    
+}
+
+.tierFlag {
+    margin: auto;
+    display:block;
+    width: 8em;
+    height: 8em;
+    border-radius: 50% 50% 50% 50% / 20% 20% 80% 80%;
+    box-shadow: .15em .1em .25em .15em rgba(0, 0, 0, .5);
+    transition: 0.6s;
+    
+}
+
+.inactive {
+    filter: grayscale(100%);
+}
+
+.active .tierFlag:hover {
+    box-shadow: .25em .15em .25em .15em rgba(0, 0, 0, .75);
+    width: 9em;
+    height: 9em;
+}
+
+.countryName {
+    font-size: 1.4em;
+    text-align: center;
+    margin: 0;
+}
+
+
+#quickInfoContent {
+    background: linear-gradient(145deg, rgba(46,64,106,1) 0%, rgba(13,28,65,1) 100%);
+    width: 60%;
+    box-sizing: border-box;
+    padding: 0 3em 2em;    
+    height: 55em;
+    position:sticky;
+    top: 2em;
+}
+
+#quickInfoContent::after {
+    content: "";
+    background-image: url('landingImage.png');
+    opacity: 15%;
+    background-size: cover;
+    position:absolute;
+    top: 40%;
+    left: 0px;
+    right: 0px;
+    bottom: 0px;
+    z-index: -1;
+}
+
+#flavor_image {
+    width: 100%;
+    filter:grayscale(100%);
+    opacity: 30%;
+    
+}
+
+#quickInfoContentTopLayer {
+}
+
+#nameBox {
+    text-align: center;
+    margin-top: 1em;
+}
+
+#nameCounter {
+    letter-spacing: 1em;
+}
+
+#quickInfoName {
+    padding-left: .5em;
+    padding-right: .25em;
+    letter-spacing: .25em;
+    font-size: 3.5em;
+    margin: .1em 0 0;
+    font-weight: 700;
+    display:inline;
+}
+
+#quickInfoMotto {
+    font-size: 1.2em;
+    margin-top: 0em;
+    font-style: italic;
+}
+
+#relationsBox {
+    justify-content: center;
+    display:flex;
+    font-size: 1.2em;
+    margin-top: .2em;
+}
+
+.relationsSplit {
+    width: 50%;
+    text-align: center;
+}
+
+#AlliesHeader {
+    border-bottom: .15em solid white;
+    margin-right: 1em;
+    padding-bottom: .2em;
+}
+
+#threatsHeader {
+    border-bottom: .15em solid white;
+    margin-left: 1em;
+    padding-bottom: .2em;
+}
+
+
+.relationsFlagBox {
+    margin: 0;
+    display: flex;
+    justify-content: center;
+}
+
+#AlliesFlagBox {
+    margin-right: 1em;
+}
+
+#AlliesFlagBox .relationsFlag {
+
+}
+
+
+#threatsFlagBox {
+    margin-left: 1em;
+}
+
+#threatsFlagBox .relationsFlag {
+
+}
+
+.relationsFlag {
+    margin-top: .8em;
+    width: 3em;
+    height: 3em;
+    border-radius: 50% 50% 50% 50% / 20% 20% 80% 80%;
+    
+}
+
+
+.relationsCountry {
+    margin: 0;
+    width: 7em;
+}
+
+.relationsName {
+
+}
+
+#modifiersBox {
+    border-bottom: .15em solid white;
+    font-weight: 700;
+    padding-bottom: 1em;
+}
+
+#modifiersTitle {
+    font-size: 1.8em;
+    margin-top: .6em;
+    display:flex;
+    flex-direction: row;
+}
+
+#modifiersTitle::before, #modifiersTitle::after {
+    content: "";
+    flex: 1 1;
+    border-bottom: .1em solid white;
+    margin:auto;
+    
+}
+
+#modifiersTitle::before {
+    margin-right: 1em;
+    
+}
+
+#modifiersTitle::after {
+    margin-left: 1em;
+}
+
+#modifiersSplit {
+    display: flex;
+    justify-content: center;
+}
+
+.modifier {
+    padding: .4em 0;
+    margin: 0 .8em;
+    font-size: 1.25em;
+    display: inline-block;
+}
+
+
+.traitsTitle {
+    font-size: 1.2em;
+    margin-top: .6em;
+    margin-bottom: 0em;
+}
+
+.traitsText {
+    margin: 0;
+    font-size: 1em;
+}
+
+.good {
+    color: #BFF3CB;
+}
+
+.neutral {
+    color: #FCE8AD;
+}
+
+.bad {
+    color: #FF8888;
+}
+

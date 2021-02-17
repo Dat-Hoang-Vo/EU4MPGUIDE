@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tier List - EU4MPGUIDE</title>
+    <link rel="stylesheet" href="CSS/tierList.css">
+    <link rel="stylesheet" href="CSS/header.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto+Slab|Book+Antiqua|Barlow">
+    <style>
+        body {
+            font-family: 'Barlow';
+        }
+
+        .Antiqua {
+            font-family: 'Book Antiqua';
+        }
+
+        #quickInfoMotto {
+            font-family: 'Book Antiqua';
+        }
+
+        #modifiersTitle {
+            font-family: 'Book Antiqua';
+        }
+
+        .tierName {
+            font-family: 'Roboto Slab', serif;
+        }
+
+        #quickInfoName {
+            font-family: 'Roboto Slab', serif;
+        }
+    </style>
+</head>
+
+<body onload="generateTierList(); hoverFlag('France')">
+    <header id="headerBar">
+        <a href="index.html">
+            <p id="homeButton">EU4MPGUIDE</p>
+        </a>
+    </header>
+
+    <div id="mainContent">
+        <div id="tierContent" class="splitContent">
+            <div>
+                <h2 class="tierName"><span id="S">S</span> TIER</h2>
+                <div id="S_TIER" class="countryBox">
+
+                </div>
+            </div>
+            <div>
+                <h2 class="tierName"><span class="tierInitial">A</span> TIER</h2>
+                <div id="A_TIER" class="countryBox">
+
+                </div>
+            </div>
+            <div>
+                <h2 class="tierName"><span class="tierInitial">B</span> TIER</h2>
+                <div id="B_TIER" class="countryBox">
+
+                </div>
+            </div>
+            <div>
+                <h2 class="tierName"><span class="tierInitial">C</span> TIER</h2>
+                <div id="C_TIER" class="countryBox">
+
+                </div>
+            </div>
+            <div>
+                <h2 class="tierName"><span class="tierInitial">D</span> TIER</h2>
+                <div id="D_TIER" class="countryBox">
+
+                </div>
+            </div>
+            <div>
+                <h2 class="tierName"><span class="tierInitial">F</span> TIER</h2>
+                <div id="F_TIER" class="countryBox">
+
+                </div>
+            </div>
+        </div>
+
+        <div id="quickInfoContent" class="splitContent">
+
+            <div id="quickInfoContentTopLayer">
+                <div id="nameBox">
+                    <div id="nameContainer">
+                        <img src="Images/Left_Leaf.png">
+                        <span class="leafgap"></span>
+                        <p id="quickInfoName">ENGLAND</p>
+                        <span class="leafgap"></span>
+                        <img src="Images/Right_Leaf.png">
+                    </div>
+                    <h3 id="quickInfoMotto">"Naval Royalty"</h3>
+                </div>
+
+                <div id="relationsBox">
+                    <div id="Allies" class="relationsSplit">
+                        <h3 id="AlliesHeader">Suggested Allies</h3>
+                        <div id="AlliesFlagBox" class="relationsFlagBox">
+                            <div id="Ally1" class="relationsCountry">
+                                <img id="AllyIMG1" class="relationsFlag fading" src="CroppedFlags/France.png">
+                                <h4 id="AllyName1" class="relationsName">France</h4>
+                            </div>
+                            <div id="Ally2" class="relationsCountry">
+                                <img id="AllyIMG2" class="relationsFlag" src="CroppedFlags/France.png">
+                                <h4 id="AllyName2" class="relationsName">France</h4>
+                            </div>
+                            <div id="Ally3" class="relationsCountry">
+                                <img id="AllyIMG3" class="relationsFlag" src="CroppedFlags/France.png">
+                                <h4 id="AllyName3" class="relationsName">France</h4>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="threats" class="relationsSplit">
+                        <h3 id="threatsHeader">Common Threats</h3>
+                        <div id="threatsFlagBox" class="relationsFlagBox">
+                            <div id="threats1" class="relationsCountry">
+                                <img id="threatsIMG1" class="relationsFlag" src="CroppedFlags/France.png">
+                                <h4 id="threatsName1" class="relationsName">France</h4>
+                            </div>
+                            <div id="threats2" class="relationsCountry">
+                                <img id="threatsIMG2" class="relationsFlag" src="CroppedFlags/France.png">
+                                <h4 id="threatsName2" class="relationsName">France</h4>
+                            </div>
+                            <div id="threats3" class="relationsCountry">
+                                <img id="threatsIMG3" class="relationsFlag" src="CroppedFlags/France.png">
+                                <h4 id="threatsName3" class="relationsName">France</h4>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="modifiersBox">
+                    <h3 id="modifiersTitle">Modifiers</h3>
+                    <div id="modifiersSplit">
+                        <div class="modifierUnit">
+                            <p class="modifier">Morale 10%</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="traitsBox">
+
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="JavaScript/tierList.js"></script>
+</body>
+
+</html>

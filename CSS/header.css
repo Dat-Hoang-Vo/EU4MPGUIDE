@@ -1,68 +1,27 @@
-#main_logo {
-    color: #fb8b24;
+a {
     text-decoration: none;
-    display: inline-block;
-    margin-right: 1em;
 }
 
-#header_box {
-    background-color: #3d5a80;
-    border-bottom: .1em solid white;
+#headerBar {
+    background-color: rgb(46,64,106);
+    background: linear-gradient(145deg, rgba(46,64,106,1) 0%, rgba(13,28,65,1) 100%);
+    width: 100vw;
+    height: 2.5em;
+    margin:0;
+    margin-bottom: 2em;
 }
 
-.general_topics {
-    color: #f4f1de;
-    text-decoration: none;
-    display: inline-block;
-    margin-left: 2em;
-    margin-right: 2em;
-}
-
-#logo_text {
-    margin: auto;
-    padding-left: 1em;
+#homeButton {
+    color: white;
+    font-size: 2em;
+    margin: 0;
+    margin-left: .25em;
+    height: 100%;
+    vertical-align:middle;
 }
 
 body {
-    background-color: #1d3557;
-    font-family: Arial, Helvetica, sans-serif;
-    margin: 0;
-    margin-bottom: 5em;
-}
-
-.France {
-    color: #318CE7;
-}
-
-.Muscovy {
-    color: #679267;
-}
-
-.England {
-    color: #ab4b52;
-}
-
-.Ottomans {
-    color: #ee2222;
-}
-
-.Castile {
-    color: #fad348;
-}
-
-/*
-    This section contains CSS for trait ratings
-*/
-
-
-.good {
-    color: #00a896;
-}
-
-.neutral {
-    color: #ffe66d;
-}
-
-.bad {
-    color: #9d0208;
+    margin:0;
+    color: white;
+    background-color: rgba(0, 0, 0, .1);
 }

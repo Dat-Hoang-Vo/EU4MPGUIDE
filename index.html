@@ -5,90 +5,45 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
-    <meta http-equiv="Pragma" content="no-cache" />
-    <meta http-equiv="Expires" content="0" />
-    <link href="CSS/main.css" rel="stylesheet">
-    <link href="CSS/header.css" rel="stylesheet">
-    <title>EU4 MP Guide</title>
+    <title>EU4MPGUIDE</title>
+    <link href="CSS/landing.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto+Slab|Cormorant+Garamond|Barlow">
+    <style>
+        body {
+            font-family: 'Roboto Slab', serif;
+        }
+
+        .Antiqua {
+            font-family: 'Cormorant Garamond';
+        }
+
+        .Barlow {
+            font-family: 'Barlow';
+        }
+    </style>
+    <link rel="stylesheet" href="CSS/testHeader.css">
 </head>
 
+<body>
+    <img id="landingIMG" src="Images/landingImage.png">
+    <div id="textContainer">
+        <h1 id="EU4Text">EUROPA UNIVERSALIS IV</h1>
+        <h2 id="MultiplayerGuide" class="Antiqua">Multiplayer Guides</h2>
+        <div id="LandingSelections">
+            <a>
+                <h3 class="selectionText Barlow disabled">CURRENT META</h3>
+            </a>
+            <a href="tierList.html">
+                <h3 class="selectionText Barlow">TIER LIST</h3>
+            </a>
+            <a>
+                <h3 class="selectionText Barlow">TAX VS GOODS</h3>
+            </a>
 
-<body onload="generateTierList(), hoverFlag('France')">
-    <header id="header_box">
-        <a href="index.html" id="main_logo">
-            <h1 id="logo_text">EU4MPGUIDE</h1>
-        </a>
-        <a class="general_topics">
-            <h2>Current Meta</h1>
-        </a>
-        <a href="income-calculator.html" class="general_topics">
-            <h2>Tax vs Production</h2>
-        </a>
-        <a class="general_topics">
-            <h2>Hosting Times</h2>
-        </a>
-    </header>
-    <div id="mainBox">
-        <section id="table">
-
-            <section class="row">
-                <p class="rating" id="s-tier">S-Tier</p>
-                <div id="S_BOX"></div>
-            </section>
-
-            <section class="row">
-                <p class="rating" id="a-tier">A-Tier</p>
-                <div id="A_BOX"></div>
-            </section>
-            <section class="row">
-                <p class="rating" id="b-tier">B-Tier</p>
-                <div id="B_BOX"></div>
-            </section>
-            <section class="row">
-                <p class="rating" id="c-tier">C-Tier</p>
-                <div id="C_BOX"></div>
-            </section>
-            <section class="row">
-                <p class="rating" id="d-tier">D-Tier</p>
-                <div id="D_BOX"></div>
-            </section>
-            <section class="row">
-                <p class="rating" id="f-tier">F-Tier</p>
-                <div id="F_BOX"></div>
-            </section>
-        </section>
-
-        <section id="quickinfo">
-            <div>
-                <h3 id="quickinfoname">Country</h3>
-                <h2 id="flavor_text" class="secondarytext">Flavor Text</h2>
-            </div>
-            <div id="relatedsection">
-                <div class="relatedbox info_seperators">
-                    <h2 class="relationtext" id="allied_country">Allies</h2>
-                    <div id="ally_list">
-                    </div>
-                </div>
-                <div class="relatedbox info_seperators">
-                    <h2 class="relationtext" id="enemy_country">Enemies</h2>
-                    <div id="enemy_list">
-                    </div>
-                </div>
-            </div>
-            <div class="info_seperators">
-                <h4 id="modifiers" class="secondarytext">Modifiers</h4>
-                <div id="modifier_field"></div>
-            </div>
-
-            <div class="info_seperators">
-                <div id="traits">
-                </div>
-            </div>
-        </section>
+        </div>
     </div>
 
-    <script src="JavaScript/main.js"></script>
 </body>
 
 </html>
