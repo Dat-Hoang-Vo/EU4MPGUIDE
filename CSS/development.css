@@ -1,0 +1,194 @@
+#headerBar {
+    background: transparent;
+    position: absolute;
+    z-index: 200;
+}
+
+#backgroundContainer {
+    position: absolute;
+    z-index: 1;
+}
+
+#backgroundImage {
+    
+    opacity: 15%;
+    filter: grayscale(100%);
+    width: 100vw;
+}
+
+#fullHead {
+    position: relative;
+    height: 50em;
+    padding-bottom: 4em;
+}
+
+#landing {
+    top: 0;
+    z-index: -1;
+    position: static;
+    background: linear-gradient(145deg, rgba(46,64,106,1) 0%, rgba(13,28,65,1) 100%);
+    width: 100vw;
+    height: 50em;
+}
+
+#introText {
+    z-index: 2;
+    position: relative;
+    text-align: center;
+}
+
+#introMainText {
+    margin:0;
+    padding-top: 1.6em;
+    font-size: 8em;
+}
+
+#introSecondaryText{
+    margin:0;
+    font-size: 3em;
+}
+
+#introSummaryText {
+    width: 60%;
+    padding-top: 6em;
+    margin:0 auto;
+    font-size: 1em;
+}
+
+#calculator {
+    top: 0;
+    height: 56em;
+    display:flex;
+    position:relative;
+    z-index: 5;
+}
+
+#taxBox {
+    margin-left: 3em;
+    margin-right: 1em;
+    width: 50%;
+}
+
+#tax {
+    color: rgb(46,64,106);
+    height: 45em;
+    border: .2em solid rgb(46,64,106);
+    border-radius: 2em;
+    box-sizing: border-box;
+}
+
+#taxHeader {
+    letter-spacing: .1em;
+    font-size: 4em;
+    width: fit-content;
+    padding: 0 .2em;
+    text-align: center;
+    color: rgb(46,64,106);
+    margin: -0.5em auto 0;
+}
+
+#goodsBox {
+    margin-right: 3em;
+    margin-left: 1em;
+    width: 50%;
+}
+
+#goods {
+    color: rgb(46,64,106);
+    height: 45em;
+    border: .2em solid rgb(46,64,106);
+    border-radius: 2em;
+    box-sizing: border-box;
+}
+
+#goodsHeader {
+    color: rgb(46,64,106);
+    letter-spacing: .1em;
+    font-size: 4em;
+    width: fit-content;
+    padding: 0 .2em;
+    text-align: center;
+    margin: -0.5em auto 0;
+}
+
+.modifierGroup {
+    z-index: 200;
+    margin-bottom: 1em;
+}
+
+.modifierBox {
+    padding-top: 1em;
+    margin:0 2em;
+}
+
+.modifierName {
+    font-size: 1.8em;
+    font-weight: bold;
+    margin-bottom: 0;
+}
+
+.modifierDescription {
+    margin: 0.2em 0;
+}
+
+.update {
+    font-size: 2em;
+    display:block;
+    margin: 0 auto;
+    border-radius: 1em;
+    outline-width: 0;
+    background-color: rgb(46,64,106);
+    color: white;
+    border:none;
+    
+    bottom: 12.5%;
+    position:absolute;
+    z-index: 5;
+}
+
+.left {
+    left: 22.5%;
+}
+
+.right {
+    right: 22.5%;
+}
+
+.summary {
+    margin-top: 1.2em;
+    color: rgb(46,64,106);
+    text-align: center;
+    font-size: 1.4em;
+}
+
+.textSummary {
+    margin:auto;
+    width: 50%;
+}
+
+#taxSummary {
+    margin: .2em auto;
+    color: gold;
+}
+
+#goodsSummary {
+    margin: .2em auto;
+    color: gold;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.inputField {
+    outline-width: 0;
+    height: 1.5em;
+    border: .2em solid rgb(46,64,106);
+    border-radius: 1em;
+}
+
+.finalUnit {
+    margin-top: 0;
+}

@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Development - EU4MPGUIDE</title>
+    <link rel="stylesheet" href="CSS/header.css">
+    <link rel="stylesheet" href="CSS/development.css">
+</head>
+
+<body>
+    <div id="fullHead">
+        <div id="backgroundContainer">
+            <img id="backgroundImage" src="Images/calculatorImage.png">
+        </div>
+
+
+        <header id="headerBar">
+            <a href="index.html">
+                <p id="homeButton">EU4MPGUIDE</p>
+            </a>
+        </header>
+        <div id="landing">
+            <div id="introText">
+                <h1 id="introMainText">TAX VS GOODS</h1>
+                <h2 id="introSecondaryText">CORE RESOURCE CALCULATION</h2>
+                <p id="introSummaryText">The purpose of this calculator is to calculate how much your country's monthly
+                    income
+                    will increase by per tax or production development. This comparison allows you the player to
+                    determine
+                    how
+                    to properly build your nation. While Europa Universalis IV is a dynamic game and what you make now
+                    might not be what you make in the future, it still helps put into perspective the effects of your
+                    actions.
+                </p>
+            </div>
+
+        </div>
+    </div>
+
+    <div id="calculator">
+        <div id="taxBox">
+            <h2 id="taxHeader">TAX</h2>
+            <div id="tax">
+                <div class="modifierBox">
+                    <div class="modifierGroup">
+                        <label class="modifierName">Provincial Tax Efficiency</label>
+                        <p class="modifierDescription">This can be found by clicking on a province and hovering over
+                            tax. Enter percentage as decimal. (E.G) 95% = 0.95</p>
+                        <input class="inputField" type="number" name="provincial_tax_efficiency"
+                            id="provincial_tax_efficiency" value="1.00">
+                    </div>
+                    <div class="modifierGroup">
+                        <label class="modifierName">Provincial Autonomy</label>
+                        <p class="modifierDescription">This can be found by clicking on a province and looking at the
+                            value of its autonomy. Enter the percentage as a decimal. (E.G) 25% = 0.25</p>
+                        <input class="inputField" type="number" name="provincial_autonomy" id="tax_provincial_autonomy"
+                            value="0.00">
+                    </div>
+
+                </div>
+                <button class="update left" onclick="updateTax()">Submit</button>
+            </div>
+            <div class="summary">
+                <h3 class="textSummary">Each Tax Development will increase your income by</h3>
+                <h3 id="taxSummary">0.125 Ducats</h3>
+                <h3 class="finalUnit">Per Month</h3>
+            </div>
+        </div>
+
+        <div id="goodsBox">
+            <h2 id="goodsHeader">GOODS</h2>
+            <div id="goods">
+                <div class="modifierBox">
+                    <div class="modifierGroup">
+                        <label class="modifierName">Production Efficiency</label>
+                        <p class="modifierDescription">This can be found by clicking on a province and hovering over
+                            production. Be sure to account for buildings you plan on building such as workshops which
+                            adds 50% efficiency. Enter percentage as decimal. (E.G) 5% = 0.05</p>
+                        <input class="inputField" type="number" name="provincial_production_efficiency"
+                            id="provincial_production_efficiency" value="0.05">
+                    </div>
+                    <div class="modifierGroup">
+                        <label class="modifierName">Provincial Autonomy</label>
+                        <p class="modifierDescription">This can be found by clicking on a province and looking at the
+                            value of its autonomy. Enter the percentage as a decimal. (E.G) 25% = 0.25</p>
+                        <input class="inputField" type="number" name="provincial_autonomy"
+                            id="goods_provincial_autonomy" value="0.00">
+                    </div>
+                    <div class="modifierGroup">
+                        <label class="modifierName">Goods Produced Modifier</label>
+                        <p class="modifierDescription">This can be found under Governments -> Country Modifiers. If not
+                            found, enter 0. Otherwise enter exact percentage seen as a decimal</p>
+                        <input class="inputField" type="number" name="goods_produced" id="goods_produced" value="0.00">
+                    </div>
+                    <div class="modifierGroup">
+                        <label class="modifierName">Provincial Goods Value</label>
+                        <p class="modifierDescription">This can be found by clicking on a province and looking at the
+                            value of its trade good. Enter as a whole number. (E.G) 3 = 3</p>
+                        <input class="inputField" type="number" name="goods_value" id="goods_value" value="3.00">
+                    </div>
+                    <div class="modifierGroup">
+                        <label class="modifierName">Overall Trade Control</label>
+                        <p class="modifierDescription">This can be found by multiplying your control of the nearest
+                            trade node you collect from with all subsequent nodes pushing percentage. (E.G) assume you
+                            collect from English Channel and control 60% of the node. You wish to develop a North Sea
+                            province and 40% of North Sea pushes to English Channel. Your input should be 0.6 (60%) *
+                            0.4 (40%) = 0.24</p>
+                        <input class="inputField" type="number" name="overall_trade_control" id="overall_trade_control"
+                            value="0.73">
+                    </div>
+                    <div class="modifierGroup">
+                        <label class="modifierName">Trade Efficiency</label>
+                        <p class="modifierDescription">This can be found under Economy to the right of "Trade". Enter
+                            decimal as percentage. (E.G) 17% = 0.17</p>
+                        <input class="inputField" type="number" name="trade_efficiency" id="trade_efficiency"
+                            value="0.20">
+                    </div>
+                </div>
+                <button class="update right" onclick="updateGoods()">Submit</button>
+            </div>
+            <div class="summary">
+                <h3 class="textSummary">Each Goods Development will increase your income by</h3>
+                <h3 id="goodsSummary">0.125 Ducats</h3>
+                <h3 class="finalUnit">Per Month</h3>
+            </div>
+        </div>
+
+
+    </div>
+    <script src="JavaScript/development.js"></script>
+</body>
+
+</html>

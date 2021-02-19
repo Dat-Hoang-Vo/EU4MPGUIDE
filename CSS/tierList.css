@@ -3,6 +3,7 @@ h2, h3, h4 {
 }
 
 #mainContent {
+    margin-top: 2em;
     display:flex;
 }
 
@@ -63,7 +64,8 @@ h2, h3, h4 {
 }
 
 .inactive {
-    filter: grayscale(100%);
+    filter: grayscale(90%);
+    text-decoration: line-through;
 }
 
 .active .tierFlag:hover {
@@ -93,6 +95,7 @@ h2, h3, h4 {
     content: "";
     background-image: url('landingImage.png');
     opacity: 15%;
+    filter:grayscale(100%);
     background-size: cover;
     position:absolute;
     top: 40%;
@@ -132,7 +135,7 @@ h2, h3, h4 {
 }
 
 #quickInfoMotto {
-    font-size: 1.4em;
+    font-size: 1.5em;
     margin-top: 0em;
     font-style: italic;
 }
@@ -150,15 +153,15 @@ h2, h3, h4 {
 }
 
 #AlliesHeader {
-    border-bottom: .15em solid white;
     margin-right: 1em;
-    padding-bottom: .2em;
+    padding-bottom: .6em;
+    padding-top: .4em;
 }
 
 #threatsHeader {
-    border-bottom: .15em solid white;
     margin-left: 1em;
-    padding-bottom: .2em;
+    padding-bottom: .6em;
+    padding-top: .4em;
 }
 
 
@@ -169,7 +172,9 @@ h2, h3, h4 {
 }
 
 #AlliesFlagBox {
-    margin-right: 1em;
+    margin-right: 0em;
+    padding-right: 2em;
+    border-right: .1em solid white;
 }
 
 #AlliesFlagBox .relationsFlag {
@@ -178,7 +183,9 @@ h2, h3, h4 {
 
 
 #threatsFlagBox {
-    margin-left: 1em;
+    border-left: .1em solid white;
+    padding-left: 2em;
+    margin-left: 0;
 }
 
 #threatsFlagBox .relationsFlag {
@@ -200,17 +207,19 @@ h2, h3, h4 {
 }
 
 .relationsName {
-
+    font-size: .8em;
 }
 
 #modifiersBox {
     border-bottom: .15em solid white;
     font-weight: 700;
     padding-bottom: 1em;
+    margin-bottom: 2em;
 }
 
 #modifiersTitle {
-    font-size: 1.8em;
+    font-size: 1.4em;
+    letter-spacing: .1em;
     margin-top: .6em;
     display:flex;
     flex-direction: row;
@@ -235,6 +244,7 @@ h2, h3, h4 {
 
 #modifiersSplit {
     display: flex;
+    flex-wrap: wrap;
     justify-content: center;
 }
 

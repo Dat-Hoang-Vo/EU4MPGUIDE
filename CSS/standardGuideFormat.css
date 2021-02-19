@@ -1,0 +1,64 @@
+body {
+    color: rgb(46,64,106);
+}
+
+#mainContent {
+    display: flex;
+    width: 100em;
+}
+
+#navigation {
+    width: 15em;
+    height: 100em;
+    background-color: black;
+}
+
+#Guide {
+    width: 100%;
+}
+
+#mainTopic {
+    font-size: 4em;
+    margin-top: .2em;
+    margin-bottom: 0;
+    margin-left: 5%;
+}
+
+h2 {
+    margin-left: 5%;
+    font-size: 3em;
+}
+
+.topic {
+    width: 100%;
+}
+
+.topicHeader {
+    padding: 0em 1.5em;
+    display: inline-block;
+    margin-left: 3em;
+    border: .1em solid rgb(46,64,106);
+    border-radius: 1em;
+}
+
+.contentHolder {
+    margin: 0 5%;
+}
+
+.smallContent {
+    display:inline-block;
+    padding: 0 2em;
+    border-radius: 1em;
+    border: .3em solid rgb(46,64,106);
+    box-sizing: border-box;
+    width: 30em;
+    height: auto;
+}
+
+.left {
+    margin-left: 5em;
+    margin-right: 15%;
+}
+
+.right {
+}
