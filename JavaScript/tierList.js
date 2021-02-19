@@ -259,11 +259,11 @@ function muscovyUpdateInfo() {
     trait_name = ['Steppe Soldiers', 'All Roads Lead to Novgorod', 'Forever Eastern', 'Call of the Rus', 'The Central Block'];
     trait_rating = ['good', 'good', 'good', 'neutral', 'bad'];
     trait_description = [
-        'The steppes feed your war machine. Receiving 100% manpower on all steppe provinces, you stand to field large armies when properly developed.',
-        'Having the Novgorod trade node act as a de facto end node, you can build a strong production and trade economy without the worry of trade flowing away.',
-        'Muscovy is given the privilege of unlimited expansion into the hordes to the east. This allows for you to quickly grow unapposed.',
-        'A large amount of Russians live within the borders of Lithuania. While a great path for expansion, this will likely bring you conflict with Poland.',
-        'With the help of Austria, Poland can pose a significant threat to you early on. Without careful diplomacy, you run the risk of destruction.'];
+        'The Russian Empire uses its seemingly unlimited manpower to overwhelm enemies. The steppes help feed the Russian war machine. All steppe provinces give an added 100% manpower. The Russian crown is also able to call upon the Streltsy with no upfront manpower costs.',
+        'While the Novgorod trade node is not an end node, it behaves similar to one. Because of this, it is quite feasible for Russia to become an economic power house after pushing trade from the East to Novgorod.',
+        'Muscovy is given the privilege of near unlimited expansion into the frontiers of the East. This allows for Russia to quickly grow unapposed to great heights.',
+        'A large amount of Russians live within the borders of Lithuania. While a great path for core expansion, this will likely bring you conflict with Poland.',
+        'Russia tends to be quite isolated in European politics. A competent Poland with an Austrian ally can pose a large threat to the safety of Russia. Be prepared to negotiate and use diplomacy.'];
 }
 
 
@@ -304,10 +304,10 @@ function ottomansUpdateInfo() {
         'neutral',
         'bad'];
     trait_description = [
-        'The Ottomans maintained one of the first expertly trained standing armies in the world. The Janissaries take 10% less damage and drill at double speed, but cost double to reinforce.',
-        'By conquering the last strongholds of the Byzantine Empire, the Ottomans assume control of one of the most important cities in the world: Constantinople. This city can bring lucrative trade wealth to the Empire.',
-        'The Ottoman Empire is in a formiddable position to restate the importance of Middle Eastern politics onto Europe. If played correctly, Europe will soon fear the Ottoman presence on the continent.',
-        'The Ottomans begin in a deadly fued over control of the Middle East with the Mamluks. Only one successor to the Caliphate will remain once the dust settles.',
+        'The Ottomans maintained one of the first expertly trained standing armies in the world. The Janissaries take 10% less damage and drill at double speed, but cost double to reinforce. The Janissaries help the Ottomans fight the high quality troops of Europe.',
+        'By conquering the last strongholds of the Byzantine Empire, the Ottomans assume control of one of the most important cities in the world: Constantinople. The trade node surrounding the city can rival other powerful nodes in Europe if pushed from the correct regions.',
+        'The Ottoman Empire begins the game with multiple avenues of quick conquest. This usually leads to an exceptionally powerful Ottomans within a decade of the game start - noticeably shorter than the time it takes to create some European powers.',
+        'The Ottomans begin in a deadly fued over control of the Middle East with the Mamluks. Only one successor to the Caliphate will remain once the sand settles. A defeat in a war against the Mamluks could easily spell the end.',
         'Europe has not forgotten the Jihads of the past. The Ottoman Empire faces risk of a unified European front containing not only the central block but other aspiring crusader states. The European threat can also present the opportunity for Middle Eastern rivals to strike.'
     ];
 }
@@ -322,20 +322,20 @@ function castileUpdateInfo() {
 
     trait_name = ['Golden Guns',
         'The Royal Armada',
-        'The Unbreakable Tercio',
+        'Futile Ambitions',
         'A Dynastic Opportunity',
         'The Heathen Threat'];
     trait_rating = ['good',
         'good',
-        'good',
+        'neutral',
         'neutral',
         'bad'];
     trait_description = [
-        'The Spanish were known for their gold. Not only is there a gold mine near Madrid, but Spain can also obtain gold by way of New World mines. There should be no shortages of gold.',
-        'Iberia is able to muster a formiddable navy. With the right ideas and strategy, it may be able to rival the British fleet.',
-        'During the Age of Reformation, Spain boasts one of the toughest armies in Europe. With 30% less shock damage cavalry charges are a thing of the past.',
-        'Castile is in the perfect position to form a dynastic union over Aragon and extend influence over Italy. However, this can cause conflict with other strong countries who may have interests in Italy.',
-        'Iberia is just off the cuff of many crusades. The redisual Islamic presence in the region can cause instability and early game difficulties.'
+        'The Spanish were known for their gold. Not only is there a gold mine near Madrid, but Spain can also obtain gold by way of New World mines. There should be no shortages of wealth after Iberia is properly developed.',
+        'Iberia is able to muster a formiddable navy. With the right ideas and strategy, it may be able to rival the British fleet. A hostile Britain may inhibit colonial wealth so it may be important to take advantage of the unique Iberian fleet.',
+        'While Iberia has immense potential for riches and military strength it is routinely outshined by a competent France. An Iberian game may be dependent on a friendly or neutral France.',
+        'Castile is in the perfect position to form a dynastic union over Aragon and extend influence over Italy. However, this can cause conflict with other strong countries who may have interests in the region.',
+        'Iberia is just off the cuff of many crusades. The redisual Islamic presence in the region can cause instability and early game difficulties. A mismanaged start could harm the ability for Iberia to scale properly.'
     ];
 }
 
@@ -375,12 +375,21 @@ function burgundyUpdateInfo() {
     modifier_value = ['10%', '5%', '25%', '15%'];
 
     trait_name = ['The Burgundian Bloodline',
-        'An Army for Hire'];
+        'An Army for Hire',
+        'The Question of Marriage',
+        "Who's Channel?",
+        'A Doomed Kingdom'];
     trait_rating = ['good',
-        'good'];
+        'good',
+        'neutral',
+        'neutral',
+        'bad'];
     trait_description = [
         'At the start of the game Burgundy begins with royal unions on three lowland countries. Burgundy can use their unions to great benefit in early wars, and can develop the rich land for themselves later on.',
-        'The Burgundian crown has gotten used to using unconventional means to survive. Burgundy is able to maintain a mercenary army 15% cheaper and with 50% more manpower.'
+        'The Burgundian crown has gotten used to using unconventional means to survive. Burgundy is able to maintain a mercenary army 15% cheaper and with 50% more manpower.',
+        'Marie de Bourgogne holds the fate of the Kingdom in her grasp. Burgundy is in a unique position in being able to pivot to either France or Austria. A French symbiotic relationship may present more stability at the cost of little conquest. An Austria alliance may provide more opportunity for conquest, but poses more risks.',
+        'Burgundy sits on the English Channel where immense wealth can accrue. However, it can be difficult to gain enough trade power in order to produce a substantial profit due to English naval dominance.',
+        'The Burgundian Kingdom split from the French generations earlier, but this hope for independence may be nothing more than a dream. Being sandwiched between two massive powers, skill and luck is required to defend the heirs of Lotharingia.'
     ];
 }
 
