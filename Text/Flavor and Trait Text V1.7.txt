@@ -1,0 +1,159 @@
+France: Legacy of Charlemagne
+	function franceUpdateInfo() {
+    country_motto = 'Legacy of Charlemagne';
+    new_allies = ['Castile', 'Milan', 'Burgundy'];
+    new_threats = ['England', 'Austria', 'Burgundy'];
+    modifier_type = ['Morale', 'Discipline', 'Manpower', 'Manpower Recovery'];
+    modifier_value = ['20%', '5%', '20%', '10%'];
+
+    trait_name = ['French Hegemony',
+        'Victory Through Valor - "Pour le Roi!"',
+        "The Hundred Years' War",
+        'A Decentralized Realm',
+        'The Costs of Power'];
+    trait_rating = ['good',
+        'good',
+        'neutral',
+        'neutral',
+        'bad'];
+    trait_description = ['France is in an exceptional position to dominate European politics if managed correctly. Few countries can step up to France one-on-one. France also gets a myriad of events relating to to its historical dominance of Europe, including the French Revolution.',
+        'France fields an army unlike many others. Its soldiers fight with unwavering fortitude. Despite the advantages of this attribute, it can lead to mass casualties as morale fades and discipline becomes dominant.',
+        'The French begin in a deep rivalry with England and at a crossroads with Burgundy. The ineptitude of the English King presents a rare opportunity to reclaim French cores. Early diplomacy (or the lack thereof) with Burgundy will greatly affect your game.   ',
+        'The French Kingdom begins the game divided amongst autonomous counts and dukes. This presents an opportunity to swarm your enemies at the cost of decentralization. The French vassal troops are hard to control and are easily wiped while seperated.',
+        'France is routinely the target of coalitions due to its strong position. Make sure to keep an eye on your percieved aggressiveness.'];
+
+Russia: An Endless March
+function muscovyUpdateInfo() {
+    country_motto = 'An Endless March';
+    new_allies = ['Sweden', 'Austria', 'Ottomans'];
+    new_threats = ['Ottomans', 'Poland', 'Brandenburg'];
+    modifier_type = ['Morale', 'Discipline', 'Manpower', 'Land Forcelimit', 'Fire Received', 'Artillery Combat', 'Army Tradition'];
+    modifier_value = ['5%', '5%', '53%', '50%', '-10%', '10%', '.25'];
+
+    trait_name = ['Steppe Soldiers', 'All Roads Lead to Novgorod', 'Forever Eastern', 'Call of the Rus', 'The Central Block'];
+    trait_rating = ['good', 'good', 'good', 'neutral', 'bad'];
+    trait_description = [
+        'The Russian Empire uses its seemingly unlimited manpower to overwhelm enemies. The steppes help feed the Russian war machine. All steppe provinces give an added 100% manpower. The Russian crown is also able to call upon the Streltsy with no upfront manpower costs.',
+        'While the Novgorod trade node is not an end node, it behaves similar to one. Because of this, it is quite feasible for Russia to become an economic power house after pushing trade from the East to Novgorod.',
+        'Muscovy is given the privilege of near unlimited expansion into the frontiers of the East. This allows for Russia to quickly grow unapposed to great heights.',
+        'A large amount of Russians live within the borders of Lithuania. While a great path for core expansion, this will likely bring you conflict with Poland.',
+        'Russia tends to be quite isolated in European politics. A competent Poland with an Austrian ally can pose a large threat to the safety of Russia. Be prepared to negotiate and use diplomacy.'];
+
+England: Naval Royalty
+function englandUpdateInfo() {
+    country_motto = 'Naval Royalty';
+    new_allies = ['Brunswick', 'Burgundy', 'Austria'];
+    new_threats = ['France', 'Portugal', 'Norway'];
+    modifier_type = ['Naval Morale', 'Heavy Ship Combat', 'Morale', 'Discipline', 'Shock Received', 'Goods Produced', 'Cultured Advisor Cost'];
+    modifier_value = ['20%', '15%', '10%', '5%', '-10%', '10%', '20%'];
+
+    trait_name = ['An Island with an Ireland', 'The Bank of England', 'Viking Saga Renewed', 'The Contested Channel', 'No Known Nobility'];
+    trait_rating = ['good', 'good', 'neutral', 'neutral', 'bad'];
+    trait_description = [
+        'Most countries lack the naval capabilities to contest you at sea. This grants the English high levels of protection and allows them to focus on developing their country.',
+        'England is easily able to become a global economic hegemon. By the use of the Royal Navy and the strong trade goods on English soil, the English Channel has exceptional potential. A strong naval presence and colonial presence will be paramount.',
+        'The war with the Nordics is not over. The Norwegian and Danish fleet pose a great threat to the English. Starting as a stronger nation, a swift strike to conquer Scandinavia is a viable path for expansion. ',
+        'Although England typically dominates the English Channel, a strong country in the lowlands can greatly reduce their control. A hostile Burgundy or the Netherlands can reduce your hold on the English channel to nearly half.',
+        'England is one of the few monarchies to not have a nobility estate. This greatly reduces military capabilities in terms of manpower and military point generation.'
+
+Ottomans: Ashes of the Purple Phoenix 
+function ottomansUpdateInfo() {
+    country_motto = 'Ashes of the Purple Phoenix';
+    new_allies = ['Tunis', 'Timurids', 'Morocco'];
+    new_threats = ['Austria', 'Poland', 'Mamluks'];
+    modifier_type = ['Discipline', 'Land Forcelimit', 'Manpower Recovery'];
+    modifier_value = ['5%', '33%', '10%'];
+
+    trait_name = ['Janissaries',
+        'Second Rome',
+        'A New-Old World Order',
+        'The Sand Fued',
+        'Deus Vult'];
+    trait_rating = ['good',
+        'good',
+        'good',
+        'neutral',
+        'bad'];
+    trait_description = [
+        'The Ottomans maintained one of the first expertly trained standing armies in the world. The Janissaries take 10% less damage and drill at double speed, but cost double to reinforce. The Janissaries help the Ottomans fight the high quality troops of Europe.',
+        'By conquering the last strongholds of the Byzantine Empire, the Ottomans assume control of one of the most important cities in the world: Constantinople. The trade node surrounding the city can rival other powerful nodes in Europe if pushed from the correct regions.',
+        'The Ottoman Empire begins the game with multiple avenues of quick conquest. This usually leads to an exceptionally powerful Ottomans within a decade of the game start - noticeably shorter than the time it takes to create some European powers.',
+        'The Ottomans begin in a deadly fued over control of the Middle East with the Mamluks. Only one successor to the Caliphate will remain once the sand settles. A defeat in a war against the Mamluks could easily spell the end.',
+        'Europe has not forgotten the Jihads of the past. The Ottoman Empire faces risk of a unified European front containing not only the central block but other aspiring crusader states. The European threat can also present the opportunity for Middle Eastern rivals to strike.'
+
+Castile: A Golden Crown
+	function castileUpdateInfo() {
+    country_motto = 'A Golden Crown';
+    new_allies = ['Portugal', 'France', 'Naples'];
+    new_threats = ['Morocco', 'Tunis', 'Naples'];
+    modifier_type = ['Morale', 'Artillery Fire', 'Discipline', 'Naval Forcelimit', 'Heavy Ship Combat'];
+    modifier_value = ['15%', '+1', '5%', '25%', '10%'];
+
+    trait_name = ['Golden Guns',
+        'The Royal Armada',
+        'Futile Ambitions',
+        'A Dynastic Opportunity',
+        'The Heathen Threat'];
+    trait_rating = ['good',
+        'good',
+        'neutral',
+        'neutral',
+        'bad'];
+    trait_description = [
+        'The Spanish were known for their gold. Not only is there a gold mine near Madrid, but Spain can also obtain gold by way of New World mines. There should be no shortages of wealth after Iberia is properly developed.',
+        'Iberia is able to muster a formiddable navy. With the right ideas and strategy, it may be able to rival the British fleet. A hostile Britain may inhibit colonial wealth so it may be important to take advantage of the unique Iberian fleet.',
+        'While Iberia has immense potential for riches and military strength it is routinely outshined by a competent France. An Iberian game may be dependent on a friendly or neutral France.',
+        'Castile is in the perfect position to form a dynastic union over Aragon and extend influence over Italy. However, this can cause conflict with other strong countries who may have interests in the region.',
+        'Iberia is just off the cuff of many crusades. The redisual Islamic presence in the region can cause instability and early game difficulties. A mismanaged start could harm the ability for Iberia to scale properly.'
+
+Austria: An Imperial Court
+	function austriaUpdateInfo() {
+    country_motto = 'An Imperial Court';
+    new_allies = ['Poland', 'Brandenburg', 'England'];
+    new_threats = ['Ottomans', 'Brandenburg', 'France'];
+    modifier_type = ['Morale', 'Reinforce Speed', 'Discipline'];
+    modifier_value = ['10%', '30%', '3%'];
+
+    trait_name = ['Imperial Troops',
+        'Three Crowns',
+        'Defend the Emperor!',
+        'Not Holy, Roman, Nor an Empire',
+        'Enemies on All Fronts'];
+    trait_rating = ['good',
+        'good',
+        'neutral',
+        'neutral',
+        'bad'];
+    trait_description = [
+        'Aided by the realms of the Empire, Austria can maintain a sizeable army. Austrian reserves are equally as imposing. Make sure to keep an eye on how many princes reign in the HRE as this directly affects the manpower and forcelimit benefit.',
+        'Austria has unique event chains allowing it to claim the crowns of both Bohemia and Hungary. If played correctly, Austria can create a new empire all for itself.',
+        'Located in the Alps, Austria has immense geographical defenses similar to Switzerland. However, this rocky terrain is harder to develop than other terrain. This can be alleviated by the farmland present in Bohemia and Hungary.',
+        'The power of wearing the imperial crown is not free. Austria must manage internal HRE politics such as the votes of electors. While the HRE provides economic and military advantages, it also requires attentive micro-managing.',
+        'Austria is surrounded by rivaling powers. To the West, France seeks to honor the legacy of Charlemagne. To the East, Russia and Poland struggle over dominance, and the Ottomans may try to add a new imperial city to their realm. To the South, the question of imperial loyalty may become a problem. To the North, Brandenburg may seek to remodel the HRE in its image.'
+
+Burgundy: Dreams of Lotharingia
+	function burgundyUpdateInfo() {
+    country_motto = 'Dreams of Lotharingia';
+    new_allies = ['France', 'Austria', 'England'];
+    new_threats = ['France', 'Austria', 'England',];
+    modifier_type = ['Morale', 'Discipline', 'Manpower', 'Goods Produced'];
+    modifier_value = ['10%', '5%', '25%', '15%'];
+
+    trait_name = ['The Burgundian Bloodline',
+        'An Army for Hire',
+        'The Question of Marriage',
+        "Who's Channel?",
+        'A Doomed Kingdom'];
+    trait_rating = ['good',
+        'good',
+        'neutral',
+        'neutral',
+        'bad'];
+    trait_description = [
+        'At the start of the game Burgundy begins with royal unions on three lowland countries. Burgundy can use their unions to great benefit in early wars, and can develop the rich land for themselves later on.',
+        'The Burgundian crown has gotten used to using unconventional means to survive. Burgundy is able to maintain a mercenary army 15% cheaper and with 50% more manpower.',
+        'Marie de Bourgogne holds the fate of the Kingdom in her grasp. Burgundy is in a unique position in being able to pivot to either France or Austria. A French symbiotic relationship may present more stability at the cost of little conquest. An Austria alliance may provide more opportunity for conquest, but poses more risks.',
+        'Burgundy sits on the English Channel where immense wealth can accrue. However, it can be difficult to gain enough trade power in order to produce a substantial profit due to English naval dominance.',
+        'The Burgundian Kingdom split from the French generations earlier, but this hope for independence may be nothing more than a dream. Being sandwiched between two massive powers, skill and luck is required to defend the heirs of Lotharingia.'
+    
+	
