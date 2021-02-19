@@ -333,7 +333,7 @@ function castileUpdateInfo() {
     trait_description = [
         'The Spanish were known for their gold. Not only is there a gold mine near Madrid, but Spain can also obtain gold by way of New World mines. There should be no shortages of wealth after Iberia is properly developed.',
         'Iberia is able to muster a formiddable navy. With the right ideas and strategy, it may be able to rival the British fleet. A hostile Britain may inhibit colonial wealth so it may be important to take advantage of the unique Iberian fleet.',
-        'While Iberia has immense potential for riches and military strength it is routinely outshined by a competent France. An Iberian game may be dependent on a friendly or neutral France.',
+        'While Iberia has immense potential for riches and military strength, it is routinely outshined by a competent France. An Iberian game may be dependent on a friendly or neutral France.',
         'Castile is in the perfect position to form a dynastic union over Aragon and extend influence over Italy. However, this can cause conflict with other strong countries who may have interests in the region.',
         'Iberia is just off the cuff of many crusades. The redisual Islamic presence in the region can cause instability and early game difficulties. A mismanaged start could harm the ability for Iberia to scale properly.'
     ];
