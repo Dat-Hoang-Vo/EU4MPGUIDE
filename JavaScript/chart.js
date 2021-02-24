@@ -209,7 +209,7 @@ function simulateBattle() {
     let battle_length = 1.01;
     let days = 1;
 
-    while (unit_strength_attacker > 100 && unit_strength_defender > 100) {
+    while (unit_strength_attacker > 150 && unit_strength_defender > 150) {
         if (counter === 3) {
             if (current_phase === "fire") {
                 current_phase = "shock";
