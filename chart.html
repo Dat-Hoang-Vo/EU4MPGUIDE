@@ -13,14 +13,16 @@
 
 </head>
 
-<body onload="gatherInputs(), loadChart()">
+<body onload="gatherInputs()">
     <header id="headerBar">
         <a href="index.html">
             <p id="homeButton">EU4 Multiplayer Guide</p>
         </a>
     </header>
+    <div id="chartContainer">
+        <canvas id="mainChart" width="100vw" height="30vh"></canvas>
+    </div>
 
-    <canvas id="mainChart" width="100vw" height="30vh"></canvas>
     <script src="JavaScript/chart.js"></script>
 
     <div id="inputTable">
@@ -120,7 +122,7 @@
             <input type="checkbox" name="average_dice" id="average_dice">
 
         </form>
-        <button id="simulate" onclick="gatherInputs(), simulateBattle(), loadChart()">Simulate</button>
+        <button id="simulate" onclick="gatherInputs()">Simulate</button>
     </div>
 </body>
 
