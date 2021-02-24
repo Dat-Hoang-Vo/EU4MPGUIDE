@@ -2,25 +2,53 @@ body {
     color: rgb(46,64,106);
 }
 
+hr {
+    margin: 0;
+}
+
 #mainContent {
     display: flex;
-    width: 100em;
+    width: 100%;
+    margin-right: 0;
+
 }
+
 
 #navigation {
     width: 15em;
     height: 100em;
-    background-color: black;
 }
+
+#navigationBox {
+    position:sticky;
+    margin: 1em .5em;
+    top: 1em;
+    border: .2em solid rgb(46,64,106);
+    border-radius: 1em;
+    height: 90vh;
+}
+
+
+#navigationHeader {
+    visibility:visible;
+    text-align: center;
+    margin: 0.8em auto;
+    padding-bottom: 1.3em;
+    font-size: 1.6em;
+    
+}
+
+
 
 #Guide {
     width: 100%;
+    border-left: .06em solid rgba(0,0,0, .3);
 }
 
 #mainTopic {
     font-size: 4em;
     margin-top: .2em;
-    margin-bottom: 0;
+    margin-bottom: .2em;
     margin-left: 5%;
 }
 
@@ -31,34 +59,47 @@ h2 {
 
 .topic {
     width: 100%;
+    margin-left: 5em;
 }
 
 .topicHeader {
     padding: 0em 1.5em;
     display: inline-block;
-    margin-left: 3em;
     border: .1em solid rgb(46,64,106);
     border-radius: 1em;
+    margin-left: 0;
+    width: 25%;
+    text-align: center;
 }
 
 .contentHolder {
-    margin: 0 5%;
+    margin: 0;
+}
+
+.largeContent {
+    display:inline-block;
+    padding: 0 3em;
+    margin-bottom: 4em;
+    width: 80%;
+    box-sizing: border-box;
+    border-radius: 1em;
+    border: .3em solid rgb(46,64,106);
 }
 
 .smallContent {
     display:inline-block;
-    padding: 0 2em;
     border-radius: 1em;
+    padding: 0 3em;
     border: .3em solid rgb(46,64,106);
     box-sizing: border-box;
-    width: 30em;
+    width: 35%;
     height: auto;
 }
 
 .left {
-    margin-left: 5em;
-    margin-right: 15%;
+    margin-right: 5%;
 }
 
 .right {
+    margin-left: 5%;
 }

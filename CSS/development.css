@@ -10,7 +10,6 @@
 }
 
 #backgroundImage {
-    
     opacity: 15%;
     filter: grayscale(100%);
     width: 100vw;
@@ -18,8 +17,8 @@
 
 #fullHead {
     position: relative;
-    height: 50em;
-    padding-bottom: 4em;
+    height: 88vh;
+    padding-bottom: 6vh;
 }
 
 #landing {
@@ -28,7 +27,7 @@
     position: static;
     background: linear-gradient(145deg, rgba(46,64,106,1) 0%, rgba(13,28,65,1) 100%);
     width: 100vw;
-    height: 50em;
+    height: 84vh;
 }
 
 #introText {
@@ -39,109 +38,91 @@
 
 #introMainText {
     margin:0;
-    padding-top: 1.6em;
-    font-size: 8em;
+    padding-top: 24vh;
+    font-size: 14vh;
 }
 
 #introSecondaryText{
     margin:0;
-    font-size: 3em;
+    font-size: 4vh;
 }
 
 #introSummaryText {
     width: 60%;
-    padding-top: 6em;
+    padding-top: 10vh;
     margin:0 auto;
-    font-size: 1em;
+    font-size: 1.6vh;
 }
 
 #calculator {
     top: 0;
-    height: 56em;
+    height: 92vh;
     display:flex;
     position:relative;
     z-index: 5;
 }
 
-#taxBox {
-    margin-left: 3em;
-    margin-right: 1em;
-    width: 50%;
-}
-
-#tax {
+.data_field {
     color: rgb(46,64,106);
-    height: 45em;
-    border: .2em solid rgb(46,64,106);
-    border-radius: 2em;
+    border: .2vw solid rgb(46,64,106);
+    border-radius: 4vh;
     box-sizing: border-box;
 }
 
-#taxHeader {
-    letter-spacing: .1em;
-    font-size: 4em;
-    width: fit-content;
-    padding: 0 .2em;
-    text-align: center;
+.devHeader {
     color: rgb(46,64,106);
-    margin: -0.5em auto 0;
+    letter-spacing: .3vw;
+    font-size: 7vh;
+    width: fit-content;
+    padding: 0 .6vh;
+    text-align: center;
+    margin: -3.5vh auto 0;
+}
+
+#taxBox {
+    margin-left: 2vw;
+    margin-right: 1vw;
+    width: 50%;
 }
 
 #goodsBox {
-    margin-right: 3em;
-    margin-left: 1em;
+    margin-right: 2vw;
+    margin-left: 1vw;
     width: 50%;
-}
-
-#goods {
-    color: rgb(46,64,106);
-    height: 45em;
-    border: .2em solid rgb(46,64,106);
-    border-radius: 2em;
-    box-sizing: border-box;
-}
-
-#goodsHeader {
-    color: rgb(46,64,106);
-    letter-spacing: .1em;
-    font-size: 4em;
-    width: fit-content;
-    padding: 0 .2em;
-    text-align: center;
-    margin: -0.5em auto 0;
 }
 
 .modifierGroup {
     z-index: 200;
-    margin-bottom: 1em;
+    margin-bottom: 1vh;
 }
 
 .modifierBox {
-    padding-top: 1em;
-    margin:0 2em;
+    padding-top: 1.6vh;
+    margin:0 2vw;
+    height: 70.5vh;
 }
 
 .modifierName {
-    font-size: 1.8em;
+    font-size: 2.6vh;
     font-weight: bold;
     margin-bottom: 0;
 }
 
 .modifierDescription {
-    margin: 0.2em 0;
+    font-size: 1.6vh;
+    margin: 0.4vh 0;
 }
 
 .update {
-    font-size: 2em;
+    font-size: 3.4vh;
     display:block;
     margin: 0 auto;
-    border-radius: 1em;
+    border-radius: 2vh;
     outline-width: 0;
     background-color: rgb(46,64,106);
     color: white;
-    border:none;
-    
-    bottom: 12.5%;
+    border:none; 
+    bottom: 14%;
     position:absolute;
     z-index: 5;
 }
@@ -155,10 +136,10 @@
 }
 
 .summary {
-    margin-top: 1.2em;
+    margin-top: 2vh;
     color: rgb(46,64,106);
     text-align: center;
-    font-size: 1.4em;
+    font-size: 2.2vh;
 }
 
 .textSummary {
@@ -167,13 +148,13 @@
 }
 
 #taxSummary {
-    margin: .2em auto;
-    color: gold;
+    margin: .2vh auto;
+    color: #fcdb77;
 }
 
 #goodsSummary {
-    margin: .2em auto;
-    color: gold;
+    margin: .2vh auto;
+    color: #fcdb77;
 }
 
 input::-webkit-outer-spin-button,
@@ -184,9 +165,9 @@ input::-webkit-inner-spin-button {
 
 .inputField {
     outline-width: 0;
-    height: 1.5em;
-    border: .2em solid rgb(46,64,106);
-    border-radius: 1em;
+    height: 1.8vh;
+    border: .3vh solid rgb(46,64,106);
+    border-radius: 2vh;
 }
 
 .finalUnit {

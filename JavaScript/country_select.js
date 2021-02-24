@@ -1,4 +1,4 @@
-let S_Rank = new Map();
+var S_Rank = new Map();
 S_Rank.set('France', 'active');
 S_Rank.set('Muscovy', 'inactive');
 S_Rank.set('England', 'inactive');
@@ -43,42 +43,49 @@ F_Rank.set('Livonian Order', 'inactive');
 F_Rank.set('Georgia', 'inactive');
 F_Rank.set('Great Horde', 'inactive');
 
+//var test = ['France', 'England', 'Muscovy'];
+let test = Array.from(S_Rank.keys());
+
+
+
 function generateTierList() {
-    var modify_S_Tier = document.getElementById("S_TIER");
-    generateTieredCountries(modify_S_Tier, S_Rank);
 
-    var modifier_A_Tier = document.getElementById("A_TIER");
-    generateTieredCountries(modifier_A_Tier, A_Rank);
 
-    var modifier_B_Tier = document.getElementById("B_TIER");
-    generateTieredCountries(modifier_B_Tier, B_Rank);
+    let e = React.createElement;
 
-    var modifier_C_Tier = document.getElementById("C_TIER");
-    generateTieredCountries(modifier_C_Tier, C_Rank);
+    class tierListBox extends React.Component {
 
-    var modifier_D_Tier = document.getElementById("D_TIER");
-    generateTieredCountries(modifier_D_Tier, D_Rank);
 
-    var modifier_F_Tier = document.getElementById("F_TIER");
-    generateTieredCountries(modifier_F_Tier, F_Rank);
-}
-
-function generateTieredCountries(addbox, Map) {
-    Map.forEach((values, keys) => {
-        var link = "";
-        if (values == 'active') {
-            link = 'href="' + keys + '.html"';
+        render() {
+            return e(
+                'div', null,
+                React.createElement('h2', { className: "tierName" },
+                    React.createElement('span', { id: "S" }, "S"),
+                    " TIER"
+                ),
+                React.createElement('div', { id: "S_TIER", className: "countryBox" },
+                    test.map(name => {
+                        return (
+                            React.createElement('div', { className: "country " + S_Rank.get(name) },
+                                React.createElement('img', { src: "CroppedFlags/" + name + ".png", className: "tierFlag", onmouseover: "hoverFlag('" + name + "')" + '"' }),
+                                React.createElement('p', { className: "countryName" }, name)
+                            )
+                        )
+                    }
+                    )
+                )
+            );
         }
-        addbox.innerHTML +=
-            '<div class="country ' + values + '">' +
-            '<img src="CroppedFlags/' + keys + '.png" class="tierFlag" onmouseover="hoverFlag(' + "'" + keys + "'" + ')">' +
-            '<p class="countryName" >' + keys + '</p ></div >'
-    });
-}
+    }
 
+    const tierContainer = document.querySelector('#tierContent');
+    ReactDOM.render(e(tierListBox), tierContainer);
+
+}
 
 var new_allies;
 var new_threats;
+var country_name;
 var country_motto;
 
 
@@ -87,9 +94,12 @@ function hoverFlag(country) {
     var modify_country_name = country.toUpperCase();
     new_quick_info_name.innerHTML = modify_country_name;
 
+
+    country_name = country;
     country_motto = 'Country Flavor';
     new_allies = [];
     new_threats = [];
+
 
     modifier_type = [];
     modifier_value = [];
@@ -166,37 +176,84 @@ function hoverFlag(country) {
         tunisUpdateInfo();
     }
 
-    document.getElementById("quickInfoMotto").innerHTML = '"' + country_motto + '"';
+    let e = React.createElement;
 
-    for (i = 1; i < 4; i++) {
-        var new_flag = 'AllyIMG' + i;
-        document.getElementById(new_flag).className = "relationsFlag";
-        document.getElementById(new_flag).src = "CroppedFlags/" + new_allies[i - 1] + ".png";
-
-        var new_ally_name = 'AllyName' + i;
-        document.getElementById(new_ally_name).innerText = new_allies[i - 1];
-    }
-
-    for (i = 1; i < 4; i++) {
-        var new_flag = 'threatsIMG' + i;
-        document.getElementById(new_flag).className = "relationsFlag";
-        document.getElementById(new_flag).src = "CroppedFlags/" + new_threats[i - 1] + ".png";
-
-        var new_threat_name = 'threatsName' + i;
-        document.getElementById(new_threat_name).innerText = new_threats[i - 1];
-    }
-
-    if (modifier_type.length > 0) {
-        for (i = 0; i < modifier_type.length; i++) {
-            if (i == 0) {
-                document.getElementById('modifiersSplit').innerHTML =
-                    '<div class="modifierUnit"><p class="modifier">' + modifier_type[i] + ' ' + modifier_value[i] + '</p></div>'
-            } else {
-                document.getElementById('modifiersSplit').innerHTML +=
-                    '<div class="modifierUnit"><p class="modifier">' + modifier_type[i] + ' ' + modifier_value[i] + '</p></div>'
-            }
+    class quickInfoBox extends React.Component {
+        render() {
+            return e(
+                'div', { id: "quickInfoContentTopLayer" },
+                React.createElement('div', { id: "nameBox" },
+                    React.createElement('div', { id: "nameContainer" },
+                        React.createElement('img', { src: "Images/Left_Leaf.png" }),
+                        React.createElement('span', { className: "leafgap" }),
+                        React.createElement('p', { id: "quickInfoName" }, country_name),
+                        React.createElement('span', { className: "leafgap" }),
+                        React.createElement('img', { src: "Images/Right_Leaf.png" })),
+                    React.createElement('h3', { id: "quickInfoMotto" }, '"' + country_motto + '"')
+                ),
+                React.createElement('div', { id: "relationsBox" },
+                    React.createElement('div', { id: "Allies", className: "relationsSplit" },
+                        React.createElement('h3', { id: "AlliesHeader" }, "Suggested Allies"),
+                        React.createElement('div', { id: "AlliesFlagBox", className: "relationsFlagBox" },
+                            React.createElement('div', { id: "Ally1", className: "relationsCountry" },
+                                React.createElement('img', { id: "AllyIMG1", className: "relationsFlag", src: "CroppedFlags/" + new_allies[0] + ".png" }),
+                                React.createElement('h4', { id: "AllyName1", className: "relationsName" }, new_allies[0])),
+                            React.createElement('div', { id: "Ally2", className: "relationsCountry" },
+                                React.createElement('img', { id: "AllyIMG2", className: "relationsFlag", src: "CroppedFlags/" + new_allies[1] + ".png" }),
+                                React.createElement('h4', { id: "AllyName2", className: "relationsName" }, new_allies[1]),
+                            ),
+                            React.createElement('div', { id: "Ally3", className: "relationsCountry" },
+                                React.createElement('img', { id: "AllyIMG3", className: "relationsFlag", src: "CroppedFlags/" + new_allies[2] + ".png" }),
+                                React.createElement('h4', { id: "AllyName3", className: "relationsName" }, new_allies[2]),
+                            )
+                        )
+                    ),
+                    React.createElement('div', { id: "threats", className: "relationsSplit" },
+                        React.createElement('h3', { id: "threatsHeader" }, "Common Threats"),
+                        React.createElement('div', { id: "threatsFlagBox", className: "relationsFlagBox" },
+                            React.createElement('div', { id: "threats1", className: "relationsCountry" },
+                                React.createElement('img', { id: "threatsIMG1", className: "relationsFlag", src: "CroppedFlags/" + new_threats[0] + ".png" }),
+                                React.createElement('h4', { id: "threatsName1", className: "relationsName" }, new_threats[0])),
+                            React.createElement('div', { id: "threats2", className: "relationsCountry" },
+                                React.createElement('img', { id: "threatsIMG2", className: "relationsFlag", src: "CroppedFlags/" + new_threats[1] + ".png" }),
+                                React.createElement('h4', { id: "threatsName2", className: "relationsName" }, new_threats[1]),
+                            ),
+                            React.createElement('div', { id: "threats3", className: "relationsCountry" },
+                                React.createElement('img', { id: "threatsIMG3", className: "relationsFlag", src: "CroppedFlags/" + new_threats[2] + ".png" }),
+                                React.createElement('h4', { id: "threatsName3", className: "relationsName" }, new_threats[2]),
+                            )
+                        )
+                    )
+                ),
+                React.createElement('div', { id: "modifiersBox" },
+                    React.createElement('h3', { id: "modifiersTitle" }, "MODIFIERS"),
+                    React.createElement('div', { id: "modifiersSplit" },
+                        modifier_type.map((name, index) => {
+                            return (
+                                React.createElement('div', { className: "modifierUnit" },
+                                    React.createElement('p', { className: "modifier" }, name + " " + modifier_value[index])
+                                )
+                            )
+                        })
+                    )
+                ),
+                React.createElement('div', { id: "traitsBox" },
+                    trait_name.map((name, index) => {
+                        return (
+                            React.createElement('div', { className: "traits" },
+                                React.createElement('h2', { className: "traitsTitle " + trait_rating[index] }, name),
+                                React.createElement('p', { className: "traitsText" }, trait_description[index])
+                            )
+                        )
+                    }
+                    )
+                )
+            );
         }
     }
+
+    const domContainer = document.querySelector('#quickInfoContent');
+    ReactDOM.render(e(quickInfoBox), domContainer);
 
     /*<div id="traits1" class="traits">
     <h2 class="traitsTitle">Pepee</h2>
@@ -208,32 +265,13 @@ function hoverFlag(country) {
     </div>
     */
 
-    if (trait_name.length > 0) {
-        for (i = 0; i < trait_name.length; i++) {
-            if (i == 0) {
-                document.getElementById('traitsBox').innerHTML =
-                    '<div class="traits"><h2 class="traitsTitle ' + trait_rating[i] + '">' + trait_name[i] + '</h2>' +
-                    '<p class="traitsText">' + trait_description[i] + '</p></div>';
-            } else {
-                document.getElementById('traitsBox').innerHTML +=
-                    '<div class="traits"><h2 class="traitsTitle ' + trait_rating[i] + '">' + trait_name[i] + '</h2>' +
-                    '<p class="traitsText">' + trait_description[i] + '</p></div>';
-            }
-        }
-    }
-
 }
-
-let traits_list = {
-    trait_name: "Default_Name",
-    trait_rating: "Default_Rating",
-    trait_description: "Test_Description"
-};
 
 function franceUpdateInfo() {
     country_motto = 'Legacy of Charlemagne';
     new_allies = ['Castile', 'Milan', 'Burgundy'];
     new_threats = ['England', 'Austria', 'Burgundy'];
+
     modifier_type = ['Morale', 'Discipline', 'Manpower', 'Manpower Recovery'];
     modifier_value = ['20%', '5%', '20%', '10%'];
 

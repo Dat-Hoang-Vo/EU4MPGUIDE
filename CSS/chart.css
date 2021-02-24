@@ -1,0 +1,23 @@
+#inputTable {
+    background-color: rgb(46,64,106);
+    table-layout: fixed;
+}
+
+#additionalInfo {
+    background-color: rgb(46,64,106);
+}
+
+th {
+    width: 5vw;
+    border: .1vw solid white;
+}
+
+td {
+    text-align: center;
+    margin: 0 auto;
+}
+
+input {
+    width: 3vw;
+    margin: 0 auto;
+}

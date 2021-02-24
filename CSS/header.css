@@ -6,16 +6,16 @@ a {
     background-color: rgb(46,64,106);
     background: linear-gradient(145deg, rgba(46,64,106,1) 0%, rgba(13,28,65,1) 100%);
     width: 100vw;
-    height: 2.5em;
+    height: 4vh;
     margin:0;
     margin-bottom: 0;
 }
 
 #homeButton {
     color: white;
-    font-size: 2em;
+    font-size: 3.2vh;
     margin: 0;
-    margin-left: .25em;
+    margin-left: 1vw;
     display: inline;
     height: 100%;
     vertical-align:middle;
