@@ -1,8 +1,8 @@
-var ctx = document.getElementById('mainChart').getContext('2d');
+
 
 function loadChart() {
-    //chart.destroy();
-    var chart = new Chart(ctx, {
+    var ctx = document.getElementById('mainChart').getContext('2d');
+    new Chart(ctx, {
         type: 'line',
         data: {
             labels: data_days,
@@ -40,6 +40,7 @@ function loadChart() {
             }
         }
     });
+
 }
 
 
@@ -188,6 +189,8 @@ function gatherInputs() {
 
     setLeaderAdvantage();
     simulateBattle();
+    document.getElementById("chartContainer").innerHTML = '<canvas id="mainChart" width="100vw" height="30vh"></canvas>';
+    loadChart();
 }
 
 function simulateBattle() {
@@ -244,6 +247,9 @@ function simulateBattle() {
         data_days.push(days);
         days++;
     }
+
+
+
 }
 
 function setLeaderAdvantage() {
