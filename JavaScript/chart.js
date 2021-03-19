@@ -88,14 +88,14 @@ let data_days;
 function toggleAlive() {
     mode = 0;
     y_label = "Unit Strength";
-    text = "Remaining Troops";
+    title = "Remaining Troops";
     loadChart();
 }
 
 function toggleDamage() {
     mode = 1;
     y_label = "Damage Dealt";
-    text = "Damage Dealt";
+    title = "Damage Dealt";
     loadChart();
 }
 
