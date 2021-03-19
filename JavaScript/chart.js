@@ -1,5 +1,6 @@
 let mode = 0;
 let y_label = "Unit Strength";
+let title = "Remaining troops";
 
 
 let current_phase = "fire";
@@ -86,11 +87,15 @@ let data_days;
 
 function toggleAlive() {
     mode = 0;
+    y_label = "Unit Strength";
+    text = "Remaining Troops";
     loadChart();
 }
 
 function toggleDamage() {
     mode = 1;
+    y_label = "Damage Dealt";
+    text = "Damage Dealt";
     loadChart();
 }
 
@@ -129,7 +134,7 @@ function loadChart() {
         options: {
             title: {
                 display: true,
-                text: 'Units Alive per Day'
+                text: title
             },
             scales: {
                 yAxes: [{
