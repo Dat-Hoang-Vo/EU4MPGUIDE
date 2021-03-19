@@ -1,49 +1,4 @@
-
-
-function loadChart() {
-    var ctx = document.getElementById('mainChart').getContext('2d');
-    new Chart(ctx, {
-        type: 'line',
-        data: {
-            labels: data_days,
-            datasets: [{
-                data: data_remaining_attacker,
-                label: "Attacker",
-                borderColor: "#3e95cd",
-                fill: false
-            }, {
-                data: data_remaining_defender,
-                label: "Defender",
-                borderColor: "#8e5ea2",
-                fill: false
-            }
-            ]
-        },
-        options: {
-            title: {
-                display: true,
-                text: 'Units Alive per Day'
-            },
-            scales: {
-                yAxes: [{
-                    scaleLabel: {
-                        display: true,
-                        labelString: y_label
-                    }
-                }],
-                xAxes: [{
-                    scaleLabel: {
-                        display: true,
-                        labelString: "Day"
-                    }
-                }]
-            }
-        }
-    });
-
-}
-
-
+let mode = 0;
 let y_label = "Unit Strength";
 
 
@@ -55,6 +10,7 @@ let battle_length = 1.01;
 
 let unit_strength_attacker = 1000;
 let discipline_attacker = 1;
+let morale_attacker = 1;
 let tactics_attacker = 1;
 
 let fire_dealt_attacker = 1;
@@ -84,6 +40,7 @@ let leader_shock_attacker = 0;
 
 let unit_strength_defender = 1000;
 let discipline_defender = 1;
+let morale_defender = 1;
 let tactics_defender = 1;
 
 let fire_dealt_defender = 1;
@@ -127,7 +84,75 @@ let data_remaining_defender;
 
 let data_days;
 
+function toggleAlive() {
+    mode = 0;
+    loadChart();
+}
 
+function toggleDamage() {
+    mode = 1;
+    loadChart();
+}
+
+function loadChart() {
+    var ctx = document.getElementById('mainChart').getContext('2d');
+
+    let attacker_data = data_remaining_attacker;
+    let defender_data = data_remaining_defender;
+
+    if (mode === 0) {
+        attacker_data = data_remaining_attacker;
+        defender_data = data_remaining_defender;
+    } else {
+        attacker_data = data_damage_attacker;
+        defender_data = data_damage_defender;
+    }
+
+    
+    new Chart(ctx, {
+        type: 'line',
+        data: {
+            labels: data_days,
+            datasets: [{
+                data: attacker_data,
+                label: "Attacker",
+                borderColor: "#3e95cd",
+                fill: false
+            }, {
+                data: defender_data,
+                label: "Defender",
+                borderColor: "#8e5ea2",
+                fill: false
+            }
+            ]
+        },
+        options: {
+            title: {
+                display: true,
+                text: 'Units Alive per Day'
+            },
+            scales: {
+                yAxes: [{
+                    scaleLabel: {
+                        display: true,
+                        labelString: y_label
+                    }
+                }],
+                xAxes: [{
+                    scaleLabel: {
+                        display: true,
+                        labelString: "Day"
+                    }
+                }]
+            }
+        }
+    });
+
+}
+
+function newBattle() {
+    gatherInputs();
+}
 
 
 
@@ -143,6 +168,7 @@ function gatherInputs() {
 
 
     let tech_attacker = document.getElementById("tech_attacker").value;
+    morale_attacker = technologyStats[tech_attacker].morale * parseFloat(document.getElementById("morale_attacker"));
     tactics_attacker = technologyStats[tech_attacker].tactic;
     infantry_fire_modifier_attacker = technologyStats[tech_attacker].inf_fire;
     infantry_shock_modifier_attacker = technologyStats[tech_attacker].inf_shock;
@@ -166,6 +192,7 @@ function gatherInputs() {
 
 
     let tech_defender = document.getElementById("tech_defender").value;
+    morale_defender = technologyStats[tech_defender].morale * parseFloat(document.getElementById("morale_defender"));
     tactics_defender = technologyStats[tech_defender].tactic;
     infantry_fire_modifier_defender = technologyStats[tech_defender].inf_fire;
     infantry_shock_modifier_defender = technologyStats[tech_defender].inf_shock;
@@ -220,6 +247,7 @@ function simulateBattle() {
         } else { counter++; }
 
         calculateDamage();
+        battle_length += 0.01;
 
         let attacker_inf_damage = getInfantryDamageAttacker(attacker_dice);
         let defender_inf_damage = getInfantryDamageDefender(defender_dice);
@@ -247,9 +275,6 @@ function simulateBattle() {
         data_days.push(days);
         days++;
     }
-
-
-
 }
 
 function setLeaderAdvantage() {
@@ -355,7 +380,7 @@ function getArtilleryDamageDefender(roll) {
 }
 
 function getDamage(base, unitStrength, unitModifier, phaseModifier, combatAbility, discipline, e_discipline, e_tactic, e_damage_reduction) {
-    let damage = base * (unitStrength / 1000) * unitModifier * phaseModifier * combatAbility * discipline / (e_tactic * e_discipline) * (1 - e_damage_reduction);
+    let damage = base * (unitStrength / 1000) * unitModifier * phaseModifier * combatAbility * discipline / (e_tactic * e_discipline) * (1 - e_damage_reduction) * battle_length;
     return damage;
 }
 

@@ -13,7 +13,7 @@
 
 </head>
 
-<body onload="gatherInputs()">
+<body onload="newBattle()">
     <header id="headerBar">
         <a href="index.html">
             <p id="homeButton">EU4 Multiplayer Guide</p>
@@ -29,7 +29,7 @@
         <table>
             <thead>
                 <tr>
-                    <th colspan="3"></th>
+                    <th colspan="4"></th>
                     <th colspan="2">Additional Fire Damage</th>
                     <th colspan="2">Additional Shock Damage</th>
                     <th colspan="2">Additional Combat Ability</th>
@@ -41,14 +41,15 @@
                     <th>Army</th>
                     <th>Tech</th>
                     <th>Discipline</th>
+                    <th>Morale</th>
                     <th>Dealt</th>
                     <th>Received</th>
                     <th>Dealt</th>
                     <th>Received</th>
                     <th>Infantry</th>
                     <th>Artillery</th>
-                    <th>Fire Pip</th>
-                    <th>Shock Pip</th>
+                    <th>Fire</th>
+                    <th>Shock</th>
                     <th>Fire_ATK</th>
                     <th>Fire_DEF</th>
                     <th>Shock_ATK</th>
@@ -65,6 +66,7 @@
                     </td>
                     <td><input type="number" value="3" min="3" max="32" step="1" id="tech_attacker"></td>
                     <td><input type="number" value="1" min="0" max="2" step="0.05" id="discipine_attacker"></td>
+                    <td><input type="number" value="1" min="0" max="3" step=".05" id="morale_attacker"></td>
                     <td><input type="number" value="0" min="0" max="1" step="0.05" id="fire_dealt_attacker"></td>
                     <td><input type="number" value="0" min="0" max="1" step="0.05" id="fire_received_attacker"></td>
                     <td><input type="number" value="0" min="0" max="1" step="0.05" id="shock_dealt_attacker"></td>
@@ -92,6 +94,7 @@
                     </td>
                     <td><input type="number" value="3" min="3" max="32" step="1" id="tech_defender"></td>
                     <td><input type="number" value="1" min="0" max="2" step="0.05" id="discipine_defender"></td>
+                    <td><input type="number" value="1" min="0" max="3" step=".05" id="morale_defender"></td>
                     <td><input type="number" value="0" min="0" max="1" step="0.05" id="fire_dealt_defender"></td>
                     <td><input type="number" value="0" min="0" max="1" step="0.05" id="fire_received_defender"></td>
                     <td><input type="number" value="0" min="0" max="1" step="0.05" id="shock_dealt_defender"></td>
@@ -122,7 +125,9 @@
             <input type="checkbox" name="average_dice" id="average_dice">
 
         </form>
-        <button id="simulate" onclick="gatherInputs()">Simulate</button>
+        <button id="simulate" onclick="newBattle()">Simulate</button>
+        <button id="show_alive" onclick="toggleAlive()">Units Alive</button>
+        <button id="show_damage" onclick="toggleDamage()">Damage Dealt</button>
     </div>
 </body>
 
