@@ -70,8 +70,8 @@ h2, h3, h4 {
 
 .active .tierFlag:hover {
     box-shadow: .4vh .25vh .4vh .25vh rgba(0, 0, 0, .75);
-    width: 15vh;
-    height: 15vh;
+    width: 13.5vh;
+    height: 13.5vh;
 }
 
 .countryName {
