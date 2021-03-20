@@ -89,6 +89,7 @@ function toggleAlive() {
     mode = 0;
     y_label = "Unit Strength";
     title = "Remaining Troops";
+    document.getElementById("chartContainer").innerHTML = '<canvas id="mainChart" width="100vw" height="30vh"></canvas>';
     loadChart();
 }
 
@@ -96,6 +97,7 @@ function toggleDamage() {
     mode = 1;
     y_label = "Damage Dealt";
     title = "Damage Dealt";
+    document.getElementById("chartContainer").innerHTML = '<canvas id="mainChart" width="100vw" height="30vh"></canvas>';
     loadChart();
 }
 
