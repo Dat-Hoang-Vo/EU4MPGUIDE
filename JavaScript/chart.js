@@ -243,15 +243,22 @@ function simulateBattle() {
     let battle_length = 1.01;
     let days = 1;
 
+    attacker_dice = getDice();
+    defender_dice = getDice();
+
     while (unit_strength_attacker > 150 && unit_strength_defender > 150) {
         if (counter === 3) {
+            attacker_dice = getDice();
+            defender_dice = getDice();
             if (current_phase === "fire") {
                 current_phase = "shock";
             } else {
                 current_phase = "fire";
             }
             counter = 1;
-        } else { counter++; }
+        } else {
+             counter++; 
+            }
 
         calculateDamage();
         battle_length += 0.01;
@@ -284,6 +291,9 @@ function simulateBattle() {
     }
 }
 
+function setDice() {
+}
+
 function setLeaderAdvantage() {
     if (leader_fire_attacker > leader_fire_defender) {
         leader_fire_advantage_attacker = leader_fire_attacker - leader_fire_defender;
@@ -311,8 +321,8 @@ function calculateDamage() {
         current_attacker_leader_modifier = leader_shock_advantage_attacker;
         current_defender_leader_modifier = leader_shock_advantage_defender;
     }
-    attacker_dice = getDice() + current_attacker_leader_modifier - terrain - crossing;
-    defender_dice = getDice() + current_defender_leader_modifier;
+    attacker_dice += current_attacker_leader_modifier - terrain - crossing;
+    defender_dice += current_defender_leader_modifier;
 
 }
 
