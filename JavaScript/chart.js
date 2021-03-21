@@ -13,6 +13,7 @@ let unit_strength_attacker = 1000;
 let discipline_attacker = 1;
 let morale_attacker = 1;
 let tactics_attacker = 1;
+let tech_attacker = 3;
 
 let fire_dealt_attacker = 1;
 let fire_received_attacker = 0;
@@ -43,6 +44,7 @@ let unit_strength_defender = 1000;
 let discipline_defender = 1;
 let morale_defender = 1;
 let tactics_defender = 1;
+let tech_defender = 3;
 
 let fire_dealt_defender = 1;
 let fire_received_defender = 0;
@@ -174,7 +176,7 @@ function gatherInputs() {
     }
 
 
-    let tech_attacker = document.getElementById("tech_attacker").value;
+    tech_attacker = parseInt(document.getElementById("tech_attacker").value);
     morale_attacker = technologyStats[tech_attacker].morale * parseFloat(document.getElementById("morale_attacker"));
     tactics_attacker = technologyStats[tech_attacker].tactic;
     infantry_fire_modifier_attacker = technologyStats[tech_attacker].inf_fire;
@@ -198,7 +200,7 @@ function gatherInputs() {
     leader_shock_attacker = parseInt(document.getElementById("leader_shock_attacker").value);
 
 
-    let tech_defender = document.getElementById("tech_defender").value;
+    tech_defender = document.getElementById("tech_defender").value;
     morale_defender = technologyStats[tech_defender].morale * parseFloat(document.getElementById("morale_defender"));
     tactics_defender = technologyStats[tech_defender].tactic;
     infantry_fire_modifier_defender = technologyStats[tech_defender].inf_fire;
@@ -228,6 +230,7 @@ function gatherInputs() {
 }
 
 function simulateBattle() {
+    current_phase = "fire";
     data_damage_attacker = [];
     data_damage_defender = [];
 
@@ -268,13 +271,10 @@ function simulateBattle() {
         let attacker_art_damage = getArtilleryDamageAttacker(attacker_dice);
         let defender_art_damage = getArtilleryDamageDefender(defender_dice);
 
+        console.log(attacker_art_damage);
 
         let attacker_total_damage = Math.floor(attacker_inf_damage + attacker_art_damage);
         let defender_total_damage = Math.floor(defender_inf_damage + defender_art_damage);
-
-        //console.log("dmg: " + attacker_art_damage);
-        //console.log("remaining: " + unit_strength_attacker);
-        //console.log(defender_inf_damage);
 
         data_damage_attacker.push(attacker_total_damage);
         data_damage_defender.push(defender_total_damage);
@@ -289,9 +289,6 @@ function simulateBattle() {
         data_days.push(days);
         days++;
     }
-}
-
-function setDice() {
 }
 
 function setLeaderAdvantage() {
@@ -371,7 +368,7 @@ function getInfantryDamageDefender(roll) {
 }
 
 function getArtilleryDamageAttacker(roll) {
-    if (current_phase === "fire") {
+    if (current_phase === "fire" && tech_attacker >= 7) {
         let total_roll = roll + artillery_fire_attack_pip_attacker - infantry_fire_defence_pip_defender;
         let current_modifier = artillery_fire_modifier_attacker;
         let phase_modifier = fire_dealt_attacker;
@@ -384,7 +381,7 @@ function getArtilleryDamageAttacker(roll) {
 }
 
 function getArtilleryDamageDefender(roll) {
-    if (current_phase === "fire") {
+    if (current_phase === "fire" && tech_defender >= 7) {
         let total_roll = roll + artillery_fire_attack_pip_defender - infantry_fire_defence_pip_attacker;
         let current_modifier = artillery_fire_modifier_defender;
         let phase_modifier = fire_dealt_defender;
