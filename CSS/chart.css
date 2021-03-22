@@ -1,6 +1,7 @@
 #inputTable {
   background-color: rgb(46, 64, 106);
   table-layout: fixed;
+  padding-bottom: 1vh;
 }
 
 #additionalInfo {
@@ -26,6 +27,7 @@ input {
   margin-top: 1vh;
   padding-top: 1vh;
   padding-bottom: 1vh;
+  padding-right: 1vw;
   text-align: right;
 }
 
@@ -38,6 +40,17 @@ input {
 
 .mode_button_selected {
   color: orange;
+  font-size: 3vh;
+  border: none;
+  background-color: rgb(46, 64, 106);
+}
+
+#footer_bar {
+  margin-top: 1vh;
+}
+
+#simulate {
+  color: white;
   font-size: 3vh;
   border: none;
   background-color: rgb(46, 64, 106);
