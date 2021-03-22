@@ -1,23 +1,44 @@
 #inputTable {
-    background-color: rgb(46,64,106);
-    table-layout: fixed;
+  background-color: rgb(46, 64, 106);
+  table-layout: fixed;
 }
 
 #additionalInfo {
-    background-color: rgb(46,64,106);
+  background-color: rgb(46, 64, 106);
 }
 
 th {
-    width: 5vw;
-    border: .1vw solid white;
+  width: 5vw;
+  border: 0.1vw solid white;
 }
 
 td {
-    text-align: center;
-    margin: 0 auto;
+  text-align: center;
+  margin: 0 auto;
 }
 
 input {
-    width: 3vw;
-    margin: 0 auto;
+  width: 3vw;
+  margin: 0 auto;
+}
+
+#mode_bar {
+  margin-top: 1vh;
+  padding-top: 1vh;
+  padding-bottom: 1vh;
+  text-align: right;
+}
+
+.mode_button {
+  color: white;
+  font-size: 3vh;
+  border: none;
+  background-color: rgb(46, 64, 106);
+}
+
+.mode_button_selected {
+  color: orange;
+  font-size: 3vh;
+  border: none;
+  background-color: rgb(46, 64, 106);
 }

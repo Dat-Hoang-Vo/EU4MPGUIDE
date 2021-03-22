@@ -1,277 +1,272 @@
-h2, h3, h4 {
-    margin: 0;
+h2,
+h3,
+h4 {
+  margin: 0;
 }
 
 #mainContent {
-    margin-top: 4vh;
-    display:flex;
+  margin-top: 4vh;
+  display: flex;
 }
 
 .splitContent {
-    display:flexbox;
-    box-sizing: border-box;
-    
-    border-radius: 3vh;
-    margin: 0 1.8vw;
-    height: auto;
+  display: flexbox;
+  box-sizing: border-box;
+
+  border-radius: 3vh;
+  margin: 0 1.8vw;
+  height: auto;
 }
 
 #tierContent {
-    border: .6vh solid rgb(46,64,106);
-    width: 40%;
-    color: rgb(46,64,106);
-    padding: 1vh 3vw 2vh;
+  border: 0.6vh solid rgb(46, 64, 106);
+  width: 40%;
+  color: rgb(46, 64, 106);
+  padding: 1vh 3vw 2vh;
 }
 
 .tierName {
-    letter-spacing: .4vh;
-    font-size: 5vh;
-    margin: 0;
+  letter-spacing: 0.4vh;
+  font-size: 5vh;
+  margin: 0;
 }
 
 #S {
-    font-size: 10vh;
-    color: #ffd166;
-    text-shadow: black .3vw .2vw .4vw;
+  font-size: 10vh;
+  color: #ffd166;
+  text-shadow: black 0.3vw 0.2vw 0.4vw;
 }
 
 .tierInitial {
-    font-size: 8vh;
+  font-size: 8vh;
 }
 
 .countryBox {
-    max-width: 100%;
+  max-width: 100%;
 }
 
 .country {
-    display:inline-block;
-    align-self: flex-start;
-    position: relative;
-    width: 33%;
-    margin: 0 auto 1.6vw;
-    
+  display: inline-block;
+  align-self: flex-start;
+  position: relative;
+  width: 33%;
+  margin: 0 auto 1.6vw;
 }
 
 .tierFlag {
-    margin: auto;
-    display:block;
-    width: 13vh;
-    height: 13vh;
-    border-radius: 50% 50% 50% 50% / 20% 20% 80% 80%;
-    box-shadow: .2vh .2vh .35vh .2vh rgba(0, 0, 0, .5);
-    transition: 0.6s;
-    
+  margin: auto;
+  display: block;
+  width: 13vh;
+  height: 13vh;
+  border-radius: 50% 50% 50% 50% / 20% 20% 80% 80%;
+  box-shadow: 0.2vh 0.2vh 0.35vh 0.2vh rgba(0, 0, 0, 0.5);
+  transition: 0.6s;
 }
 
 .inactive {
-    filter: grayscale(90%);
-    text-decoration: line-through;
+  filter: grayscale(90%);
+  text-decoration: line-through;
 }
 
 .active .tierFlag:hover {
-    box-shadow: .4vh .25vh .4vh .25vh rgba(0, 0, 0, .75);
-    width: 13.5vh;
-    height: 13.5vh;
+  box-shadow: 0.4vh 0.25vh 0.4vh 0.25vh rgba(0, 0, 0, 0.75);
+  width: 13.5vh;
+  height: 13.5vh;
 }
 
 .countryName {
-    font-size: 2.6vh;
-    text-align: center;
-    margin: 0;
+  font-size: 2.6vh;
+  text-align: center;
+  margin: 0;
 }
 
-
 #quickInfoContent {
-    background: linear-gradient(145deg, rgba(46,64,106,1) 0%, rgba(13,28,65,1) 100%);
-    width: 60%;
-    box-sizing: border-box;
-    padding: 0 3vw 3vh;    
-    height: 90vh;
-    position:sticky;
-    top: 4vh;
+  background: linear-gradient(
+    145deg,
+    rgba(46, 64, 106, 1) 0%,
+    rgba(13, 28, 65, 1) 100%
+  );
+  width: 60%;
+  box-sizing: border-box;
+  padding: 0 3vw 3vh;
+  height: 90vh;
+  position: sticky;
+  top: 4vh;
 }
 
 #quickInfoContent::after {
-    content: "";
-    background-image: url('landingImage.png');
-    opacity: 15%;
-    filter:grayscale(100%);
-    background-size: cover;
-    position:absolute;
-    top: 40%;
-    left: 0px;
-    right: 0px;
-    bottom: 0px;
-    z-index: -1;
+  content: "";
+  background-image: url("landingImage.png");
+  opacity: 15%;
+  filter: grayscale(100%);
+  background-size: cover;
+  position: absolute;
+  top: 40%;
+  left: 0px;
+  right: 0px;
+  bottom: 0px;
+  z-index: -1;
 }
 
 #flavor_image {
-    width: 100%;
-    filter:grayscale(100%);
-    opacity: 30%;
-    
+  width: 100%;
+  filter: grayscale(100%);
+  opacity: 30%;
 }
 
 #quickInfoContentTopLayer {
 }
 
 #nameBox {
-    text-align: center;
-    margin-top: 2vh;
+  text-align: center;
+  margin-top: 2vh;
 }
 
 #nameCounter {
-    letter-spacing: 1vw;
+  letter-spacing: 1vw;
 }
 
 #quickInfoName {
-    padding-left: 1.6vw;
-    padding-right: 1vw;
-    letter-spacing: .6vw;
-    font-size: 6vh;
-    margin: .2vh 0 0;
-    font-weight: 700;
-    display:inline;
+  padding-left: 1.6vw;
+  padding-right: 1vw;
+  letter-spacing: 0.6vw;
+  font-size: 6vh;
+  margin: 0.2vh 0 0;
+  font-weight: 700;
+  display: inline;
 }
 
 #quickInfoMotto {
-    font-size: 2.4vh;
-    margin-top: 0;
-    font-style: italic;
+  font-size: 2.4vh;
+  margin-top: 0;
+  font-style: italic;
 }
 
 #relationsBox {
-    justify-content: center;
-    display:flex;
-    font-size: 2vh;
-    margin-top: 1vh;
+  justify-content: center;
+  display: flex;
+  font-size: 2vh;
+  margin-top: 1vh;
 }
 
 .relationsSplit {
-    width: 50%;
-    text-align: center;
+  width: 50%;
+  text-align: center;
 }
 
 #AlliesHeader {
-    margin-right: 1vw;
-    padding-bottom: 1vh;
-    padding-top: 1vh;
+  margin-right: 1vw;
+  padding-bottom: 1vh;
+  padding-top: 1vh;
 }
 
 #threatsHeader {
-    margin-left: 1vw;
-    padding-bottom: 1vh;
-    padding-top: 1vh;
+  margin-left: 1vw;
+  padding-bottom: 1vh;
+  padding-top: 1vh;
 }
 
-
 .relationsFlagBox {
-    margin: 0;
-    display: flex;
-    justify-content: center;
+  margin: 0;
+  display: flex;
+  justify-content: center;
 }
 
 #AlliesFlagBox {
-    margin-right: 0;
-    padding-right: 2vw;
-    border-right: .2vh solid white;
+  margin-right: 0;
+  padding-right: 2vw;
+  border-right: 0.2vh solid white;
 }
 
-
 #threatsFlagBox {
-    margin-left: 0;
-    padding-left: 2vw;
-    border-left: .2vh solid white;
+  margin-left: 0;
+  padding-left: 2vw;
+  border-left: 0.2vh solid white;
 }
 
 .relationsFlag {
-    margin-top: 1.4vh;
-    width: 6vh;
-    height: 6vh;
-    border-radius: 50% 50% 50% 50% / 20% 20% 80% 80%;
-    
+  margin-top: 1.4vh;
+  width: 6vh;
+  height: 6vh;
+  border-radius: 50% 50% 50% 50% / 20% 20% 80% 80%;
 }
 
-
 .relationsCountry {
-    margin: 0;
-    width: 7vw;
+  margin: 0;
+  width: 7vw;
 }
 
 .relationsName {
-    font-size: 1.6vh;
+  font-size: 1.6vh;
 }
 
 #modifiersBox {
-    border-bottom: .3vh solid white;
-    font-weight: 700;
-    padding: 2vh 0;
-    margin-bottom: 4vh;
+  border-bottom: 0.3vh solid white;
+  font-weight: 700;
+  padding: 2vh 0;
+  margin-bottom: 4vh;
 }
 
 #modifiersTitle {
-    font-size: 2.4vh;
-    letter-spacing: .3vw;
-    margin-top: 1.8vh;
-    display:flex;
-    flex-direction: row;
+  font-size: 2.4vh;
+  letter-spacing: 0.3vw;
+  margin-top: 1.8vh;
+  display: flex;
+  flex-direction: row;
 }
 
-#modifiersTitle::before, #modifiersTitle::after {
-    content: "";
-    flex: 1 1;
-    border-bottom: .3vh solid white;
-    margin:auto;
-    
+#modifiersTitle::before,
+#modifiersTitle::after {
+  content: "";
+  flex: 1 1;
+  border-bottom: 0.3vh solid white;
+  margin: auto;
 }
 
 #modifiersTitle::before {
-    margin-right: 2vw;
-    
+  margin-right: 2vw;
 }
 
 #modifiersTitle::after {
-    margin-left: 2vw;
+  margin-left: 2vw;
 }
 
 #modifiersSplit {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
 .modifier {
-    padding: .8vw 0;
-    margin: 0 1vw;
-    font-size: 2vh;
-    display: inline-block;
+  padding: 0.8vw 0;
+  margin: 0 1vw;
+  font-size: 2vh;
+  display: inline-block;
 }
 
-
 .traitsTitle {
-    font-size: 2.2vh;
-    margin-top: 2vh;
-    margin-bottom: 0;
+  font-size: 2.2vh;
+  margin-top: 2vh;
+  margin-bottom: 0;
 }
 
 .traitsText {
-    margin: 0;
-    font-size: 1.8vh;
+  margin: 0;
+  font-size: 1.8vh;
 }
 
 .military {
-    color: #f77e7e;
+  color: #f77e7e;
 }
 
 .geographic {
-    color: #BFF3CB;
+  color: #bff3cb;
 }
 
 .economic {
-    color: #fcdb77;
+  color: #fcdb77;
 }
 
 .diplomatic {
-    color: #92b7fa;
+  color: #92b7fa;
 }
-

@@ -1,83 +1,79 @@
+// Global Variables
 let mode = 0;
 let y_label = "Unit Strength";
 let title = "Remaining troops";
-
-
 let current_phase = "fire";
 let dice_averaged = true;
 let crossing = 0;
 let terrain = 0;
 let battle_length = 1.01;
+let attacker_dice;
+let defender_dice;
 
-let unit_strength_attacker = 1000;
-let discipline_attacker = 1;
-let morale_attacker = 1;
-let tactics_attacker = 1;
-let tech_attacker = 3;
+// Attacker Stats
+let attacker = {
+    unit_strength: 1000,
+    discipline: 1,
+    bonus_morale: 0,
+    max_morale: 2.5,
+    current_morale: 2.5,
+    tactics: 1,
+    tech: 3,
+    fire_damage: 1,
+    fire_received: 0,
+    shock_damage: 1,
+    shock_received: 0,
+    infantry_fire_modifier: 1,
+    infantry_shock_modifier: 1,
+    infantry_combat_ability : 1,
+    infantry_offensive_fire_pip: 1,
+    infantry_offensive_shock_pip: 1,
+    infantry_defensive_fire_pip: 1,
+    infantry_defensive_shock_pip: 1,
+    artillery_fire_modifier: 1,
+    artillery_combat_ability: 1,
+    artillery_offensive_fire_pip: 1,
+    artillery_defensive_fire_pip: 1,
+    artillery_defensive_shock_pip: 1,
+    leader_fire_pip: 1,
+    leader_shock_pip: 1,
+    dice_roll: 5,
+}
 
-let fire_dealt_attacker = 1;
-let fire_received_attacker = 0;
-let shock_dealt_attacker = 1;
-let shock_received_attacker = 0;
-
-let infantry_fire_modifier_attacker = 1;
-let infantry_shock_modifier_attacker = 1;
-
-let infantry_combat_attacker = 1;
-let infantry_fire_attack_pip_attacker = 1;
-let infantry_shock_attack_pip_attacker = 1;
-let infantry_fire_defence_pip_attacker = 1;
-let infantry_shock_defence_pip_attacker = 1;
-
-let artillery_fire_modifier_attacker = 1;
-let artillery_combat_attacker = 1;
-let artillery_fire_attack_pip_attacker = 1;
-let artillery_fire_defence_pip_attacker = 1;
-let artillery_shock_defence_pip_attacker = 1;
-
-let leader_fire_attacker = 0;
-let leader_shock_attacker = 0;
-
-
-
-let unit_strength_defender = 1000;
-let discipline_defender = 1;
-let morale_defender = 1;
-let tactics_defender = 1;
-let tech_defender = 3;
-
-let fire_dealt_defender = 1;
-let fire_received_defender = 0;
-let shock_dealt_defender = 1;
-let shock_received_defender = 0;
-
-let infantry_fire_modifier_defender = 1;
-let infantry_shock_modifier_defender = 1;
-
-let infantry_combat_defender = 1;
-let infantry_fire_attack_pip_defender = 1;
-let infantry_shock_attack_pip_defender = 1;
-let infantry_fire_defence_pip_defender = 1;
-let infantry_shock_defence_pip_defender = 1;
-
-let artillery_fire_modifier_defender = 1;
-let artillery_combat_defender = 1;
-let artillery_fire_attack_pip_defender = 1;
-let artillery_fire_defence_pip_defender = 1;
-let artillery_shock_defence_pip_defender = 1;
-
-let leader_fire_defender = 0;
-let leader_shock_defender = 0;
-
-
-let dice_roll_attacker = 5;
-let dice_roll_defender = 5;
+// Defender Stats
+let defender = {
+    unit_strength: 1000,
+    discipline: 1,
+    bonus_morale: 0,
+    max_morale: 2.5,
+    current_morale: 2.5,
+    tactics: 1,
+    tech: 3,
+    fire_damage: 1,
+    fire_received: 0,
+    shock_damage: 1,
+    shock_received: 0,
+    infantry_fire_modifier: 1,
+    infantry_shock_modifier: 1,
+    infantry_combat_ability : 1,
+    infantry_offensive_fire_pip: 1,
+    infantry_offensive_shock_pip: 1,
+    infantry_defensive_fire_pip: 1,
+    infantry_defensive_shock_pip: 1,
+    artillery_fire_modifier: 1,
+    artillery_combat_ability: 1,
+    artillery_offensive_fire_pip: 1,
+    artillery_defensive_fire_pip: 1,
+    artillery_defensive_shock_pip: 1,
+    leader_fire_pip: 1,
+    leader_shock_pip: 1,
+    dice_roll: 5,
+}
 
 let leader_fire_advantage_attacker = 0;
 let leader_fire_advantage_defender = 0;
 let leader_shock_advantage_attacker = 0;
 let leader_shock_advantage_defender = 0;
-
 
 let data_damage_attacker;
 let data_damage_defender;
@@ -85,9 +81,17 @@ let data_damage_defender;
 let data_remaining_attacker;
 let data_remaining_defender;
 
+let data_morale_damage_attacker;
+let data_morale_damage_defender;
+
+let data_remaining_morale_attacker;
+let data_remaining_morale_defender;
+
 let data_days;
 
 function toggleAlive() {
+    document.getElementsByClassName("mode_button_selected")[0].setAttribute("class", "mode_button");
+    document.getElementById("show_alive_field").setAttribute("class", "mode_button_selected");
     mode = 0;
     y_label = "Unit Strength";
     title = "Remaining Troops";
@@ -96,9 +100,31 @@ function toggleAlive() {
 }
 
 function toggleDamage() {
+    document.getElementsByClassName("mode_button_selected")[0].setAttribute("class", "mode_button");
+    document.getElementById("show_damage_field").setAttribute("class", "mode_button_selected");
     mode = 1;
     y_label = "Damage Dealt";
     title = "Damage Dealt";
+    document.getElementById("chartContainer").innerHTML = '<canvas id="mainChart" width="100vw" height="30vh"></canvas>';
+    loadChart();
+}
+
+function toggleTotalMorale() {
+    document.getElementsByClassName("mode_button_selected")[0].setAttribute("class", "mode_button");
+    document.getElementById("show_morale_field").setAttribute("class", "mode_button_selected");
+    mode = 2;
+    y_label = "Remaining Morale";
+    title = "Remaining Morale per Day";
+    document.getElementById("chartContainer").innerHTML = '<canvas id="mainChart" width="100vw" height="30vh"></canvas>';
+    loadChart();
+}
+
+function toggleMoraleDamage() {
+    document.getElementsByClassName("mode_button_selected")[0].setAttribute("class", "mode_button");
+    document.getElementById("show_morale_damage_field").setAttribute("class", "mode_button_selected");
+    mode = 3;
+    y_label = "Morale Damage Dealt";
+    title = "Morale Damage Dealt per Day";
     document.getElementById("chartContainer").innerHTML = '<canvas id="mainChart" width="100vw" height="30vh"></canvas>';
     loadChart();
 }
@@ -112,9 +138,15 @@ function loadChart() {
     if (mode === 0) {
         attacker_data = data_remaining_attacker;
         defender_data = data_remaining_defender;
-    } else {
+    } else if (mode === 1) {
         attacker_data = data_damage_attacker;
         defender_data = data_damage_defender;
+    } else if (mode === 2) {
+        attacker_data = data_remaining_morale_attacker;
+        defender_data = data_remaining_morale_defender
+    } else if (mode === 3) {
+        attacker_data = data_morale_damage_attacker;
+        defender_data = data_morale_damage_defender;
     }
 
     
@@ -164,7 +196,6 @@ function newBattle() {
 }
 
 
-
 function gatherInputs() {
     terrain = parseInt(document.getElementById("terrain").value);
     crossing = parseInt(document.getElementById("crossing").value);
@@ -175,53 +206,58 @@ function gatherInputs() {
         dice_averaged = false;
     }
 
+    attacker.tech = parseInt(document.getElementById("tech_attacker").value);
+    attacker.bonus_morale = parseFloat(document.getElementById("morale_attacker").value);
+    attacker.max_morale = technologyStats[attacker.tech].morale * (attacker.bonus_morale);
+    attacker.current_morale = attacker.max_morale;
+    attacker.tactics = technologyStats[attacker.tech].tactic;
+    attacker.infantry_fire_modifier = technologyStats[attacker.tech].inf_fire;
+    attacker.infantry_shock_modifier = technologyStats[attacker.tech].inf_shock;
+    attacker.artillery_fire_modifier = technologyStats[attacker.tech].art_fire;
+    attacker.discipline = document.getElementById("discipine_attacker").value;
+    attacker.fire_damage = parseFloat(document.getElementById("fire_dealt_attacker").value) + 1;
+    attacker.fire_received = parseFloat(document.getElementById("fire_received_attacker").value);
+    attacker.shock_damage = parseFloat(document.getElementById("shock_dealt_attacker").value) + 1;
+    attacker.shock_received = parseFloat(document.getElementById("shock_received_attacker").value);
+    attacker.infantry_combat_ability = parseFloat(document.getElementById("infantry_combat_attacker").value) + 1;
+    attacker.artillery_combat_ability = parseFloat(document.getElementById("artillery_combat_attacker").value) + 1;
+    attacker.infantry_offensive_fire_pip = parseInt(document.getElementById("pip_inf_fire_off_attacker").value);
+    attacker.infantry_defensive_fire_pip = parseInt(document.getElementById("pip_inf_fire_def_attacker").value);
+    attacker.infantry_offensive_shock_pip = parseInt(document.getElementById("pip_inf_shock_off_attacker").value);
+    attacker.infantry_defensive_shock_pip = parseInt(document.getElementById("pip_inf_shock_def_attacker").value);
+    attacker.artillery_offensive_fire_pip = parseInt(document.getElementById("pip_art_fire_off_attacker").value);
+    attacker.artillery_defensive_fire_pip = parseInt(document.getElementById("pip_art_fire_def_attacker").value);
+    attacker.artillery_defensive_shock_pip = parseInt(document.getElementById("pip_art_shock_def_attacker").value);
+    attacker.leader_fire_pip = parseInt(document.getElementById("leader_fire_attacker").value);
+    attacker.leader_shock_pip = parseInt(document.getElementById("leader_shock_attacker").value);
 
-    tech_attacker = parseInt(document.getElementById("tech_attacker").value);
-    morale_attacker = technologyStats[tech_attacker].morale * parseFloat(document.getElementById("morale_attacker"));
-    tactics_attacker = technologyStats[tech_attacker].tactic;
-    infantry_fire_modifier_attacker = technologyStats[tech_attacker].inf_fire;
-    infantry_shock_modifier_attacker = technologyStats[tech_attacker].inf_shock;
-    artillery_fire_modifier_attacker = technologyStats[tech_attacker].art_fire;
-    discipline_attacker = document.getElementById("discipine_attacker").value;
-    fire_dealt_attacker = parseFloat(document.getElementById("fire_dealt_attacker").value) + 1;
-    fire_received_attacker = parseFloat(document.getElementById("fire_received_attacker").value);
-    shock_dealt_attacker = parseFloat(document.getElementById("shock_dealt_attacker").value) + 1;
-    shock_received_attacker = parseFloat(document.getElementById("shock_received_attacker").value);
-    infantry_combat_attacker = parseFloat(document.getElementById("infantry_combat_attacker").value) + 1;
-    artillery_combat_attacker = parseFloat(document.getElementById("artillery_combat_attacker").value) + 1;
-    infantry_fire_attack_pip_attacker = parseInt(document.getElementById("pip_inf_fire_off_attacker").value);
-    infantry_fire_defence_pip_attacker = parseInt(document.getElementById("pip_inf_fire_def_attacker").value);
-    infantry_shock_attack_pip_attacker = parseInt(document.getElementById("pip_inf_shock_off_attacker").value);
-    infantry_shock_defence_pip_attacker = parseInt(document.getElementById("pip_inf_shock_def_attacker").value);
-    artillery_fire_attack_pip_attacker = parseInt(document.getElementById("pip_art_fire_off_attacker").value);
-    artillery_fire_defence_pip_attacker = parseInt(document.getElementById("pip_art_fire_def_attacker").value);
-    artillery_shock_defence_pip_attacker = parseInt(document.getElementById("pip_art_shock_def_attacker").value);
-    leader_fire_attacker = parseInt(document.getElementById("leader_fire_attacker").value);
-    leader_shock_attacker = parseInt(document.getElementById("leader_shock_attacker").value);
+    console.log(attacker.bonus_morale);
 
 
-    tech_defender = document.getElementById("tech_defender").value;
-    morale_defender = technologyStats[tech_defender].morale * parseFloat(document.getElementById("morale_defender"));
-    tactics_defender = technologyStats[tech_defender].tactic;
-    infantry_fire_modifier_defender = technologyStats[tech_defender].inf_fire;
-    infantry_shock_modifier_defender = technologyStats[tech_defender].inf_shock;
-    artillery_fire_modifier_defender = technologyStats[tech_defender].art_fire;
-    discipline_defender = document.getElementById("discipine_defender").value;
-    fire_dealt_defender = parseFloat(document.getElementById("fire_dealt_defender").value) + 1;
-    fire_received_defender = parseFloat(document.getElementById("fire_received_defender").value);
-    shock_dealt_defender = parseFloat(document.getElementById("shock_dealt_defender").value) + 1;
-    shock_received_defender = parseFloat(document.getElementById("shock_received_defender").value);
-    infantry_combat_defender = parseFloat(document.getElementById("infantry_combat_defender").value) + 1;
-    artillery_combat_defender = parseFloat(document.getElementById("artillery_combat_defender").value) + 1;
-    infantry_fire_attack_pip_defender = parseInt(document.getElementById("pip_inf_fire_off_defender").value);
-    infantry_fire_defence_pip_defender = parseInt(document.getElementById("pip_inf_fire_def_defender").value);
-    infantry_shock_attack_pip_defender = parseInt(document.getElementById("pip_inf_shock_off_defender").value);
-    infantry_shock_defence_pip_defender = parseInt(document.getElementById("pip_inf_shock_def_defender").value);
-    artillery_fire_attack_pip_defender = parseInt(document.getElementById("pip_art_fire_off_defender").value);
-    artillery_fire_defence_pip_defender = parseInt(document.getElementById("pip_art_fire_def_defender").value);
-    artillery_shock_defence_pip_defender = parseInt(document.getElementById("pip_art_shock_def_defender").value);
-    leader_fire_defender = parseInt(document.getElementById("leader_fire_defender").value);
-    leader_shock_defender = parseInt(document.getElementById("leader_shock_defender").value);
+    defender.tech = document.getElementById("tech_defender").value;
+    defender.bonus_morale = parseFloat(document.getElementById("morale_defender").value);
+    defender.max_morale = technologyStats[defender.tech].morale * (defender.bonus_morale);
+    defender.current_morale = defender.max_morale;
+    defender.tactics = technologyStats[defender.tech].tactic;
+    defender.infantry_fire_modifier = technologyStats[defender.tech].inf_fire;
+    defender.infantry_shock_modifier = technologyStats[defender.tech].inf_shock;
+    defender.artillery_fire_modifier = technologyStats[defender.tech].art_fire;
+    defender.discipline = document.getElementById("discipine_defender").value;
+    defender.fire_damage = parseFloat(document.getElementById("fire_dealt_defender").value) + 1;
+    defender.fire_received = parseFloat(document.getElementById("fire_received_defender").value);
+    defender.shock_damage = parseFloat(document.getElementById("shock_dealt_defender").value) + 1;
+    defender.shock_received = parseFloat(document.getElementById("shock_received_defender").value);
+    defender.infantry_combat_ability = parseFloat(document.getElementById("infantry_combat_defender").value) + 1;
+    defender.artillery_combat_ability = parseFloat(document.getElementById("artillery_combat_defender").value) + 1;
+    defender.infantry_offensive_fire_pip = parseInt(document.getElementById("pip_inf_fire_off_defender").value);
+    defender.infantry_defensive_fire_pip = parseInt(document.getElementById("pip_inf_fire_def_defender").value);
+    defender.infantry_offensive_shock_pip = parseInt(document.getElementById("pip_inf_shock_off_defender").value);
+    defender.infantry_defensive_shock_pip = parseInt(document.getElementById("pip_inf_shock_def_defender").value);
+    defender.artillery_offensive_fire_pip = parseInt(document.getElementById("pip_art_fire_off_defender").value);
+    defender.artillery_defensive_fire_pip = parseInt(document.getElementById("pip_art_fire_def_defender").value);
+    defender.artillery_defensive_shock_pip = parseInt(document.getElementById("pip_art_shock_def_defender").value);
+    defender.leader_fire_pip = parseInt(document.getElementById("leader_fire_defender").value);
+    defender.leader_shock_pip = parseInt(document.getElementById("leader_shock_defender").value);
 
     setLeaderAdvantage();
     simulateBattle();
@@ -237,22 +273,28 @@ function simulateBattle() {
     data_remaining_attacker = [];
     data_remaining_defender = [];
 
+    data_morale_damage_attacker = [];
+    data_morale_damage_defender = [];
+
+    data_remaining_morale_attacker = [];
+    data_remaining_morale_defender = [];
+
     data_days = [];
 
-    unit_strength_attacker = 1000;
-    unit_strength_defender = 1000;
+    attacker.unit_strength = 1000;
+    defender.unit_strength = 1000;
 
     let counter = 0;
     let battle_length = 1.01;
     let days = 1;
 
-    attacker_dice = getDice();
-    defender_dice = getDice();
+    attacker.dice_roll = getDice();
+    defender.dice_roll = getDice();
 
-    while (unit_strength_attacker > 150 && unit_strength_defender > 150) {
+    while (attacker.unit_strength > 150 && defender.unit_strength > 150 && attacker.current_morale > 0.05 && defender.current_morale > 0.05) {
         if (counter === 3) {
-            attacker_dice = getDice();
-            defender_dice = getDice();
+            attacker.dice_roll = getDice();
+            defender.dice_roll = getDice();
             if (current_phase === "fire") {
                 current_phase = "shock";
             } else {
@@ -260,31 +302,51 @@ function simulateBattle() {
             }
             counter = 1;
         } else {
-             counter++; 
+            counter++; 
             }
-
         calculateDamage();
         battle_length += 0.01;
 
-        let attacker_inf_damage = getInfantryDamageAttacker(attacker_dice);
-        let defender_inf_damage = getInfantryDamageDefender(defender_dice);
-        let attacker_art_damage = getArtilleryDamageAttacker(attacker_dice);
-        let defender_art_damage = getArtilleryDamageDefender(defender_dice);
+        let attacker_inf_damage = getInfantryDamageAttacker(attacker.dice_roll);
+        let defender_inf_damage = getInfantryDamageDefender(defender.dice_roll);
+        let attacker_art_damage = getArtilleryDamageAttacker(attacker.dice_roll);
+        let defender_art_damage = getArtilleryDamageDefender(defender.dice_roll);
 
-        console.log(attacker_art_damage);
+        console.log(attacker_inf_damage);
+        console.log(defender_inf_damage);
 
         let attacker_total_damage = Math.floor(attacker_inf_damage + attacker_art_damage);
         let defender_total_damage = Math.floor(defender_inf_damage + defender_art_damage);
 
+        let attacker_infantry_morale_damage = getMoraleDamage(attacker_inf_damage, attacker.max_morale);
+        let defender_infantry_morale_damage = getMoraleDamage(defender_inf_damage, defender.max_morale);
+        let attacker_artillery_morale_damage = getMoraleDamage(attacker_art_damage, attacker.max_morale);
+        let defender_artillery_morale_damage = getMoraleDamage(defender_art_damage, defender.max_morale);
+
+        let attacker_total_morale_damage = parseFloat(attacker_infantry_morale_damage + attacker_artillery_morale_damage).toFixed(2);
+        let defender_total_morale_damage = parseFloat(defender_infantry_morale_damage + defender_artillery_morale_damage).toFixed(2);
+
+        data_morale_damage_attacker.push(attacker_total_morale_damage);
+        data_morale_damage_defender.push(defender_total_morale_damage);
+
+        attacker.current_morale -= defender_total_morale_damage;
+        defender.current_morale -= attacker_total_morale_damage;
+
+        data_remaining_morale_attacker.push(attacker.current_morale);
+        data_remaining_morale_defender.push(defender.current_morale);
+
         data_damage_attacker.push(attacker_total_damage);
         data_damage_defender.push(defender_total_damage);
 
-        data_remaining_attacker.push(unit_strength_attacker - defender_total_damage);
-        data_remaining_defender.push(unit_strength_defender - attacker_total_damage);
+        attacker.unit_strength -= defender_total_damage;
+        defender.unit_strength -= attacker_total_damage;
 
+        data_remaining_attacker.push(attacker.unit_strength);
+        data_remaining_defender.push(defender.unit_strength);
 
-        unit_strength_attacker -= defender_total_damage;
-        unit_strength_defender -= attacker_total_damage;
+        console.log(attacker.unit_strength);
+        console.log(defender.unit_strength);
+
         battle_length += 0.01;
         data_days.push(days);
         days++;
@@ -292,21 +354,18 @@ function simulateBattle() {
 }
 
 function setLeaderAdvantage() {
-    if (leader_fire_attacker > leader_fire_defender) {
-        leader_fire_advantage_attacker = leader_fire_attacker - leader_fire_defender;
+    if (attacker.leader_fire_pip > defender.leader_fire_pip) {
+        leader_fire_advantage_attacker = attacker.leader_fire_pip - defender.leader_fire_pip;
     } else {
-        leader_fire_advantage_defender = leader_fire_defender - leader_fire_attacker;
+        leader_fire_advantage_defender = defender.leader_fire_pip - attacker.leader_fire_pip;
     }
 
-    if (leader_shock_attacker > leader_shock_defender) {
-        leader_shock_advantage_attacker = leader_shock_attacker - leader_shock_defender;
+    if (attacker.leader_shock_pip > defender.leader_shock_pip) {
+        leader_shock_advantage_attacker = attacker.leader_shock_pip - defender.leader_shock_pip;
     } else {
-        leader_shock_advantage_defender = leader_shock_defender - leader_shock_attacker;
+        leader_shock_advantage_defender = defender.leader_shock_pip - attacker.leader_shock_pip;
     }
 }
-
-let attacker_dice;
-let defender_dice;
 
 function calculateDamage() {
     let current_attacker_leader_modifier = 0;
@@ -318,8 +377,8 @@ function calculateDamage() {
         current_attacker_leader_modifier = leader_shock_advantage_attacker;
         current_defender_leader_modifier = leader_shock_advantage_defender;
     }
-    attacker_dice += current_attacker_leader_modifier - terrain - crossing;
-    defender_dice += current_defender_leader_modifier;
+    attacker.dice_roll += current_attacker_leader_modifier - terrain - crossing;
+    defender.dice_roll += current_defender_leader_modifier;
 
 }
 
@@ -332,62 +391,68 @@ function getDice() {
 }
 
 function getInfantryDamageAttacker(roll) {
+    let total_roll;
+    let current_modifier;
+    let phase_modifier;
+    let defender_modifier;
+    let base;
     if (current_phase === "fire") {
-        let total_roll = roll + infantry_fire_attack_pip_attacker - infantry_fire_defence_pip_defender - Math.floor(artillery_fire_defence_pip_defender / 2);
-        let current_modifier = infantry_fire_modifier_attacker;
-        let phase_modifier = fire_dealt_attacker;
-        let defender_modifier = fire_received_defender;
-        let base = total_roll * 5 + 15;
-        return getDamage(base, unit_strength_attacker, current_modifier, phase_modifier, infantry_combat_attacker, discipline_attacker, discipline_defender, tactics_defender, defender_modifier);
+        total_roll = roll + attacker.infantry_offensive_fire_pip - defender.infantry_defensive_fire_pip - Math.floor(defender.artillery_defensive_fire_pip / 2);
+        current_modifier = attacker.infantry_fire_modifier;
+        phase_modifier = attacker.fire_damage;
+        defender_modifier = defender.fire_received;  
     } else {
-        let total_roll = roll + infantry_shock_attack_pip_attacker - infantry_shock_defence_pip_defender - Math.floor(artillery_shock_defence_pip_defender / 2);
-        let current_modifier = infantry_shock_modifier_attacker;
-        let phase_modifier = shock_dealt_attacker;
-        let defender_modifier = shock_received_defender;
-        let base = total_roll * 5 + 15;
-        return getDamage(base, unit_strength_attacker, current_modifier, phase_modifier, infantry_combat_attacker, discipline_attacker, discipline_defender, tactics_defender, defender_modifier);
+        total_roll = roll + attacker.infantry_offensive_shock_pip - defender.infantry_defensive_shock_pip - Math.floor(defender.artillery_defensive_shock_pip / 2);
+        current_modifier = attacker.infantry_shock_modifier;
+        phase_modifier = attacker.shock_damage;
+        defender_modifier = defender.shock_received;
     }
+    base = total_roll * 5 + 15;
+    return getDamage(base, attacker.unit_strength, current_modifier, phase_modifier, attacker.infantry_combat_ability, attacker.discipline, defender.discipline, defender.tactics, defender_modifier);
 }
 
 function getInfantryDamageDefender(roll) {
+    let total_roll;
+    let current_modifier;
+    let phase_modifier;
+    let defender_modifier;
+    let base;
     if (current_phase === "fire") {
-        let total_roll = roll + infantry_fire_attack_pip_defender - infantry_fire_defence_pip_attacker - Math.floor(artillery_fire_defence_pip_attacker / 2);
-        let current_modifier = infantry_fire_modifier_defender;
-        let phase_modifier = fire_dealt_defender;
-        let defender_modifier = fire_received_attacker;
-        let base = total_roll * 5 + 15;
-        return getDamage(base, unit_strength_attacker, current_modifier, phase_modifier, infantry_combat_defender, discipline_defender, discipline_attacker, tactics_attacker, defender_modifier);
+        total_roll = roll + defender.infantry_offensive_fire_pip - attacker.infantry_defensive_fire_pip - Math.floor(attacker.artillery_defensive_fire_pip / 2);
+        current_modifier = defender.infantry_fire_modifier;
+        phase_modifier = defender.fire_damage;
+        defender_modifier = attacker.fire_received;
     } else {
-        let total_roll = roll + infantry_shock_attack_pip_defender - infantry_shock_defence_pip_attacker - Math.floor(artillery_shock_defence_pip_attacker / 2);
-        let current_modifier = infantry_shock_modifier_defender;
-        let phase_modifier = shock_dealt_defender;
-        let defender_modifier = shock_received_attacker;
-        let base = total_roll * 5 + 15;
-        return getDamage(base, unit_strength_attacker, current_modifier, phase_modifier, infantry_combat_defender, discipline_defender, discipline_attacker, tactics_attacker, defender_modifier);
+        total_roll = roll + defender.infantry_offensive_shock_pip - attacker.infantry_defensive_shock_pip - Math.floor(attacker.artillery_defensive_shock_pip / 2);
+        current_modifier = defender.infantry_shock_modifier;
+        phase_modifier = defender.shock_damage;
+        defender_modifier = attacker.shock_received;
     }
+    base = total_roll * 5 + 15;
+    return getDamage(base, defender.unit_strength, current_modifier, phase_modifier, defender.infantry_combat_ability, defender.discipline, attacker.discipline, attacker.tactics, defender_modifier);
 }
 
 function getArtilleryDamageAttacker(roll) {
-    if (current_phase === "fire" && tech_attacker >= 7) {
-        let total_roll = roll + artillery_fire_attack_pip_attacker - infantry_fire_defence_pip_defender;
-        let current_modifier = artillery_fire_modifier_attacker;
-        let phase_modifier = fire_dealt_attacker;
-        let defender_modifier = fire_received_defender;
+    if (current_phase === "fire" && attacker.tech >= 7) {
+        let total_roll = roll + attacker.artillery_offensive_fire_pip - defender.infantry_defensive_fire_pip;
+        let current_modifier = attacker.artillery_fire_modifier;
+        let phase_modifier = attacker.fire_damage;
+        let defender_modifier = defender.fire_received;
         let base = total_roll * 5 + 15;
-        return getDamage(base, unit_strength_attacker, current_modifier, phase_modifier, artillery_combat_attacker, discipline_attacker, discipline_defender, tactics_defender, defender_modifier) / 2;
+        return getDamage(base, 1000, current_modifier, phase_modifier, attacker.artillery_combat_ability, attacker.discipline, defender.discipline, defender.tactics, defender_modifier) / 2;
     } else {
         return 0;
     }
 }
 
 function getArtilleryDamageDefender(roll) {
-    if (current_phase === "fire" && tech_defender >= 7) {
-        let total_roll = roll + artillery_fire_attack_pip_defender - infantry_fire_defence_pip_attacker;
-        let current_modifier = artillery_fire_modifier_defender;
-        let phase_modifier = fire_dealt_defender;
-        let defender_modifier = fire_received_defender;
+    if (current_phase === "fire" && defender.tech >= 7) {
+        let total_roll = roll + defender.artillery_offensive_fire_pip - attacker.infantry_defensive_fire_pip;
+        let current_modifier = defender.artillery_fire_modifier;
+        let phase_modifier = defender.fire_damage;
+        let defender_modifier = attacker.fire_received;
         let base = total_roll * 5 + 15;
-        return getDamage(base, unit_strength_attacker, current_modifier, phase_modifier, artillery_combat_defender, discipline_attacker, discipline_defender, tactics_defender, defender_modifier) / 2;
+        return getDamage(base, 1000, current_modifier, phase_modifier, defender.artillery_combat_ability, defender.discipline, attacker.discipline, attacker.tactics, defender_modifier) / 2;
     } else {
         return 0;
     }
@@ -398,7 +463,9 @@ function getDamage(base, unitStrength, unitModifier, phaseModifier, combatAbilit
     return damage;
 }
 
-
+function getMoraleDamage(damage, max_morale) {
+    return damage / 200 * (max_morale / 2.7) + 0.03;
+}
 
 const technologyStats = [
     //Tech 0

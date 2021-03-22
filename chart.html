@@ -19,6 +19,12 @@
             <p id="homeButton">EU4 Multiplayer Guide</p>
         </a>
     </header>
+    <div id="mode_bar">
+        <button id="show_alive_field" class="mode_button_selected" onclick="toggleAlive()">Units Alive</button>
+        <button id="show_damage_field" class="mode_button" onclick="toggleDamage()">Damage Dealt</button>
+        <button id="show_morale_field" class="mode_button" onclick="toggleTotalMorale()">Remaining Morale</button>
+        <button id="show_morale_damage_field" class="mode_button" onclick="toggleMoraleDamage()">Morale Damage</button>
+    </div>
     <div id="chartContainer">
         <canvas id="mainChart" width="100vw" height="30vh"></canvas>
     </div>
@@ -126,8 +132,6 @@
 
         </form>
         <button id="simulate" onclick="newBattle()">Simulate</button>
-        <button id="show_alive" onclick="toggleAlive()">Units Alive</button>
-        <button id="show_damage" onclick="toggleDamage()">Damage Dealt</button>
     </div>
 </body>
 
