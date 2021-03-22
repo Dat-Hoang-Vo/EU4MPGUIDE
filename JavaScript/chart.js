@@ -1,14 +1,12 @@
 // Global Variables
 let mode = 0;
 let y_label = "Unit Strength";
-let title = "Remaining troops";
+let title = "Unit Strength per day";
 let current_phase = "fire";
 let dice_averaged = true;
 let crossing = 0;
 let terrain = 0;
 let battle_length = 1.01;
-let attacker_dice;
-let defender_dice;
 
 // Attacker Stats
 let attacker = {
@@ -38,6 +36,8 @@ let attacker = {
     leader_fire_pip: 1,
     leader_shock_pip: 1,
     dice_roll: 5,
+    leader_fire_advantage: 0,
+    leader_shock_advantage: 0
 }
 
 // Defender Stats
@@ -68,34 +68,33 @@ let defender = {
     leader_fire_pip: 1,
     leader_shock_pip: 1,
     dice_roll: 5,
+    leader_fire_advantage: 0,
+    leader_shock_advantage: 0
 }
 
-let leader_fire_advantage_attacker = 0;
-let leader_fire_advantage_defender = 0;
-let leader_shock_advantage_attacker = 0;
-let leader_shock_advantage_defender = 0;
-
-let data_damage_attacker;
-let data_damage_defender;
-
-let data_remaining_attacker;
-let data_remaining_defender;
-
-let data_morale_damage_attacker;
-let data_morale_damage_defender;
-
-let data_remaining_morale_attacker;
-let data_remaining_morale_defender;
-
-let data_days;
+// Data
+let data = {
+    days: [],
+    attacker: {
+        damage: [],
+        unit_strength: [],
+        morale_damage: [],
+        morale_strength: []
+    },
+    defender: {
+        damage: [],
+        unit_strength: [],
+        morale_damage: [],
+        morale_strength: []
+    }
+}
 
 function toggleAlive() {
     document.getElementsByClassName("mode_button_selected")[0].setAttribute("class", "mode_button");
     document.getElementById("show_alive_field").setAttribute("class", "mode_button_selected");
     mode = 0;
     y_label = "Unit Strength";
-    title = "Remaining Troops";
-    document.getElementById("chartContainer").innerHTML = '<canvas id="mainChart" width="100vw" height="30vh"></canvas>';
+    title = "Unit Strength per Day";
     loadChart();
 }
 
@@ -104,8 +103,7 @@ function toggleDamage() {
     document.getElementById("show_damage_field").setAttribute("class", "mode_button_selected");
     mode = 1;
     y_label = "Damage Dealt";
-    title = "Damage Dealt";
-    document.getElementById("chartContainer").innerHTML = '<canvas id="mainChart" width="100vw" height="30vh"></canvas>';
+    title = "Damage Dealt per Day";
     loadChart();
 }
 
@@ -115,7 +113,6 @@ function toggleTotalMorale() {
     mode = 2;
     y_label = "Remaining Morale";
     title = "Remaining Morale per Day";
-    document.getElementById("chartContainer").innerHTML = '<canvas id="mainChart" width="100vw" height="30vh"></canvas>';
     loadChart();
 }
 
@@ -125,35 +122,35 @@ function toggleMoraleDamage() {
     mode = 3;
     y_label = "Morale Damage Dealt";
     title = "Morale Damage Dealt per Day";
-    document.getElementById("chartContainer").innerHTML = '<canvas id="mainChart" width="100vw" height="30vh"></canvas>';
     loadChart();
 }
 
 function loadChart() {
+    document.getElementById("chartContainer").innerHTML = '<canvas id="mainChart" width="100vw" height="30vh"></canvas>';
     var ctx = document.getElementById('mainChart').getContext('2d');
 
-    let attacker_data = data_remaining_attacker;
-    let defender_data = data_remaining_defender;
+    let attacker_data = data.attacker.unit_strength;
+    let defender_data = data.defender.unit_strength;
 
     if (mode === 0) {
-        attacker_data = data_remaining_attacker;
-        defender_data = data_remaining_defender;
+        attacker_data = data.attacker.unit_strength;
+        defender_data = data.defender.unit_strength;
     } else if (mode === 1) {
-        attacker_data = data_damage_attacker;
-        defender_data = data_damage_defender;
+        attacker_data = data.attacker.damage;
+        defender_data = data.defender.damage;
     } else if (mode === 2) {
-        attacker_data = data_remaining_morale_attacker;
-        defender_data = data_remaining_morale_defender
+        attacker_data = data.attacker.morale_strength;
+        defender_data = data.defender.morale_strength
     } else if (mode === 3) {
-        attacker_data = data_morale_damage_attacker;
-        defender_data = data_morale_damage_defender;
+        attacker_data = data.attacker.morale_damage;
+        defender_data = data.defender.morale_damage;
     }
 
     
     new Chart(ctx, {
         type: 'line',
         data: {
-            labels: data_days,
+            labels: data.days,
             datasets: [{
                 data: attacker_data,
                 label: "Attacker",
@@ -193,19 +190,19 @@ function loadChart() {
 
 function newBattle() {
     gatherInputs();
+    setDiceAverage();
+    setLeaderAdvantage();
+    simulateBattle();
+    loadChart();
 }
 
-
+// This function collects all data from the HTML table for attackers & defenders.
 function gatherInputs() {
+    // Gather Terrain Stats
     terrain = parseInt(document.getElementById("terrain").value);
     crossing = parseInt(document.getElementById("crossing").value);
 
-    if (document.getElementById("average_dice").checked === true) {
-        dice_averaged = true;
-    } else {
-        dice_averaged = false;
-    }
-
+    // Gather Attacker Stats
     attacker.tech = parseInt(document.getElementById("tech_attacker").value);
     attacker.bonus_morale = parseFloat(document.getElementById("morale_attacker").value);
     attacker.max_morale = technologyStats[attacker.tech].morale * (attacker.bonus_morale);
@@ -231,9 +228,7 @@ function gatherInputs() {
     attacker.leader_fire_pip = parseInt(document.getElementById("leader_fire_attacker").value);
     attacker.leader_shock_pip = parseInt(document.getElementById("leader_shock_attacker").value);
 
-    console.log(attacker.bonus_morale);
-
-
+    // Gather Defener Stats
     defender.tech = document.getElementById("tech_defender").value;
     defender.bonus_morale = parseFloat(document.getElementById("morale_defender").value);
     defender.max_morale = technologyStats[defender.tech].morale * (defender.bonus_morale);
@@ -258,31 +253,53 @@ function gatherInputs() {
     defender.artillery_defensive_shock_pip = parseInt(document.getElementById("pip_art_shock_def_defender").value);
     defender.leader_fire_pip = parseInt(document.getElementById("leader_fire_defender").value);
     defender.leader_shock_pip = parseInt(document.getElementById("leader_shock_defender").value);
+}
 
-    setLeaderAdvantage();
-    simulateBattle();
-    document.getElementById("chartContainer").innerHTML = '<canvas id="mainChart" width="100vw" height="30vh"></canvas>';
-    loadChart();
+// This function sets the variable "dice_averaged" based on the HTML check box. If checked, average = true
+function setDiceAverage() {
+    if (document.getElementById("average_dice").checked === true) {
+        dice_averaged = true;
+    } else {
+        dice_averaged = false;
+    }
+}
+
+// This function determines which army has the better leader, and by how much.
+function setLeaderAdvantage() {
+    // Reset all advantage
+    attacker.leader_fire_advantage = 0;
+    attacker.leader_shock_advantage = 0;
+    defender.leader_fire_advantage = 0;
+    defender.leader_shock_advantage = 0;
+    // Sets fire advantage
+    if (attacker.leader_fire_pip > defender.leader_fire_pip) {
+        attacker.leader_fire_advantage = attacker.leader_fire_pip - defender.leader_fire_pip;
+    } else {
+        defender.leader_fire_advantage = defender.leader_fire_pip - attacker.leader_fire_pip;
+    }
+
+    // Sets shock advantage
+    if (attacker.leader_shock_pip > defender.leader_shock_pip) {
+        attacker.leader_shock_advantage = attacker.leader_shock_pip - defender.leader_shock_pip;
+    } else {
+        defender.leader_shock_advantage = defender.leader_shock_pip - attacker.leader_shock_pip;
+    }
 }
 
 function simulateBattle() {
     current_phase = "fire";
-    data_damage_attacker = [];
-    data_damage_defender = [];
-
-    data_remaining_attacker = [];
-    data_remaining_defender = [];
-
-    data_morale_damage_attacker = [];
-    data_morale_damage_defender = [];
-
-    data_remaining_morale_attacker = [];
-    data_remaining_morale_defender = [];
-
-    data_days = [];
-
     attacker.unit_strength = 1000;
     defender.unit_strength = 1000;
+
+    data.days = [];
+    data.attacker.damage = [];
+    data.defender.damage = [];
+    data.attacker.unit_strength = [];
+    data.defender.unit_strength = [];
+    data.attacker.morale_damage = [];
+    data.defender.morale_damage = [];
+    data.attacker.morale_strength = [];
+    data.defender.morale_strength = [];
 
     let counter = 0;
     let battle_length = 1.01;
@@ -291,10 +308,11 @@ function simulateBattle() {
     attacker.dice_roll = getDice();
     defender.dice_roll = getDice();
 
-    while (attacker.unit_strength > 150 && defender.unit_strength > 150 && attacker.current_morale > 0.05 && defender.current_morale > 0.05) {
+    while (attacker.unit_strength > 0 && defender.unit_strength > 0 && attacker.current_morale > 0.05 && defender.current_morale > 0.05) {
         if (counter === 3) {
             attacker.dice_roll = getDice();
             defender.dice_roll = getDice();
+            addDiceModifiers();
             if (current_phase === "fire") {
                 current_phase = "shock";
             } else {
@@ -304,16 +322,12 @@ function simulateBattle() {
         } else {
             counter++; 
             }
-        calculateDamage();
         battle_length += 0.01;
 
         let attacker_inf_damage = getInfantryDamageAttacker(attacker.dice_roll);
         let defender_inf_damage = getInfantryDamageDefender(defender.dice_roll);
         let attacker_art_damage = getArtilleryDamageAttacker(attacker.dice_roll);
         let defender_art_damage = getArtilleryDamageDefender(defender.dice_roll);
-
-        console.log(attacker_inf_damage);
-        console.log(defender_inf_damage);
 
         let attacker_total_damage = Math.floor(attacker_inf_damage + attacker_art_damage);
         let defender_total_damage = Math.floor(defender_inf_damage + defender_art_damage);
@@ -323,65 +337,43 @@ function simulateBattle() {
         let attacker_artillery_morale_damage = getMoraleDamage(attacker_art_damage, attacker.max_morale);
         let defender_artillery_morale_damage = getMoraleDamage(defender_art_damage, defender.max_morale);
 
-        let attacker_total_morale_damage = parseFloat(attacker_infantry_morale_damage + attacker_artillery_morale_damage).toFixed(2);
-        let defender_total_morale_damage = parseFloat(defender_infantry_morale_damage + defender_artillery_morale_damage).toFixed(2);
+        let attacker_total_morale_damage = parseFloat(attacker_infantry_morale_damage + attacker_artillery_morale_damage);
+        let defender_total_morale_damage = parseFloat(defender_infantry_morale_damage + defender_artillery_morale_damage);
 
-        data_morale_damage_attacker.push(attacker_total_morale_damage);
-        data_morale_damage_defender.push(defender_total_morale_damage);
-
-        attacker.current_morale -= defender_total_morale_damage;
-        defender.current_morale -= attacker_total_morale_damage;
-
-        data_remaining_morale_attacker.push(attacker.current_morale);
-        data_remaining_morale_defender.push(defender.current_morale);
-
-        data_damage_attacker.push(attacker_total_damage);
-        data_damage_defender.push(defender_total_damage);
+        attacker.current_morale -= defender_total_morale_damage.toFixed(2);
+        defender.current_morale -= attacker_total_morale_damage.toFixed(2);
 
         attacker.unit_strength -= defender_total_damage;
         defender.unit_strength -= attacker_total_damage;
 
-        data_remaining_attacker.push(attacker.unit_strength);
-        data_remaining_defender.push(defender.unit_strength);
+        attacker.current_morale = parseInt(attacker.current_morale * 100) / 100;
+        defender.current_morale = parseInt(defender.current_morale * 100) / 100;
 
-        console.log(attacker.unit_strength);
-        console.log(defender.unit_strength);
+        if (attacker.unit_strength < 0) {attacker.unit_strength = 0};
+        if (defender.unit_strength < 0) {defender.unit_strength = 0};
+        if (attacker.current_morale < 0) {attacker.current_morale = 0};
+        if (defender.current_morale < 0) {defender.current_morale = 0};
+
+        data.attacker.morale_damage.push(attacker_total_morale_damage);
+        data.defender.morale_damage.push(defender_total_morale_damage);
+
+        data.attacker.morale_strength.push(attacker.current_morale);
+        data.defender.morale_strength.push(defender.current_morale);
+
+        data.attacker.damage.push(attacker_total_damage);
+        data.defender.damage.push(defender_total_damage);
+
+        data.attacker.unit_strength.push(attacker.unit_strength);
+        data.defender.unit_strength.push(defender.unit_strength);
 
         battle_length += 0.01;
-        data_days.push(days);
+        data.days.push(days);
         days++;
     }
+    
 }
 
-function setLeaderAdvantage() {
-    if (attacker.leader_fire_pip > defender.leader_fire_pip) {
-        leader_fire_advantage_attacker = attacker.leader_fire_pip - defender.leader_fire_pip;
-    } else {
-        leader_fire_advantage_defender = defender.leader_fire_pip - attacker.leader_fire_pip;
-    }
-
-    if (attacker.leader_shock_pip > defender.leader_shock_pip) {
-        leader_shock_advantage_attacker = attacker.leader_shock_pip - defender.leader_shock_pip;
-    } else {
-        leader_shock_advantage_defender = defender.leader_shock_pip - attacker.leader_shock_pip;
-    }
-}
-
-function calculateDamage() {
-    let current_attacker_leader_modifier = 0;
-    let current_defender_leader_modifier = 0;
-    if (current_phase === "fire") {
-        current_attacker_leader_modifier = leader_fire_advantage_attacker;
-        current_defender_leader_modifier = leader_fire_advantage_defender;
-    } else {
-        current_attacker_leader_modifier = leader_shock_advantage_attacker;
-        current_defender_leader_modifier = leader_shock_advantage_defender;
-    }
-    attacker.dice_roll += current_attacker_leader_modifier - terrain - crossing;
-    defender.dice_roll += current_defender_leader_modifier;
-
-}
-
+// This function gives a random 1 - 9 dice if unaveraged, and a dice of 5 if averaged
 function getDice() {
     if (dice_averaged) {
         return 5;
@@ -390,6 +382,23 @@ function getDice() {
     }
 }
 
+// This function adds other modifiers that affect the dice roll such as leader advantage and terrain panelties
+function addDiceModifiers() {
+    let current_attacker_leader_modifier = 0;
+    let current_defender_leader_modifier = 0;
+    if (current_phase === "fire") {
+        current_attacker_leader_modifier = attacker.leader_fire_advantage;
+        current_defender_leader_modifier = defender.leader_fire_advantage;
+    } else {
+        current_attacker_leader_modifier = attacker.leader_shock_advantage;
+        current_defender_leader_modifier = defender.leader_shock_advantage;
+    }
+    attacker.dice_roll += current_attacker_leader_modifier - terrain - crossing;
+    defender.dice_roll += current_defender_leader_modifier;
+
+}
+
+// This function calculates the attacker's infantry damage
 function getInfantryDamageAttacker(roll) {
     let total_roll;
     let current_modifier;
@@ -411,6 +420,7 @@ function getInfantryDamageAttacker(roll) {
     return getDamage(base, attacker.unit_strength, current_modifier, phase_modifier, attacker.infantry_combat_ability, attacker.discipline, defender.discipline, defender.tactics, defender_modifier);
 }
 
+// This function calculates the defender's infantry damage
 function getInfantryDamageDefender(roll) {
     let total_roll;
     let current_modifier;
@@ -432,6 +442,7 @@ function getInfantryDamageDefender(roll) {
     return getDamage(base, defender.unit_strength, current_modifier, phase_modifier, defender.infantry_combat_ability, defender.discipline, attacker.discipline, attacker.tactics, defender_modifier);
 }
 
+// This function calculates the attacker's artillery damage
 function getArtilleryDamageAttacker(roll) {
     if (current_phase === "fire" && attacker.tech >= 7) {
         let total_roll = roll + attacker.artillery_offensive_fire_pip - defender.infantry_defensive_fire_pip;
@@ -445,6 +456,7 @@ function getArtilleryDamageAttacker(roll) {
     }
 }
 
+// This function calculates the defener's artillery damage
 function getArtilleryDamageDefender(roll) {
     if (current_phase === "fire" && defender.tech >= 7) {
         let total_roll = roll + defender.artillery_offensive_fire_pip - attacker.infantry_defensive_fire_pip;
@@ -458,15 +470,18 @@ function getArtilleryDamageDefender(roll) {
     }
 }
 
+// This function holds the damage formula
 function getDamage(base, unitStrength, unitModifier, phaseModifier, combatAbility, discipline, e_discipline, e_tactic, e_damage_reduction) {
     let damage = base * (unitStrength / 1000) * unitModifier * phaseModifier * combatAbility * discipline / (e_tactic * e_discipline) * (1 - e_damage_reduction) * battle_length;
     return damage;
 }
 
+// This function holds the morale damage formula
 function getMoraleDamage(damage, max_morale) {
     return damage / 200 * (max_morale / 2.7) + 0.03;
 }
 
+// This holds the static technology variables
 const technologyStats = [
     //Tech 0
     {
